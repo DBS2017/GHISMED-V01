@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Mirrored from www.primefaces.org/poseidon/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 18 Oct 2019 11:03:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head id="j_idt2">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+            <meta name="apple-mobile-web-app-capable" content="yes" />
+            <meta name="theme-color" content="#2f8ee5" /><link type="text/css" rel="stylesheet" href="javax.faces.resource/theme.cssffb3.css?ln=primefaces-poseidon-blue" /><link type="text/css" rel="stylesheet" href="javax.faces.resource/fa/font-awesome.css68f8.css?ln=primefaces&amp;v=7.0" /><link type="text/css" rel="stylesheet" href="javax.faces.resource/components.css.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt2128968f8.css?ln=primefaces&amp;v=7.0" /><script type="text/javascript" src="javax.faces.resource/jquery/jquery.js.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt2128968f8.node0?ln=primefaces&amp;v=7.0"></script><script type="text/javascript" src="javax.faces.resource/core.js.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt2128968f8.node0?ln=primefaces&amp;v=7.0"></script><script type="text/javascript" src="javax.faces.resource/components.js.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt2128968f8.node0?ln=primefaces&amp;v=7.0"></script><script type="text/javascript" src="javax.faces.resource/jquery/jquery-plugins.js.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt2128968f8.node0?ln=primefaces&amp;v=7.0"></script><link type="text/css" rel="stylesheet" href="javax.faces.resource/charts/charts.css.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt2128968f8.css?ln=primefaces&amp;v=7.0" /><script type="text/javascript" src="javax.faces.resource/charts/charts.js.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt2128968f8.node0?ln=primefaces&amp;v=7.0"></script><link type="text/css" rel="stylesheet" href="javax.faces.resource/schedule/schedule.css.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt2128968f8.css?ln=primefaces&amp;v=7.0" /><script type="text/javascript" src="javax.faces.resource/moment/moment.js.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt2128968f8.node0?ln=primefaces&amp;v=7.0"></script><script type="text/javascript" src="javax.faces.resource/schedule/schedule.js.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt2128968f8.node0?ln=primefaces&amp;v=7.0"></script><link type="text/css" rel="stylesheet" href="javax.faces.resource/css/nanoscroller.css.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt212899faa.css?ln=poseidon-layout" /><link type="text/css" rel="stylesheet" href="javax.faces.resource/css/animate.css.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt212899faa.css?ln=poseidon-layout" /><link type="text/css" rel="stylesheet" href="javax.faces.resource/css/layout-blue.css.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt212899faa.css?ln=poseidon-layout" /><script type="text/javascript">if(window.PrimeFaces){PrimeFaces.settings.locale='en_US';}</script>
+        <title>Dashboard</title><script type="text/javascript" src="javax.faces.resource/js/nanoscroller.js.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt212899faa.node0?ln=poseidon-layout"></script><script type="text/javascript" src="javax.faces.resource/js/layout.js.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt212899faa.node0?ln=poseidon-layout"></script><script type="text/javascript" src="javax.faces.resource/js/swipe.js.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt212899faa.node0?ln=poseidon-layout"></script>
+           <script type="text/javascript">
+               //<![CDATA[
+               function skinChart() {
+                   this.cfg.shadow = false;
+                   this.cfg.title = '';
+                   this.cfg.seriesColors = ['#00acac', '#3e96e7'];
+                   this.cfg.grid = {
+                       background: '#ffffff',
+                       borderColor: '#ffffff',
+                       gridLineColor: '#EEEEEE',
+                       shadow: false
+                   };
+                   this.cfg.axesDefaults = {
+                       rendererOptions: {
+                           textColor: '#212121'
+                       }
+                   };
+                   this.cfg.seriesDefaults = {
+                       shadow: false,
+                       lineWidth: 1,
+                       markerOptions: {
+                           shadow: false,
+                           size: 7,
+                           style: 'circle'
+                       }
+                   }
+               }
+               //]]>  
+           </script>
+           <style type="text/css">
+               .main-content {
+                   padding: 0;
+               }
+           </style></head><body class="main-body">
+        
+        <div class="layout-wrapper menu-layout-static ">
+
+    <div class="topbar clearfix">
+        <div class="topbar-left">            
+            <div class="logo"></div>
+        </div>
+        
+        <div class="topbar-right">
+            <a id="menu-button" href="#">
+                <i class="fa fa-angle-left"></i>
+            </a>
+            
+            <a id="topbar-menu-button" href="#">
+                <i class="fa fa-bars"></i>
+            </a>
+            <ul class="topbar-items fadeInDown animated">
+                <li class="profile-item">
+                    <a href="#">                            
+                        <div class="profile-image"></div>
+                        <span class="topbar-item-name">Jane Williams</span>
+                    </a>
+                    
+                    <ul class="poseidon-menu animated">
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="fa fa-fw fa-user"></i>
+                                <span>Profile</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="fa fa-fw fa-user-secret"></i>
+                                <span>Privacy</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="fa fa-fw fa-cog"></i>
+                                <span>Settings</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="fa fa-fw fa-sign-out"></i>
+                                <span>Logout</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="topbar-icon fa fa-fw fa-cog"></i>
+                        <span class="topbar-item-name">Settings</span>
+                    </a>
+                    <ul class="poseidon-menu animated">
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="fa fa-fw fa-paint-brush"></i>
+                                <span>Change Theme</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="fa fa-fw fa-star-o"></i>
+                                <span>Favorites</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="fa fa-fw fa-lock"></i>
+                                <span>Lock Screen</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="fa fa-fw fa-picture-o"></i>
+                                <span>Wallpaper</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="topbar-icon material-icons animated swing fa fa-fw fa-envelope-o"></i>
+                        <span class="topbar-badge animated rubberBand">5</span>
+                        <span class="topbar-item-name">Messages</span>
+                    </a>
+                    <ul class="poseidon-menu animated">
+                        <li role="menuitem">
+                            <a href="#" class="topbar-message"><img id="j_idt14" src="javax.faces.resource/images/avatar1.png.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt212899faa.png?ln=poseidon-layout" alt="" width="35" />
+                                <span>Give me a call</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#" class="topbar-message"><img id="j_idt16" src="javax.faces.resource/images/avatar2.png.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt212899faa.png?ln=poseidon-layout" alt="" width="35" />
+                                <span>Sales reports attached</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#" class="topbar-message"><img id="j_idt18" src="javax.faces.resource/images/avatar3.png.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt212899faa.png?ln=poseidon-layout" alt="" width="35" />
+                                <span>About your invoice</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#" class="topbar-message"><img id="j_idt20" src="javax.faces.resource/images/avatar2.png.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt212899faa.png?ln=poseidon-layout" alt="" width="35" />
+                                <span>Meeting today at 10pm</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#" class="topbar-message"><img id="j_idt22" src="javax.faces.resource/images/avatar4.png.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt212899faa.png?ln=poseidon-layout" alt="" width="35" />
+                                <span>Out of office</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="topbar-icon material-icons fa fa-fw fa-bell-o"></i>
+                        <span class="topbar-badge animated rubberBand">4</span>
+                        <span class="topbar-item-name">Notifications</span>
+                    </a>
+                    <ul class="poseidon-menu animated">
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="fa fa-fw fa-tasks"></i>
+                                <span>Pending tasks</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="fa fa-fw fa-calendar-check-o"></i>
+                                <span>Meeting today at 3pm</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="fa fa-fw fa-download"></i>
+                                <span>Download documents</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="fa fa-fw fa-plane"></i>
+                                <span>Book flight</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+<form id="menuform" name="menuform" method="post" action="https://www.primefaces.org/poseidon/dashboard.xhtml;jsessionid=node01trsx1zi3i4kr1nqu8zuyvcswt21289.node0" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="menuform" value="menuform" />
+ 
+        <div class="layout-menu-container">
+            <div class="nano">
+                <div class="nano-content menu-scroll-content">
+                    <div class="search-input">
+                        <input type="text" placeholder="Search" />
+                        <i class="fa fa-search"></i>
+                    </div><ul id="menuform:j_idt25" class="layout-menu clearfix"><li id="menuform:om_dashboard" role="menuitem"><a href="dashboard.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt21289.html"><i class="fa fa-fw fa-home"></i><span>Dashboard</span></a></li><li id="menuform:om_themes" role="menuitem"><a href="#" class="ripplelink"><i class="fa fa-fw fa-paint-brush"></i><span>Themes</span><span class="ink animate"></span><i class="fa fa-fw fa-angle-down menuitem-toggle-icon"></i></a><ul role="menu"><li id="menuform:theme1" role="menuitem"><a style="color:#00acac" href="#" onclick="PrimeFaces.addSubmitParam('menuform',{'menuform:theme1':'menuform:theme1'}).submit('menuform');return false;"><i class="fa fa-fw fa-paint-brush"></i><span>Turquoise Theme</span></a></li><li id="menuform:theme2" role="menuitem"><a style="color:#2f8ee5" href="#" onclick="PrimeFaces.addSubmitParam('menuform',{'menuform:theme2':'menuform:theme2'}).submit('menuform');return false;"><i class="fa fa-fw fa-paint-brush"></i><span>Blue Theme</span></a></li><li id="menuform:theme3" role="menuitem"><a style="color:#6c76af" href="#" onclick="PrimeFaces.addSubmitParam('menuform',{'menuform:theme3':'menuform:theme3'}).submit('menuform');return false;"><i class="fa fa-fw fa-paint-brush"></i><span>Purple Theme</span></a></li><li id="menuform:theme4" role="menuitem"><a style="color:#efa64c" href="#" onclick="PrimeFaces.addSubmitParam('menuform',{'menuform:theme4':'menuform:theme4'}).submit('menuform');return false;"><i class="fa fa-fw fa-paint-brush"></i><span>Orange Theme</span></a></li><li id="menuform:theme5" role="menuitem"><a style="color:#f16383" href="#" onclick="PrimeFaces.addSubmitParam('menuform',{'menuform:theme5':'menuform:theme5'}).submit('menuform');return false;"><i class="fa fa-fw fa-paint-brush"></i><span>Pink Theme</span></a></li><li id="menuform:theme6" role="menuitem"><a style="color:#63c9f1" href="#" onclick="PrimeFaces.addSubmitParam('menuform',{'menuform:theme6':'menuform:theme6'}).submit('menuform');return false;"><i class="fa fa-fw fa-paint-brush"></i><span>Light Blue Theme</span></a></li><li id="menuform:theme7" role="menuitem"><a style="color:#57c279" href="#" onclick="PrimeFaces.addSubmitParam('menuform',{'menuform:theme7':'menuform:theme7'}).submit('menuform');return false;"><i class="fa fa-fw fa-paint-brush"></i><span>Green Theme</span></a></li><li id="menuform:theme8" role="menuitem"><a style="color:#7e57c2" href="#" onclick="PrimeFaces.addSubmitParam('menuform',{'menuform:theme8':'menuform:theme8'}).submit('menuform');return false;"><i class="fa fa-fw fa-paint-brush"></i><span>Deep Purple Theme</span></a></li></ul></li><li id="menuform:om_customization" role="menuitem"><a href="#" class="ripplelink"><i class="fa fa-fw fa-bars"></i><span>Menu Modes</span><span class="ink animate"></span><i class="fa fa-fw fa-angle-down menuitem-toggle-icon"></i><span class="menuitem-badge">8</span></a><ul role="menu"><li id="menuform:custom3" role="menuitem"><a href="#" onclick="PrimeFaces.addSubmitParam('menuform',{'menuform:custom3':'menuform:custom3'}).submit('menuform');return false;"><i class="fa fa-fw fa-bars"></i><span>Static Menu</span><span class="menuitem-badge">4</span></a></li><li id="menuform:custom4" role="menuitem"><a href="#" onclick="PrimeFaces.addSubmitParam('menuform',{'menuform:custom4':'menuform:custom4'}).submit('menuform');return false;"><i class="fa fa-fw fa-bars"></i><span>Overlay Menu</span></a></li><li id="menuform:custom5" role="menuitem"><a href="#" onclick="PrimeFaces.addSubmitParam('menuform',{'menuform:custom5':'menuform:custom5'}).submit('menuform');return false;"><i class="fa fa-fw fa-bars"></i><span>Horizontal Menu</span></a></li></ul></li><li id="menuform:om_orientation" role="menuitem"><a href="#" class="ripplelink"><i class="fa fa-fw fa-align-right"></i><span>Orientation</span><span class="ink animate"></span><i class="fa fa-fw fa-angle-down menuitem-toggle-icon"></i></a><ul role="menu"><li id="menuform:om_rtl" role="menuitem"><a href="#" onclick="PrimeFaces.addSubmitParam('menuform',{'menuform:om_rtl':'menuform:om_rtl'}).submit('menuform');return false;"><i class="fa fa-fw fa-align-right"></i><span>RTL</span></a></li><li id="menuform:om_ltr" role="menuitem"><a href="#" onclick="PrimeFaces.addSubmitParam('menuform',{'menuform:om_ltr':'menuform:om_ltr'}).submit('menuform');return false;"><i class="fa fa-fw fa-align-left"></i><span>LTR</span></a></li></ul></li><li id="menuform:om_components" role="menuitem"><a href="#" class="ripplelink"><i class="fa fa-fw fa-sitemap"></i><span>Components</span><span class="ink animate"></span><i class="fa fa-fw fa-angle-down menuitem-toggle-icon"></i></a><ul role="menu"><li id="menuform:om_sample" role="menuitem"><a href="sample.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt21289.html"><i class="fa fa-fw fa-columns"></i><span>Sample Page</span></a></li><li id="menuform:om_forms" role="menuitem"><a href="forms.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt21289.html"><i class="fa fa-fw fa-code"></i><span>Forms</span></a></li><li id="menuform:om_data" role="menuitem"><a href="data.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt21289.html"><i class="fa fa-fw fa-table"></i><span>Data</span></a></li><li id="menuform:om_panels" role="menuitem"><a href="panel.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt21289.html"><i class="fa fa-fw fa-list-alt"></i><span>Panels</span></a></li><li id="menuform:om_overlays" role="menuitem"><a href="overlay.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt21289.html"><i class="fa fa-fw fa-square"></i><span>Overlays</span></a></li><li id="menuform:om_menus" role="menuitem"><a href="menu.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt21289.html"><i class="fa fa-fw fa-minus-square-o"></i><span>Menus</span></a></li><li id="menuform:om_messages" role="menuitem"><a href="messages.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt21289.html"><i class="fa fa-fw fa-circle-o-notch"></i><span>Messages</span></a></li><li id="menuform:om_charts" role="menuitem"><a href="charts.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt21289.html"><i class="fa fa-fw fa-area-chart"></i><span>Charts</span></a></li><li id="menuform:om_file" role="menuitem"><a href="file.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt21289.html"><i class="fa fa-fw fa-arrow-circle-o-up"></i><span>File</span></a></li><li id="menuform:om_misc" role="menuitem"><a href="misc.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt21289.html"><i class="fa fa-fw fa-user-secret"></i><span>Misc</span></a></li></ul></li><li id="menuform:om_db_landing" role="menuitem"><a href="landing.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt21289.html"><i class="fa fa-fw fa-certificate"></i><span>Landing</span></a></li><li id="menuform:om_default" role="menuitem"><a href="#" class="ripplelink"><i class="fa fa-fw fa-life-saver"></i><span>Template Pages</span><span class="ink animate"></span><i class="fa fa-fw fa-angle-down menuitem-toggle-icon"></i></a><ul role="menu"><li id="menuform:om_empty" role="menuitem"><a href="empty.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt21289.html"><i class="fa fa-fw fa-square-o"></i><span>Empty Page</span></a></li><li id="menuform:om_login" role="menuitem"><a href="login.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt21289.html"><i class="fa fa-fw fa-sign-in"></i><span>Login Page</span></a></li><li id="menuform:om_error" role="menuitem"><a href="error.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt21289.html"><i class="fa fa-fw fa-exclamation-circle"></i><span>Error Page</span></a></li><li id="menuform:om_404" role="menuitem"><a href="404.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt21289.html"><i class="fa fa-fw fa-times"></i><span>404 Page</span></a></li><li id="menuform:om_access" role="menuitem"><a href="access.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt21289.html"><i class="fa fa-fw fa-exclamation-triangle"></i><span>Access Denied Page</span></a></li></ul></li><li id="menuform:om_hierarchy" role="menuitem"><a href="#" class="ripplelink"><i class="fa fa-fw fa-gg"></i><span>Menu Hierarchy</span><span class="ink animate"></span><i class="fa fa-fw fa-angle-down menuitem-toggle-icon"></i></a><ul role="menu"><li id="menuform:om_sm1" role="menuitem"><a href="#" class="ripplelink"><i class="fa fa-fw fa-sign-in"></i><span>Submenu 1</span><span class="ink animate"></span><i class="fa fa-fw fa-angle-down menuitem-toggle-icon"></i></a><ul role="menu"><li id="menuform:om_sm11" role="menuitem"><a href="#" class="ripplelink"><i class="fa fa-fw fa-sign-in"></i><span>Submenu 1.1</span><span class="ink animate"></span><i class="fa fa-fw fa-angle-down menuitem-toggle-icon"></i></a><ul role="menu"><li id="menuform:om_lnk111" role="menuitem"><a href="#"><i class="fa fa-fw fa-sign-in"></i><span>Link 1.1.1</span></a></li><li id="menuform:om_lnk112" role="menuitem"><a href="#"><i class="fa fa-fw fa-sign-in"></i><span>Link 1.1.2</span></a></li><li id="menuform:om_lnk113" role="menuitem"><a href="#"><i class="fa fa-fw fa-sign-in"></i><span>Link 1.1.3</span></a></li></ul></li><li id="menuform:om_sm12" role="menuitem"><a href="#" class="ripplelink"><i class="fa fa-fw fa-sign-in"></i><span>Submenu 1.2</span><span class="ink animate"></span><i class="fa fa-fw fa-angle-down menuitem-toggle-icon"></i></a><ul role="menu"><li id="menuform:om_lnk121" role="menuitem"><a href="#"><i class="fa fa-fw fa-sign-in"></i><span>Link 1.2.1</span></a></li></ul></li></ul></li><li id="menuform:om_sm2" role="menuitem"><a href="#" class="ripplelink"><i class="fa fa-fw fa-sign-in"></i><span>Submenu 2</span><span class="ink animate"></span><i class="fa fa-fw fa-angle-down menuitem-toggle-icon"></i></a><ul role="menu"><li id="menuform:om_sm21" role="menuitem"><a href="#" class="ripplelink"><i class="fa fa-fw fa-sign-in"></i><span>Submenu 2.1</span><span class="ink animate"></span><i class="fa fa-fw fa-angle-down menuitem-toggle-icon"></i></a><ul role="menu"><li id="menuform:om_lnk211" role="menuitem"><a href="#"><i class="fa fa-fw fa-sign-in"></i><span>Link 2.1.1</span></a></li><li id="menuform:om_lnk212" role="menuitem"><a href="#"><i class="fa fa-fw fa-sign-in"></i><span>Link 2.1.2</span></a></li></ul></li><li id="menuform:om_sm22" role="menuitem"><a href="#" class="ripplelink"><i class="fa fa-fw fa-sign-in"></i><span>Submenu 2.2</span><span class="ink animate"></span><i class="fa fa-fw fa-angle-down menuitem-toggle-icon"></i></a><ul role="menu"><li id="menuform:om_lnk221" role="menuitem"><a href="#"><i class="fa fa-fw fa-sign-in"></i><span>Link 2.2.1</span></a></li></ul></li></ul></li></ul></li><li id="menuform:om_doc" role="menuitem"><a href="docs.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt21289.html"><i class="fa fa-fw fa-book"></i><span>Documentation</span></a></li></ul><script id="menuform:j_idt25_s" type="text/javascript">$(function(){PrimeFaces.cw("Poseidon","me",{id:"menuform:j_idt25"});});</script>
+                    
+                    <div class="layout-menu-footer">
+                        <span class="layout-menu-footer-title">Tasks Overview</span><div id="menuform:j_idt27" class="ui-progressbar ui-widget ui-widget-content ui-corner-all ui-progressbar-determinate"><div class="ui-progressbar-value ui-widget-header ui-corner-all" style="display:block;width:50%"></div><div class="ui-progressbar-label" style="display:block"></div></div>
+                        Today
+                        
+                        <div id="menuform:j_idt29" class="ui-progressbar ui-widget ui-widget-content ui-corner-all ui-progressbar-determinate"><div class="ui-progressbar-value ui-widget-header ui-corner-all" style="display:block;width:80%"></div><div class="ui-progressbar-label" style="display:block"></div></div>
+                        Overall
+                    </div>
+                    
+                </div>
+            </div>
+        </div><input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:0" value="-5174477660073702652:7338164341009609699" autocomplete="off" />
+</form>
+            
+            <div class="layout-main">
+                <div class="route-bar">
+                    <i class="fa fa-home"></i> <span>/ </span>Dashboard
+    
+    <a id="right-sidebar-button-open" href="#">
+        <i class="fa fa-angle-left"></i>
+    </a>
+    
+    <div id="right-sidebar" class="right-sidebar">
+        <div class="nano">            
+            <div class="right-sidebar-header ui-widget-header">
+                <i class="fa fa-star"></i>
+                <span>Favorites</span>
+                <a id="right-sidebar-button-close" href="#">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+        
+            <div class="nano-content sidebar-scroll-content"><div id="j_idt34" class="ui-accordion ui-widget ui-helper-reset ui-hidden-container" role="tablist" data-widget="widget_j_idt34"><div class="ui-accordion-header ui-helper-reset ui-state-default ui-state-active ui-corner-top" role="tab" aria-expanded="true" aria-selected="true" tabindex="0"><span class="ui-icon ui-icon-triangle-1-s"></span>Contacts</div><div id="j_idt34:j_idt35" class="ui-accordion-content ui-helper-reset ui-widget-content" role="tabpanel" aria-hidden="false">
+                        <ul class="contact-list">
+                            <li>
+                                <a href="#"><img id="j_idt34:j_idt37" src="javax.faces.resource/images/avatar1.png.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt212899faa.png?ln=poseidon-layout" alt="" width="45" />
+                                    <span class="name">Joshua Williams</span>
+                                    <span class="email">joshua@pf-poseidon.com</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"><img id="j_idt34:j_idt39" src="javax.faces.resource/images/avatar2.png.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt212899faa.png?ln=poseidon-layout" alt="" width="45" />
+                                    <span class="name">Emily Clark</span>
+                                    <span class="email">emily@pf-poseidon.com</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"><img id="j_idt34:j_idt41" src="javax.faces.resource/images/avatar3.png.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt212899faa.png?ln=poseidon-layout" alt="" width="45" />
+                                    <span class="name">Susan Johnson</span>
+                                    <span class="email">susan@pf-poseidon.com</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"><img id="j_idt34:j_idt43" src="javax.faces.resource/images/avatar4.png.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt212899faa.png?ln=poseidon-layout" alt="" width="45" />
+                                    <span class="name">Kelly Stark</span>
+                                    <span class="email">kelly@pf-poseidon.com</span>
+                                </a>
+                            </li>
+                        </ul></div><div class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-all" role="tab" aria-expanded="false" aria-selected="false" tabindex="0"><span class="ui-icon ui-icon-triangle-1-e"></span>Notes</div><div id="j_idt34:j_idt45" class="ui-accordion-content ui-helper-reset ui-widget-content ui-helper-hidden" role="tabpanel" aria-hidden="true">
+                        <ul class="note-list">
+                            <li><div id="j_idt34:j_idt47" class="ui-selectbooleancheckbox ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input id="j_idt34:j_idt47_input" name="j_idt34:j_idt47_input" type="checkbox" autocomplete="off" aria-hidden="true" aria-checked="false" /></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"><span class="ui-chkbox-icon ui-icon ui-icon-blank ui-c"></span></div></div><script id="j_idt34:j_idt47_s" type="text/javascript">$(function(){PrimeFaces.cw("SelectBooleanCheckbox","widget_j_idt34_j_idt47",{id:"j_idt34:j_idt47"});});</script>
+                                <span class="task-name">Sales Reports</span>
+                                <i class="fa fa-briefcase"></i>
+                            </li>
+                            <li><div id="j_idt34:j_idt49" class="ui-selectbooleancheckbox ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input id="j_idt34:j_idt49_input" name="j_idt34:j_idt49_input" type="checkbox" autocomplete="off" aria-hidden="true" aria-checked="false" /></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"><span class="ui-chkbox-icon ui-icon ui-icon-blank ui-c"></span></div></div><script id="j_idt34:j_idt49_s" type="text/javascript">$(function(){PrimeFaces.cw("SelectBooleanCheckbox","widget_j_idt34_j_idt49",{id:"j_idt34:j_idt49"});});</script>
+                                <span class="task-name">Pay Invoices</span>
+                                <i class="fa fa-credit-card"></i>
+                            </li>
+                            <li><div id="j_idt34:j_idt51" class="ui-selectbooleancheckbox ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input id="j_idt34:j_idt51_input" name="j_idt34:j_idt51_input" type="checkbox" autocomplete="off" aria-hidden="true" aria-checked="false" /></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"><span class="ui-chkbox-icon ui-icon ui-icon-blank ui-c"></span></div></div><script id="j_idt34:j_idt51_s" type="text/javascript">$(function(){PrimeFaces.cw("SelectBooleanCheckbox","widget_j_idt34_j_idt51",{id:"j_idt34:j_idt51"});});</script>
+                                <span class="task-name">Dinner with Tony</span>
+                                <i class="fa fa-cutlery"></i>
+                            </li>
+                            <li><div id="j_idt34:j_idt53" class="ui-selectbooleancheckbox ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input id="j_idt34:j_idt53_input" name="j_idt34:j_idt53_input" type="checkbox" autocomplete="off" aria-hidden="true" aria-checked="false" /></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"><span class="ui-chkbox-icon ui-icon ui-icon-blank ui-c"></span></div></div><script id="j_idt34:j_idt53_s" type="text/javascript">$(function(){PrimeFaces.cw("SelectBooleanCheckbox","widget_j_idt34_j_idt53",{id:"j_idt34:j_idt53"});});</script>
+                                <span class="task-name">Client Meeting</span>
+                                <i class="fa fa-user"></i>
+                            </li>
+                            <li><div id="j_idt34:j_idt55" class="ui-selectbooleancheckbox ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input id="j_idt34:j_idt55_input" name="j_idt34:j_idt55_input" type="checkbox" autocomplete="off" aria-hidden="true" aria-checked="false" /></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"><span class="ui-chkbox-icon ui-icon ui-icon-blank ui-c"></span></div></div><script id="j_idt34:j_idt55_s" type="text/javascript">$(function(){PrimeFaces.cw("SelectBooleanCheckbox","widget_j_idt34_j_idt55",{id:"j_idt34:j_idt55"});});</script>
+                                <span class="task-name">New Theme</span>
+                                <i class="fa fa-paint-brush"></i>
+                            </li>
+                            <li><div id="j_idt34:j_idt57" class="ui-selectbooleancheckbox ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input id="j_idt34:j_idt57_input" name="j_idt34:j_idt57_input" type="checkbox" autocomplete="off" aria-hidden="true" aria-checked="false" /></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"><span class="ui-chkbox-icon ui-icon ui-icon-blank ui-c"></span></div></div><script id="j_idt34:j_idt57_s" type="text/javascript">$(function(){PrimeFaces.cw("SelectBooleanCheckbox","widget_j_idt34_j_idt57",{id:"j_idt34:j_idt57"});});</script>
+                                <span class="task-name">Flight Ticket</span>
+                                <i class="fa fa-fighter-jet"></i>
+                            </li>
+                        </ul></div><div class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-all" role="tab" aria-expanded="false" aria-selected="false" tabindex="0"><span class="ui-icon ui-icon-triangle-1-e"></span>Contact Form</div><div id="j_idt34:j_idt59" class="ui-accordion-content ui-helper-reset ui-widget-content ui-helper-hidden" role="tabpanel" aria-hidden="true">
+                        <div class="ui-g ui-fluid contact-form">
+                            <div class="ui-g-12"><input id="j_idt34:j_idt61" name="j_idt34:j_idt61" type="text" class="ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all" placeholder="Name" /><script id="j_idt34:j_idt61_s" type="text/javascript">$(function(){PrimeFaces.cw("InputText","widget_j_idt34_j_idt61",{id:"j_idt34:j_idt61",maxlength:-2147483648});});</script>
+                            </div>
+                            <div class="ui-g-12"><input id="j_idt34:j_idt63" name="j_idt34:j_idt63" type="text" class="ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all" placeholder="Message" /><script id="j_idt34:j_idt63_s" type="text/javascript">$(function(){PrimeFaces.cw("InputText","widget_j_idt34_j_idt63",{id:"j_idt34:j_idt63",maxlength:-2147483648});});</script>
+                            </div>
+                            <div class="ui-g-12"><button id="j_idt34:j_idt65" name="j_idt34:j_idt65" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left" type="button"><span class="ui-button-icon-left ui-icon ui-c fa fa-paper-plane-o"></span><span class="ui-button-text ui-c">Send</span></button><script id="j_idt34:j_idt65_s" type="text/javascript">$(function(){PrimeFaces.cw("CommandButton","widget_j_idt34_j_idt65",{id:"j_idt34:j_idt65"});});</script>
+                            </div>
+                        </div></div><input type="hidden" id="j_idt34_active" name="j_idt34_active" value="0" autocomplete="off" /></div><script id="j_idt34_s" type="text/javascript">$(function(){PrimeFaces.cw("AccordionPanel","widget_j_idt34",{id:"j_idt34",multiple:true});});</script>
+            </div>
+        </div>
+    </div>
+                </div>
+                <div class="layout-main-content">
+        <div class="ui-g dashboard">            
+            <div class="ui-g-12 ui-md-6 ui-lg-3">
+                <div class="ui-g card overview-box overview-box-1">
+                    <div class="ui-g-4">
+                        <i class="fa fa-inbox"></i>
+                    </div>
+                    <div class="ui-g-8">
+                        <span class="overview-box-count">253</span>
+                        <span class="overview-box-name">Unread Messages</span>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-g-12 ui-md-6 ui-lg-3">
+                <div class="ui-g card overview-box overview-box-2">
+                    <div class="ui-g-4">
+                        <i class="fa fa-map-marker"></i>
+                    </div>
+                    <div class="ui-g-8">
+                        <span class="overview-box-count">3216</span>
+                        <span class="overview-box-name">Check-ins</span>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-g-12 ui-md-6 ui-lg-3">
+                <div class="ui-g card overview-box overview-box-3">
+                    <div class="ui-g-4">
+                        <i class="fa fa-cloud"></i>
+                    </div>
+                    <div class="ui-g-8">
+                        <span class="overview-box-count">428</span>
+                        <span class="overview-box-name">Files Synced</span>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-g-12 ui-md-6 ui-lg-3">
+                <div class="ui-g card overview-box overview-box-4">
+                    <div class="ui-g-4">
+                        <i class="fa fa-key"></i>
+                    </div>
+                    <div class="ui-g-8">
+                        <span class="overview-box-count">4</span>
+                        <span class="overview-box-name">Login Attempts</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ui-g-12 ui-md-6 ui-lg-4 task-list"><div id="j_idt70" class="ui-panel ui-widget ui-widget-content ui-corner-all" style="min-height:360px" data-widget="widget_j_idt70"><div id="j_idt70_header" class="ui-panel-titlebar ui-widget-header ui-helper-clearfix ui-corner-all"><span class="ui-panel-title">Tasks</span></div><div id="j_idt70_content" class="ui-panel-content ui-widget-content">
+                    <ul>
+                        <li><div id="j_idt72" class="ui-selectbooleancheckbox ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input id="j_idt72_input" name="j_idt72_input" type="checkbox" autocomplete="off" aria-hidden="true" aria-checked="false" /></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"><span class="ui-chkbox-icon ui-icon ui-icon-blank ui-c"></span></div></div><script id="j_idt72_s" type="text/javascript">$(function(){PrimeFaces.cw("SelectBooleanCheckbox","widget_j_idt72",{id:"j_idt72"});});</script>
+                            <span class="task-name">Sales Reports</span>
+                            <i class="fa fa-briefcase"></i>
+                        </li>
+                        <li><div id="j_idt74" class="ui-selectbooleancheckbox ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input id="j_idt74_input" name="j_idt74_input" type="checkbox" autocomplete="off" aria-hidden="true" aria-checked="false" /></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"><span class="ui-chkbox-icon ui-icon ui-icon-blank ui-c"></span></div></div><script id="j_idt74_s" type="text/javascript">$(function(){PrimeFaces.cw("SelectBooleanCheckbox","widget_j_idt74",{id:"j_idt74"});});</script>
+                            <span class="task-name">Pay Invoices</span>
+                            <i class="fa fa-credit-card"></i>
+                        </li>
+                        <li><div id="j_idt76" class="ui-selectbooleancheckbox ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input id="j_idt76_input" name="j_idt76_input" type="checkbox" autocomplete="off" aria-hidden="true" aria-checked="false" /></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"><span class="ui-chkbox-icon ui-icon ui-icon-blank ui-c"></span></div></div><script id="j_idt76_s" type="text/javascript">$(function(){PrimeFaces.cw("SelectBooleanCheckbox","widget_j_idt76",{id:"j_idt76"});});</script>
+                            <span class="task-name">Dinner with Tony</span>
+                            <i class="fa fa-cutlery"></i>
+                        </li>
+                        <li><div id="j_idt78" class="ui-selectbooleancheckbox ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input id="j_idt78_input" name="j_idt78_input" type="checkbox" autocomplete="off" aria-hidden="true" aria-checked="false" /></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"><span class="ui-chkbox-icon ui-icon ui-icon-blank ui-c"></span></div></div><script id="j_idt78_s" type="text/javascript">$(function(){PrimeFaces.cw("SelectBooleanCheckbox","widget_j_idt78",{id:"j_idt78"});});</script>
+                            <span class="task-name">Client Meeting</span>
+                            <i class="fa fa-user"></i>
+                        </li>
+                        <li><div id="j_idt80" class="ui-selectbooleancheckbox ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input id="j_idt80_input" name="j_idt80_input" type="checkbox" autocomplete="off" aria-hidden="true" aria-checked="false" /></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"><span class="ui-chkbox-icon ui-icon ui-icon-blank ui-c"></span></div></div><script id="j_idt80_s" type="text/javascript">$(function(){PrimeFaces.cw("SelectBooleanCheckbox","widget_j_idt80",{id:"j_idt80"});});</script>
+                            <span class="task-name">New Theme</span>
+                            <i class="fa fa-paint-brush"></i>
+                        </li>
+                        <li><div id="j_idt82" class="ui-selectbooleancheckbox ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input id="j_idt82_input" name="j_idt82_input" type="checkbox" autocomplete="off" aria-hidden="true" aria-checked="false" /></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"><span class="ui-chkbox-icon ui-icon ui-icon-blank ui-c"></span></div></div><script id="j_idt82_s" type="text/javascript">$(function(){PrimeFaces.cw("SelectBooleanCheckbox","widget_j_idt82",{id:"j_idt82"});});</script>
+                            <span class="task-name">Flight Ticket</span>
+                            <i class="fa fa-fighter-jet"></i>
+                        </li>
+                        <li><div id="j_idt84" class="ui-selectbooleancheckbox ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input id="j_idt84_input" name="j_idt84_input" type="checkbox" autocomplete="off" aria-hidden="true" aria-checked="false" /></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"><span class="ui-chkbox-icon ui-icon ui-icon-blank ui-c"></span></div></div><script id="j_idt84_s" type="text/javascript">$(function(){PrimeFaces.cw("SelectBooleanCheckbox","widget_j_idt84",{id:"j_idt84"});});</script>
+                            <span class="task-name">Generate Charts</span>
+                            <i class="fa fa-area-chart"></i>
+                        </li>
+                    </ul></div></div><script id="j_idt70_s" type="text/javascript">$(function(){PrimeFaces.cw("Panel","widget_j_idt70",{id:"j_idt70"});});</script>
+            </div>
+            <div class="ui-g-12 ui-md-6 ui-lg-4 ui-fluid contact-form"><div id="j_idt87" class="ui-panel ui-widget ui-widget-content ui-corner-all" style="min-height:360px" data-widget="widget_j_idt87"><div id="j_idt87_header" class="ui-panel-titlebar ui-widget-header ui-helper-clearfix ui-corner-all"><span class="ui-panel-title">Contact Us</span></div><div id="j_idt87_content" class="ui-panel-content ui-widget-content">
+                    <div class="ui-g">
+                        <div class="ui-g-12"><div id="console" class="ui-selectonemenu ui-widget ui-state-default ui-corner-all" role="combobox" aria-haspopup="true" aria-expanded="false"><div class="ui-helper-hidden-accessible"><input id="console_focus" name="console_focus" type="text" autocomplete="off" aria-expanded="false" /></div><div class="ui-helper-hidden-accessible"><select id="console_input" name="console_input" tabindex="-1" aria-hidden="true"><option value="" data-escape="true">Select One</option><option value="Xbox One" data-escape="true">Xbox One</option><option value="PS4" data-escape="true">PS4</option><option value="Wii U" data-escape="true">Wii U</option></select></div><label id="console_label" class="ui-selectonemenu-label ui-inputfield ui-corner-all">&nbsp;</label><div class="ui-selectonemenu-trigger ui-state-default ui-corner-right"><span class="ui-icon ui-icon-triangle-1-s ui-c"></span></div><div id="console_panel" class="ui-selectonemenu-panel ui-widget ui-widget-content ui-corner-all ui-helper-hidden ui-shadow ui-input-overlay"><div class="ui-selectonemenu-items-wrapper" style="max-height:200px"><ul id="console_items" class="ui-selectonemenu-items ui-selectonemenu-list ui-widget-content ui-widget ui-corner-all ui-helper-reset" role="listbox"><li class="ui-selectonemenu-item ui-selectonemenu-list-item ui-corner-all" data-label="Select One" tabindex="-1" role="option">Select One</li><li class="ui-selectonemenu-item ui-selectonemenu-list-item ui-corner-all" data-label="Xbox One" tabindex="-1" role="option">Xbox One</li><li class="ui-selectonemenu-item ui-selectonemenu-list-item ui-corner-all" data-label="PS4" tabindex="-1" role="option">PS4</li><li class="ui-selectonemenu-item ui-selectonemenu-list-item ui-corner-all" data-label="Wii U" tabindex="-1" role="option">Wii U</li></ul></div></div></div><script id="console_s" type="text/javascript">$(function(){PrimeFaces.cw("SelectOneMenu","widget_console",{id:"console",appendTo:"@(body)",autoWidth:false});});</script>
+                        </div>
+                        <div class="ui-g-12"><input id="j_idt94" name="j_idt94" type="text" class="ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all" placeholder="Name" /><script id="j_idt94_s" type="text/javascript">$(function(){PrimeFaces.cw("InputText","widget_j_idt94",{id:"j_idt94",maxlength:-2147483648});});</script>
+                        </div>
+                        <div class="ui-g-12"><input id="j_idt96" name="j_idt96" type="text" class="ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all" placeholder="Age" /><script id="j_idt96_s" type="text/javascript">$(function(){PrimeFaces.cw("InputText","widget_j_idt96",{id:"j_idt96",maxlength:-2147483648});});</script>
+                        </div>
+                        <div class="ui-g-12"><input id="j_idt98" name="j_idt98" type="text" class="ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all" placeholder="Message" /><script id="j_idt98_s" type="text/javascript">$(function(){PrimeFaces.cw("InputText","widget_j_idt98",{id:"j_idt98",maxlength:-2147483648});});</script>
+                        </div>
+                    </div><button id="j_idt100" name="j_idt100" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left" type="button"><span class="ui-button-icon-left ui-icon ui-c fa fa-paper-plane-o"></span><span class="ui-button-text ui-c">Send</span></button><script id="j_idt100_s" type="text/javascript">$(function(){PrimeFaces.cw("CommandButton","widget_j_idt100",{id:"j_idt100"});});</script></div></div><script id="j_idt87_s" type="text/javascript">$(function(){PrimeFaces.cw("Panel","widget_j_idt87",{id:"j_idt87"});});</script>
+            </div>
+            <div class="ui-g-12 ui-lg-4 contacts"><div id="j_idt102" class="ui-panel ui-widget ui-widget-content ui-corner-all" style="min-height:360px" data-widget="widget_j_idt102"><div id="j_idt102_header" class="ui-panel-titlebar ui-widget-header ui-helper-clearfix ui-corner-all"><span class="ui-panel-title">Contacts</span></div><div id="j_idt102_content" class="ui-panel-content ui-widget-content">
+                    <ul>
+                        <li>
+                            <a href="#"><img id="j_idt104" src="javax.faces.resource/images/avatar1.png.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt212899faa.png?ln=poseidon-layout" alt="" width="45" />
+                                <span class="name">Joshua Williams</span>
+                                <span class="email">joshua@pf-poseidon.com</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#"><img id="j_idt106" src="javax.faces.resource/images/avatar2.png.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt212899faa.png?ln=poseidon-layout" alt="" width="45" />
+                                <span class="name">Emily Clark</span>
+                                <span class="email">emily@pf-poseidon.com</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#"><img id="j_idt108" src="javax.faces.resource/images/avatar3.png.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt212899faa.png?ln=poseidon-layout" alt="" width="45" />
+                                <span class="name">Susan Johnson</span>
+                                <span class="email">susan@pf-poseidon.com</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#"><img id="j_idt110" src="javax.faces.resource/images/avatar4.png.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt212899faa.png?ln=poseidon-layout" alt="" width="45" />
+                                <span class="name">Kelly Stark</span>
+                                <span class="email">kelly@pf-poseidon.com</span>
+                            </a>
+                        </li>
+                    </ul></div></div><script id="j_idt102_s" type="text/javascript">$(function(){PrimeFaces.cw("Panel","widget_j_idt102",{id:"j_idt102"});});</script>
+            </div>
+            
+            <div class="ui-g-12 ui-md-4">
+                <div class="card timeline ui-fluid">
+                    <div class="ui-g">
+                        <div class="ui-g-3">
+                            <span class="event-time">just now</span>
+                            <i class="fa fa-map-signs" style="color:#009688"></i>
+                        </div>
+                        <div class="ui-g-9">
+                            <span class="event-owner" style="color:#009688">Katherine May</span>
+                            <span class="event-text">Lorem ipsun dolor amet</span>
+                            <div class="event-content"><img id="j_idt113" src="javax.faces.resource/images/dashboard/bridge.png.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt212899faa.png?ln=poseidon-layout" alt="" width="100" />
+                            </div>
+                        </div>
+                        
+                        <div class="ui-g-3">
+                            <span class="event-time">12h ago</span>
+                            <i class="fa fa-star" style="color:#f1b263"></i>
+                        </div>
+                        <div class="ui-g-9">
+                            <span class="event-owner" style="color:#f1b263">Brandon Santos</span>
+                            <span class="event-text">Ab nobis, magnam sunt eum. Laudantium, repudiandae, similique!.</span>
+                        </div>
+                        
+                        <div class="ui-g-3">
+                            <span class="event-time">15h ago</span>
+                            <i class="fa fa-comment" style="color:#2f8ee5"></i>
+                        </div>
+                        <div class="ui-g-9">
+                            <span class="event-owner" style="color:#2f8ee5">Stephan Ward</span>
+                            <span class="event-text">Omnis veniam quibusdam ratione est repellat qui nam quisquam ab mollitia dolores ullam voluptates, similique, dignissimos.</span>
+                        </div>
+                        
+                        <div class="ui-g-3">
+                            <span class="event-time">2d ago</span>
+                            <i class="fa fa-marker" style="color:#2f8ee5"></i>
+                        </div>
+                        <div class="ui-g-9">
+                            <span class="event-owner" style="color:#2f8ee5">Jason Smith</span>
+                            <span class="event-text">Laudantium, repudiandae, similique!</span>
+                            <div class="event-content"><img id="j_idt115" src="javax.faces.resource/images/dashboard/map.png.xhtml%3bjsessionid%3dnode01trsx1zi3i4kr1nqu8zuyvcswt212899faa.png?ln=poseidon-layout" alt="" />
+                            </div>
+                        </div>
+                        
+                        <div class="ui-g-3">
+                            <span class="event-time">1w ago</span>
+                            <i class="fa fa-heart" style="color:#6c76af"></i>
+                        </div>
+                        <div class="ui-g-9">
+                            <span class="event-owner">Kevin Cox</span>
+                            <span class="event-text">Quibusdam ratione est repellat qui nam quisquam veniam quibusdam ratione.</span>
+                        </div>
+                        
+                        <div class="ui-g-3">
+                            <span class="event-time">2w ago</span>
+                            <i class="fa fa-history" style="color:#2d353c"></i>
+                        </div>
+                        <div class="ui-g-9">
+                            <span class="event-owner" style="color:#2d353c">Walter White</span>
+                            <span class="event-text">I am the one who knocks!</span>
+                        </div>
+                        
+                        <div class="ui-g-12"><button id="j_idt117" name="j_idt117" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left" type="button"><span class="ui-button-icon-left ui-icon ui-c ui-icon-refresh"></span><span class="ui-button-text ui-c">Refresh</span></button><script id="j_idt117_s" type="text/javascript">$(function(){PrimeFaces.cw("CommandButton","widget_j_idt117",{id:"j_idt117"});});</script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ui-g-12 ui-md-8">
+                <div class="card">
+<form id="j_idt119" name="j_idt119" method="post" action="https://www.primefaces.org/poseidon/dashboard.xhtml;jsessionid=node01trsx1zi3i4kr1nqu8zuyvcswt21289.node0" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="j_idt119" value="j_idt119" />
+<div id="j_idt119:j_idt120" class="ui-datatable ui-widget ui-datatable-reflow" style="margin-bottom:20px"><label id="j_idt119:j_idt120_reflowDD_label" for="j_idt119:j_idt120_reflowDD" class="ui-reflow-label">Sort</label><select id="j_idt119:j_idt120_reflowDD" name="j_idt119:j_idt120_reflowDD" class="ui-reflow-dropdown ui-state-default" autocomplete="off"><option value="0_0">Id Ascending</option><option value="0_1">Id Descending</option><option value="1_0">Year Ascending</option><option value="1_1">Year Descending</option><option value="2_0">Brand Ascending</option><option value="2_1">Brand Descending</option><option value="3_0">Color Ascending</option><option value="3_1">Color Descending</option></select><div class="ui-datatable-header ui-widget-header ui-corner-top">Recent Sales</div><div class="ui-datatable-tablewrapper"><table role="grid"><thead id="j_idt119:j_idt120_head"><tr role="row"><th id="j_idt119:j_idt120:j_idt122" class="ui-state-default ui-sortable-column" role="columnheader" aria-label="Id" scope="col"><span class="ui-column-title">Id</span><span class="ui-sortable-column-icon ui-icon ui-icon-carat-2-n-s"></span></th><th id="j_idt119:j_idt120:j_idt124" class="ui-state-default ui-sortable-column" role="columnheader" aria-label="Year" scope="col"><span class="ui-column-title">Year</span><span class="ui-sortable-column-icon ui-icon ui-icon-carat-2-n-s"></span></th><th id="j_idt119:j_idt120:j_idt126" class="ui-state-default ui-sortable-column" role="columnheader" aria-label="Brand" scope="col"><span class="ui-column-title">Brand</span><span class="ui-sortable-column-icon ui-icon ui-icon-carat-2-n-s"></span></th><th id="j_idt119:j_idt120:j_idt128" class="ui-state-default ui-sortable-column" role="columnheader" aria-label="Color" scope="col"><span class="ui-column-title">Color</span><span class="ui-sortable-column-icon ui-icon ui-icon-carat-2-n-s"></span></th></tr></thead><tbody id="j_idt119:j_idt120_data" class="ui-datatable-data ui-widget-content" tabindex="0"><tr data-ri="0" data-rk="5f6ed85c" class="ui-widget-content ui-datatable-even ui-datatable-selectable" role="row" aria-selected="false"><td role="gridcell">5f6ed85c</td><td role="gridcell">1973</td><td role="gridcell">Volvo</td><td role="gridcell">Green</td></tr><tr data-ri="1" data-rk="81f76114" class="ui-widget-content ui-datatable-odd ui-datatable-selectable" role="row" aria-selected="false"><td role="gridcell">81f76114</td><td role="gridcell">1972</td><td role="gridcell">Renault</td><td role="gridcell">Green</td></tr><tr data-ri="2" data-rk="02776bef" class="ui-widget-content ui-datatable-even ui-datatable-selectable" role="row" aria-selected="false"><td role="gridcell">02776bef</td><td role="gridcell">1964</td><td role="gridcell">Honda</td><td role="gridcell">White</td></tr><tr data-ri="3" data-rk="66c8b486" class="ui-widget-content ui-datatable-odd ui-datatable-selectable" role="row" aria-selected="false"><td role="gridcell">66c8b486</td><td role="gridcell">1975</td><td role="gridcell">Audi</td><td role="gridcell">Black</td></tr><tr data-ri="4" data-rk="58f77da4" class="ui-widget-content ui-datatable-even ui-datatable-selectable" role="row" aria-selected="false"><td role="gridcell">58f77da4</td><td role="gridcell">1979</td><td role="gridcell">Honda</td><td role="gridcell">Silver</td></tr><tr data-ri="5" data-rk="def52bc0" class="ui-widget-content ui-datatable-odd ui-datatable-selectable" role="row" aria-selected="false"><td role="gridcell">def52bc0</td><td role="gridcell">1975</td><td role="gridcell">Mercedes</td><td role="gridcell">Orange</td></tr><tr data-ri="6" data-rk="e2a95b25" class="ui-widget-content ui-datatable-even ui-datatable-selectable" role="row" aria-selected="false"><td role="gridcell">e2a95b25</td><td role="gridcell">1998</td><td role="gridcell">Mercedes</td><td role="gridcell">Green</td></tr><tr data-ri="7" data-rk="05829680" class="ui-widget-content ui-datatable-odd ui-datatable-selectable" role="row" aria-selected="false"><td role="gridcell">05829680</td><td role="gridcell">2006</td><td role="gridcell">Audi</td><td role="gridcell">Blue</td></tr><tr data-ri="8" data-rk="14c963fe" class="ui-widget-content ui-datatable-even ui-datatable-selectable" role="row" aria-selected="false"><td role="gridcell">14c963fe</td><td role="gridcell">1999</td><td role="gridcell">Mercedes</td><td role="gridcell">Green</td></tr><tr data-ri="9" data-rk="3fe81cc0" class="ui-widget-content ui-datatable-odd ui-datatable-selectable" role="row" aria-selected="false"><td role="gridcell">3fe81cc0</td><td role="gridcell">1972</td><td role="gridcell">Fiat</td><td role="gridcell">Green</td></tr></tbody></table></div><input type="hidden" id="j_idt119:j_idt120_selection" name="j_idt119:j_idt120_selection" autocomplete="off" value="" /></div><script id="j_idt119:j_idt120_s" type="text/javascript">$(function(){PrimeFaces.cw("DataTable","widget_j_idt119_j_idt120",{id:"j_idt119:j_idt120",selectionMode:"single",reflow:true,groupColumnIndexes:[],disableContextMenuIfEmpty:false});});</script><div id="j_idt119:j_idt130" class="ui-panel ui-widget ui-widget-content ui-corner-all" data-widget="widget_j_idt119_j_idt130"><div id="j_idt119:j_idt130_header" class="ui-panel-titlebar ui-widget-header ui-helper-clearfix ui-corner-all"><span class="ui-panel-title">Sales Graph</span></div><div id="j_idt119:j_idt130_content" class="ui-panel-content ui-widget-content"><div id="j_idt119:j_idt131"></div><script id="j_idt119:j_idt131_s" type="text/javascript">$(function(){PrimeFaces.cw("Chart","widget_j_idt119_j_idt131",{id:"j_idt119:j_idt131",type:"line",responsive:true,data:[[[1,2],[2,1],[3,3],[4,6],[5,8]],[[1,6],[2,3],[3,2],[4,7],[5,9]]],title:"Linear Chart",legendPosition:"e",extender:skinChart,dataRenderMode:"value",axes:{xaxis: {label:"",renderer:$.jqplot.LinearAxisRenderer,tickOptions:{angle:0}},yaxis: {label:"",min:0,max:10,renderer:$.jqplot.LinearAxisRenderer,tickOptions:{angle:0}}},datatip:true,series:[{label:"Series 1",renderer: $.jqplot.LineRenderer,showLine:true,markerOptions:{show:true, style:'filledCircle'}},{label:"Series 2",renderer: $.jqplot.LineRenderer,showLine:true,markerOptions:{show:true, style:'filledCircle'}}],datatip:true});});</script></div></div><script id="j_idt119:j_idt130_s" type="text/javascript">$(function(){PrimeFaces.cw("Panel","widget_j_idt119_j_idt130",{id:"j_idt119:j_idt130"});});</script><input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:36" value="-5174477660073702652:7338164341009609699" autocomplete="off" />
+</form>
+                </div>
+            </div>
+            
+            <div class="ui-g-12 ui-md-8"><div id="j_idt133" class="ui-panel ui-widget ui-widget-content ui-corner-all" style="height:100%" data-widget="widget_j_idt133"><div id="j_idt133_header" class="ui-panel-titlebar ui-widget-header ui-helper-clearfix ui-corner-all"><span class="ui-panel-title">Calendar</span></div><div id="j_idt133_content" class="ui-panel-content ui-widget-content"><div id="j_idt134"><div id="j_idt134_container"></div><input type="hidden" id="j_idt134_view" name="j_idt134_view" autocomplete="off" value="month" /></div><script id="j_idt134_s" type="text/javascript">$(function(){PrimeFaces.cw("Schedule","widget_j_idt134",{id:"j_idt134",defaultView:"month",locale:"en_US",lazyFetching:false,header:{left:'prev,next today',center:"title",right:"month,agendaWeek,agendaDay"}});});</script></div></div><script id="j_idt133_s" type="text/javascript">$(function(){PrimeFaces.cw("Panel","widget_j_idt133",{id:"j_idt133"});});</script>
+            </div>
+            <div class="ui-g-12 ui-md-4"><div id="j_idt136" class="ui-panel ui-widget ui-widget-content ui-corner-all" style="height:100%" data-widget="widget_j_idt136"><div id="j_idt136_header" class="ui-panel-titlebar ui-widget-header ui-helper-clearfix ui-corner-all"><span class="ui-panel-title">Activity</span></div><div id="j_idt136_content" class="ui-panel-content ui-widget-content">
+                    <div class="activity-header">
+                        <div class="ui-g">
+                            <div class="ui-g-6">
+                                <span style="font-weight:bold">Last Activity</span>
+                                <p>Updated 1 minute ago</p>
+                            </div>
+                            <div class="ui-g-6" style="text-align:right"><button id="j_idt138" name="j_idt138" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only" type="button"><span class="ui-button-icon-left ui-icon ui-c fa fa-refresh"></span><span class="ui-button-text ui-c">ui-button</span></button><script id="j_idt138_s" type="text/javascript">$(function(){PrimeFaces.cw("CommandButton","widget_j_idt138",{id:"j_idt138"});});</script>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="activity-list">
+                        <li>
+                            <div class="count">$900</div>
+                            <div class="ui-g">
+                                <div class="ui-g-6">Income</div>
+                                <div class="ui-g-6">95%</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="count" style="background-color:#00acac">$250</div>
+                            <div class="ui-g">
+                                <div class="ui-g-6">Tax</div>
+                                <div class="ui-g-6">24%</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="count" style="background-color:#2f8ee5">$125</div>
+                            <div class="ui-g">
+                                <div class="ui-g-6">Invoices</div>
+                                <div class="ui-g-6">55%</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="count" style="background-color:#f1b263">$250</div>
+                            <div class="ui-g">
+                                <div class="ui-g-6">Expenses</div>
+                                <div class="ui-g-6">15%</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="count" style="background-color:#6c76af">$350</div>
+                            <div class="ui-g">
+                                <div class="ui-g-6">Bonus</div>
+                                <div class="ui-g-6">5%</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="count" style="background-color:#2f8ee5">$500</div>
+                            <div class="ui-g">
+                                <div class="ui-g-6">Revenue</div>
+                                <div class="ui-g-6">25%</div>
+                            </div>
+                        </li>
+                    </ul></div></div><script id="j_idt136_s" type="text/javascript">$(function(){PrimeFaces.cw("Panel","widget_j_idt136",{id:"j_idt136"});});</script>
+            </div>
+        </div>
+                </div>
+    
+    <div class="footer">
+        <div class="card clearfix">
+            <span class="footer-text-left">PrimeFaces POSEIDON</span>
+            <span class="footer-text-right"><span class="ui-icon ui-icon-copyright"></span>  <span>All Rights Reserved</span></span>
+        </div>
+    </div>
+            </div>
+        </div><div id="j_idt144" style="width:32px;height:32px;position:fixed;right:7px;bottom:7px"><div id="j_idt144_start" style="display:none">
+               <i class="fa fa-circle-o-notch fa-spin ajax-loader" aria-hidden="true"></i></div><div id="j_idt144_complete" style="display:none"></div></div><script id="j_idt144_s" type="text/javascript">$(function(){PrimeFaces.cw("AjaxStatus","widget_j_idt144",{id:"j_idt144"});});</script></body>
+
+
+<!-- Mirrored from www.primefaces.org/poseidon/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 18 Oct 2019 11:03:57 GMT -->
+</html>

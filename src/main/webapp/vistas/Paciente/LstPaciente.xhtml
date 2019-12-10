@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="../seguridad/empty.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:define name="title-page">
+        Pacientes
+    </ui:define>
+    <ui:define name="head">
+        <f:event type="preRenderView" listener="#{loginC.validarSesion()}"/>
+    </ui:define>
+    <ui:define name="title">
+        Pacientes
+    </ui:define>
+    <ui:define name="vista">
+        <h:form>
+            <h:panelGroup layout="block" class="oaw-horizontal-between">
+                <p:selectBooleanButton offLabel="Deshabilitados" onLabel="Habilitados" value="#{pacienteC.TIPO_LISTA}">
+                    <p:ajax event="change" update="f_paciente" onstart="PF('dt_paciente').clearFilters()"/>
+                </p:selectBooleanButton>
+                <h:panelGroup>
+                    <p:commandButton update=":f_ins_paciente" value="Agregar" oncomplete="PF('dlg_ins_paciente').show()" 
+                                     actionListener="#{pacienteC.prepararModelo()}" class="green-btn"/>
+                </h:panelGroup>
+            </h:panelGroup>
+        </h:form>
+        <h:form id="f_paciente">
+            <p:dataTable id="dt_paciente" widgetVar="dt_paciente" value="#{pacienteC.lista}" var="pacientes"
+                         paginator="true" rows="10" emptyMessage="No hay ningún Paciente registrado" reflow="true"
+                         rowKey="#{pacientes.IDPAC}" selection="#{pacienteC.modelo}" selectionMode="single">
+                <f:facet name="header">
+
+                </f:facet>
+                <p:column width="10">
+                    <p:rowToggler />
+                </p:column>
+                <p:column headerText="N* Seguro" width="50">
+                    <h:outputText value="#{pacientes.NUMSEGUPAC}"/>
+                </p:column>
+                <p:column headerText="Apellidos y Nombres" width="300" filterBy="#{pacientes.IDPER.APEPATPER} #{pacientes.IDPER.APEMATPER}, #{pacientes.IDPER.NOMPER}" 
+                          filterMatchMode="contains">
+                    <h:outputText value="#{pacientes.IDPER.APEPATPER} #{pacientes.IDPER.APEMATPER}, #{pacientes.IDPER.NOMPER}"/>
+                </p:column>
+                <p:column headerText="D.N.I." style="text-align: center;" width="70" filterBy="#{pacientes.IDPER.DNIPER}" filterMatchMode="contains">
+                    <h:outputText value="#{pacientes.IDPER.DNIPER}"/>
+                </p:column>
+                <p:column headerText="Fecha de Nacimiento" style="text-align: center;" width="120">
+                    <h:outputText value="#{pacientes.IDPER.FECNACPER}">
+                        <f:convertDateTime pattern="dd-MMM-yyyy" />
+                    </h:outputText>
+                </p:column>
+                <p:column headerText="Sexo" width="35" style="text-align: center">
+                    <h:outputText value="M" rendered="#{pacientes.IDPER.SEXPER eq 'M'}" />
+                    <h:outputText value="F" rendered="#{pacientes.IDPER.SEXPER eq 'F'}" />
+                </p:column>
+                <p:column headerText="Estado civil" width="100">                    
+                    <h:outputText value="Soltero" rendered="#{pacientes.ESTCIVPAC eq 'S'}"/>
+                    <h:outputText value="Casado" rendered="#{pacientes.ESTCIVPAC eq 'C'}"/>
+                    <h:outputText value="Viudo" rendered="#{pacientes.ESTCIVPAC eq 'V'}"/>
+                    <h:outputText value="Divorciado" rendered="#{pacientes.ESTCIVPAC eq 'D'}"/>
+                </p:column>
+                <p:column headerText="Ocupación" width="100">
+                    <h:outputText value="#{pacientes.OCUPPAC}" />
+                </p:column>
+                <p:column headerText="Celular" width="75">
+                    <h:outputText value="#{pacientes.IDPER.NUMCELPER}"/>
+                </p:column>
+            </p:dataTable>
+            <p:contextMenu for="dt_paciente">
+                <p:menuitem value="Historial" update="dlg_HistPaci" icon="ui-icon-info" rendered="#{pacienteC.TIPO_LISTA}"
+                            oncomplete="PF('dlg_HistPaci').show()" actionListener="#{pacienteC.verHistoria()}"/>
+                <p:menuitem value="Modificar" update="dlg_mod_paciente @widgetVar(wz_mod_paciente)" icon="ui-icon-pencil" 
+                            oncomplete="PF('dlg_mod_paciente').show()" rendered="#{pacienteC.TIPO_LISTA}"/>
+                <p:menuitem value="Deshabilitar" update="dt_paciente f_paciente" icon="ui-icon-circle-close"
+                            actionListener="#{pacienteC.deshabilitar()}" rendered="#{pacienteC.TIPO_LISTA}"/>
+                <p:menuitem value="Habilitar" update="dt_paciente f_paciente" icon="ui-icon-circle-close"
+                            actionListener="#{pacienteC.habilitar()}" rendered="#{!pacienteC.TIPO_LISTA}"/>
+            </p:contextMenu>
+        </h:form>
+
+        <ui:include src="ModPaciente.xhtml"/>
+        <ui:include src="InsPaciente.xhtml"/>
+        <ui:include src="Historia.xhtml"/>
+    </ui:define>
+</ui:composition>

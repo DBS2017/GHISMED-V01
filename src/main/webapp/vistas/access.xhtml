@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <h:outputStylesheet name="theme.css"/>
+        <h:outputStylesheet name="components.css"/>
+        <h:outputStylesheet library="css" name="ripple.css"/>
+        <h:outputStylesheet library="fa" name="font-awesome.css"/>
+        <h:outputStylesheet library="css" name="layout-blue.css"/>
+        <h:outputScript library="" name="core.js" />
+        <h:outputScript library="" name="components.js" />
+        <title>iHisMan - Access Denied</title>
+    </h:head>
+    <h:body class="exception-body accessdenied">
+        <div class="exception-panel">
+            <div class="exception-image">
+                <img
+                    id="j_idt7"
+                    src="resources/images/exception/icon-access.png"
+                    alt=""
+                    />
+            </div>
+
+            <div class="exception-detail">
+                <h1>ACCESS DENIED</h1>
+                <p>You do not have the necessary permissons.</p>
+                <h:form>
+                    <p:link href="#{request.contextPath}/web/vistas/Dashboard/Dashboar.xhtml">
+                        <p:commandButton value="Inicio"/>
+                    </p:link>
+                </h:form>
+            </div>
+        </div>
+    </h:body>
+
+    <!-- Mirrored from www.primefaces.org/sapphire/access.xhtml by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Nov 2019 03:57:12 GMT -->
+</html>

@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="../seguridad/empty.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:define name="title-page">
+        A Trabajador
+    </ui:define>
+    <ui:define name="head">
+        <f:event type="preRenderView" listener="#{loginC.validarSesion()}"/>
+    </ui:define>
+    <ui:define name="title">
+        A Trabajador
+    </ui:define>
+    <ui:define name="vista">
+
+        <h:form>
+            <h:panelGroup class="oaw-horizontal-between">
+                <p:selectBooleanButton offLabel="Deshabilitados" onLabel="Habilitados" value="#{tEspecialidadC.TIPO_LISTA}">
+                    <p:ajax event="change" update=":f_tespecialidad"  onstart="PF('dt_tespecialidad').clearFilters()"/>
+                </p:selectBooleanButton>
+                <p:commandButton value="Registrar" oncomplete="PF('dlg_ins_tespecialidad').show()" 
+                                 actionListener="#{tEspecialidadC.prepararModelo()}"/>
+            </h:panelGroup>
+        </h:form>
+        <p:separator/>
+        <h:form id="f_tespecialidad">
+            <p:dataTable id="dt_tespecialidad" widgetVar="dt_tespecialidad" value="#{tEspecialidadC.lista}" rows="10"
+                         paginator="true" var="tespecialidad" rowKey="#{tespecialidad.IDESPTRA}" expandableRowGroups="true"
+                         selectionMode="single" selection="#{tEspecialidadC.modelo}"
+                         filteredValue="#{tEspecialidadC.filtro}">
+                <p:column headerText="Nombres y Apellidos" filterBy="#{tespecialidad.IDTRA.IDPER.NOMPER} ,
+                          #{tespecialidad.IDTRA.IDPER.APEPATPER} #{tespecialidad.IDTRA.IDPER.APEMATPER}">
+                    <h:outputText value="#{tespecialidad.IDTRA.IDPER.NOMPER}, 
+                                  #{tespecialidad.IDTRA.IDPER.APEPATPER} #{tespecialidad.IDTRA.IDPER.APEMATPER}"/>
+                </p:column>
+                <p:column headerText="Cargo">
+                    <h:outputText value="#{tespecialidad.IDTRA.CARGTRA}"/>
+                </p:column>
+                <p:column headerText="DNI">
+                    <h:outputText value="#{tespecialidad.IDTRA.IDPER.DNIPER}"/>
+                </p:column>
+                <p:column headerText="Especialidad">
+                    <h:outputText value="#{tespecialidad.IDESTESP.IDESP.NOMESP}"/>
+                </p:column>
+                <p:column headerText="Establecimiento">
+                    <h:outputText value="#{tespecialidad.IDESTESP.IDEST.NOMEST}"/>
+                </p:column>
+            </p:dataTable>
+            <p:contextMenu for="dt_tespecialidad" id="context_menu">
+                <p:menuitem value="Habilitar" actionListener="#{tEspecialidadC.habilitar()}" 
+                            update="dt_tespecialidad" rendered="#{!tEspecialidadC.TIPO_LISTA}"/>
+                
+                <p:menuitem value="Deshabilitar" actionListener="#{tEspecialidadC.deshabilitar()}" 
+                            update="dt_tespecialidad" rendered="#{tEspecialidadC.TIPO_LISTA}"/>
+            </p:contextMenu>
+        </h:form>
+        <ui:include src="InsTEspecialidad.xhtml"/>
+        <ui:include src="ModTEspecialidad.xhtml"/>
+    </ui:define>
+</ui:composition>

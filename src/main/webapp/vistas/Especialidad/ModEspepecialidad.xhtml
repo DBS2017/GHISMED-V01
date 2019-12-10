@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:body>
+        <ui:composition>
+            <p:dialog id="dlg_mod_especialidad" widgetVar="dlg_mod_especialidad" closable="false" header="Editar Especialidad" >
+                <h:form id="form_mod_especialidad">
+                    <p:panelGrid columns="2" id="tblEspe">
+                        <p:outputLabel value="Tipo:" for="tipo"/>
+                        <p:selectOneRadio id="tipo" value="#{especialidadC.modelo.TIPOESP}" required="true">
+                            <f:selectItem itemValue="A" itemLabel="Administrativa"/>
+                            <f:selectItem itemValue="E" itemLabel="Servicio"/>
+                        </p:selectOneRadio>
+                        <p:outputLabel  value="Nombre" />
+                        <p:inputText id="nombre" value="#{especialidadC.modelo.NOMESP}" maxlength="80" required="true"
+                                     label="Nombre: " requiredMessage="Nombre de Especialidad: Invalido" onkeyup="this.value = this.value.capitalize()">
+                            <p:keyFilter regEx="/[A-Za-z 0-9 \s Ñ ñ Á á É é Í í Ó ó Ú ú]/"/>
+                        </p:inputText>
+                    </p:panelGrid>
+                    <br/>
+                    <h:panelGroup layout="block" class="oaw-horizontal-between">
+                        <p:commandButton value="Actualizar" actionListener="#{especialidadC.modificar()}"
+                                         update="form_mod_especialidad :form_especialidad" oncomplete="fn_validar_dialogo(args,'especialidad')" >
+
+                        </p:commandButton>
+                        <p:commandButton value="Cancelar" immediate="true" onclick="PF('dlg_mod_especialidad').hide()" />
+                    </h:panelGroup>
+                </h:form>
+            </p:dialog>
+        </ui:composition>
+    </h:body>
+</html>

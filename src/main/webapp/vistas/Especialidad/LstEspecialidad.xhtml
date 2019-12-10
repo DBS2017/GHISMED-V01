@@ -1,0 +1,68 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="../seguridad/empty.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <ui:define name="title-page">
+        Áreas
+    </ui:define>
+    <ui:define name="head">
+        <f:event type="preRenderView" listener="#{loginC.validarSesion()}"/>
+    </ui:define>
+    <ui:define name="title">
+        Áreas
+    </ui:define>
+    <ui:define name="vista">
+        <h:form>
+            <h:panelGroup class="oaw-horizontal-between">
+                <p:selectBooleanButton offLabel="Deshabilitados" onLabel="Habilitados" value="#{especialidadC.TIPO_LISTA}"> 
+                    <p:ajax event="change" update=":form_especialidad" onstart="PF('dt_especialidad').clearFilters()"/>
+                </p:selectBooleanButton>
+                <p:commandButton value="Registrar" oncomplete="PF('dlg_ins_especialidad').show()" actionListener="#{especialidadC.prepararModelo()}"/>
+            </h:panelGroup>
+            <h:panelGroup class="oaw-horizontal-between">
+                <p:commandButton update="dlg_ins_especialidad" value="Agregar" class="green-btn"
+                                 oncomplete="PF('dlg_ins_especialidad').show()" actionListener="#{especialidadC.limpiar()}"/>
+            </h:panelGroup>
+        </h:form>
+        <p:separator/>
+        <h:form id="form_especialidad">
+            <p:dataTable id="dt_especialidad" var="especialidades" value="#{especialidadC.lista}" widgetVar="dt_especialidad"
+                         paginator="true" rows="10" style="margin-bottom:20px"
+                         rowKey="#{especialidades.IDESP}" selection="#{especialidadC.modelo}" selectionMode="single"
+                         filteredValue="#{especialidadC.filtro}">
+                <p:column headerText="Nombre" filterBy="#{especialidades.NOMESP}">
+                    <h:outputText value="#{especialidades.NOMESP}"/>
+                </p:column>
+                <p:column headerText="Tipo" style="text-align: center;" filterBy="#{especialidades.TIPOESP}" filterMatchMode="equals">
+                    <f:facet name="filter">
+                        <p:selectOneMenu onchange="PF('dt_especialidad').filter()" styleClass="">
+                            <f:selectItem itemValue="" itemLabel="Todos" />
+                            <f:selectItem itemValue="A" itemLabel="Administrativo" />
+                            <f:selectItem itemValue="E" itemLabel="Servicio" />
+                        </p:selectOneMenu>
+                    </f:facet>
+                    <h:outputText value="#{especialidades.TIPOESP}">
+                        <f:converter converterId="c_tipo" />
+                    </h:outputText>
+                </p:column>
+            </p:dataTable>
+            <p:contextMenu for="dt_especialidad">
+                <p:menuitem value="Modificar" icon="ui-icon-pencil"
+                            onclick="PF('dlg_mod_especialidad').show()"
+                            update="form_mod_especialidad" rendered="#{especialidadC.TIPO_LISTA}"/>          
+                <p:menuitem value="Habilitar" actionListener="#{especialidadC.habilitar()}"
+                            update="dt_especialidad" rendered="#{!especialidadC.TIPO_LISTA}"/>              
+                <p:menuitem value="Deshabilitar" actionListener="#{especialidadC.deshabilitar()}" oncomplete="PF('dt_especialidad').clearFilters()"
+                            update="dt_especialidad" rendered="#{especialidadC.TIPO_LISTA}"/>
+            </p:contextMenu>
+            
+        </h:form>
+
+        <ui:include src="InsEspecialidad.xhtml">
+            <ui:param name="idUpdate" value=":form_especialidad"/>
+        </ui:include>
+        <ui:include src="ModEspepecialidad.xhtml" />
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="../seguridad/empty.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:define name="title-page">
+        Prestamos de H.C.
+    </ui:define>
+    <ui:define name="head">
+        <f:event type="preRenderView" listener="#{loginC.validarSesion()}"/>
+    </ui:define>
+    <ui:define name="title">
+        Prestamos de H.C.
+    </ui:define>
+    <ui:define name="vista">
+        <h:form>
+            <h:panelGroup layout="block" class="oaw-horizontal-between">
+                <p:commandButton update="dlg_ins_consulta" value="Nuevo Préstamo" oncomplete="PF('dlg_ins_consulta').show()" 
+                                 actionListener="#{consultaC.prepararModelo()}" class="green-btn"/>
+            </h:panelGroup>
+        </h:form>
+
+        <h:form id="f_consulta">
+            <p:dataTable id="dt_consulta" value="#{consultaC.lista}" var="consultas" widgetVar="dt_consulta" editable="true" 
+                         selection="#{consultaC.modelos}"
+                         paginator="true" rows="10" style="margin-bottom:20px"
+                         rowKey="#{consultas.IDCONS}">
+                <p:column selectionMode="multiple" width="40"/>
+                <p:column headerText="Paciente" >
+                    <h:outputText value="#{consultas.IDPAC.IDPER.FULLNAME}"/>
+                </p:column>
+                <p:column headerText="Seguro">
+                    <h:outputText value="#{consultas.IDPAC.NUMSEGUPAC}"/>
+                </p:column>
+
+                <p:column headerText="Especialidad">
+                    <h:outputText value="#{consultas.IDESPTRA.IDESTESP.IDESP.NOMESP}"/>
+                </p:column>
+                <p:column headerText="Prestamo">
+                    <h:outputText value="#{consultas.FECINICONS}" >
+                        <f:converter converterId="C_Fecha" />
+                    </h:outputText>
+                </p:column>
+                <p:column headerText="Devolución">
+                    <h:outputText value="#{consultas.FECFINCONS}" >
+                        <f:converter converterId="C_Fecha" />
+                    </h:outputText>
+                </p:column>
+                <f:facet name="footer">
+                    <p:commandButton update="@form" value="Pasar a entregados" rendered="#{consultaC.tipoList eq 'P'}"
+                                     actionListener="#{consultaC.modificar}">
+                        <p:confirm header="Confirmar" message="¿Desea continuar?" icon="ui-icon-alert" />
+                    </p:commandButton>
+                    <p:commandButton update="@form" value="Pasar a faltantes" rendered="#{consultaC.tipoList eq 'E'}" disabled="true"
+                                     actionListener="#{consultaC.modificar}">
+                        <p:confirm header="Confirmar" message="¿Desea continuar?" icon="ui-icon-alert"/>
+                    </p:commandButton>
+                    <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                        <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                    </p:confirmDialog>
+                </f:facet>
+            </p:dataTable> 
+        </h:form>
+        <ui:include src="InsConsulta.xhtml"/>  
+    </ui:define>
+</ui:composition>

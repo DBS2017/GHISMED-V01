@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+    </h:head>
+    <h:body>
+        <ui:composition>
+            <p:dialog id="dlg_mod_establecimiento" widgetVar="dlg_mod_establecimiento" 
+                      modal="true" closable="false" draggable="false" header="Editando Establecimiento">
+                <h:form id="form_mod_establecimiento">
+                    <p:panelGrid columns="2" id="pg_establecimiento">
+                        <p:outputLabel for="descripcion" value="Nombre:"/>
+                        <p:inputText id="descripcion" value="#{establecimientoC.modelo.NOMEST}" 
+                                     onkeyup="capitalize(this)" required="true"
+                                     requiredMessage="Ingrese el Nombre">
+                            <p:keyFilter regEx="#{validar.descripcion_regex}" />
+                        </p:inputText>
+                        <p:outputLabel for="direccion" value="Dirección:"/>
+                        <p:inputText id="direccion"  maxlength="148" onkeyup="capitalize(this)" required="true"
+                                     value="#{establecimientoC.modelo.DIREST}" requiredMessage="Ingrese la Dirección" >
+                            <p:keyFilter regEx="#{validar.direccion_regex}"/>
+                        </p:inputText>
+                        <p:outputLabel for="distrito" value="Distrito"/>
+                        <p:autoComplete id="distrito" value="#{establecimientoC.modelo.CODUBI}" maxResults="10" 
+                                        completeMethod="#{establecimientoC.autocomUbigeo}" dropdown="true" 
+                                        queryDelay="#{validar.query_delay}" itemValue="#{ubigeo}" required="true"
+                                        var="ubigeo" itemLabel="#{ubigeo.VALOR}" forceSelection="true">
+                            <f:converter converterId="C_Ubigeo"/>
+                        </p:autoComplete>
+                        <p:outputLabel for="telefono" value="Teléfono"/>
+                        <p:inputText id="telefono" value="#{establecimientoC.modelo.TELFEST}" maxlength="9" 
+                                     required="false" requiredMessage="Ingrese el número del telefono">
+                            <p:keyFilter regEx="#{validar.celular_regex}" />
+                        </p:inputText>
+                        <p:outputLabel for="correo" value="Correo:"/>
+                        <h:panelGroup>
+                            <p:inputText id="correo" requiredMessage="Ingrese el correo."
+                                         onkeyup="this.value = this.value.toLowerCase()"
+                                         validatorMessage="Formato de correo inválido"
+                                         value="#{establecimientoC.modelo.MAILEST}"
+                                         disabled="#{!establecimientoC.mail}">
+                                <f:validateRegex pattern="#{validar.correo_regex}"/>
+                            </p:inputText>
+                            <p:selectBooleanCheckbox value="#{establecimientoC.mail}" title="Ingresar correo"
+                                                     style="margin-left: -18px;">
+                                <p:ajax update="correo" event="change"/>
+                            </p:selectBooleanCheckbox>
+                        </h:panelGroup>
+                    </p:panelGrid>
+                    <br/>
+                    <h:panelGroup layout="block" class="oaw-horizontal-between">
+                        <p:commandButton value="Actualizar" actionListener="#{establecimientoC.modificar()}" oncomplete="fn_validar_dialogo(args,'establecimiento')"
+                                         update="@form form_establecimiento" icon="ui-icon-check"/>
+                        <p:commandButton value="Cancelar" onclick="PF('dlg_mod_establecimiento').hide();"
+                                         update="pg_establecimiento" immediate="true"/>
+                    </h:panelGroup>
+                </h:form>
+            </p:dialog>
+        </ui:composition>
+    </h:body>
+</html>
+

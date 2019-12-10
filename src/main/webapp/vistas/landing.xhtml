@@ -1,0 +1,434 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <h:outputStylesheet name="theme.css"/>
+        <h:outputStylesheet name="components.css"/>
+        <h:outputStylesheet library="css" name="grid.css"/>
+        <h:outputStylesheet library="fa" name="font-awesome.css"/>
+        <h:outputStylesheet library="css" name="layout-blue.css"/>
+
+        <h:outputScript library="" name="core.js" />
+        <h:outputScript library="" name="components.js" />
+        <h:outputScript library="js" name="layout.js" />
+        <h:outputScript library="js" name="ripple.js" />
+        <h:outputScript library="js" name="nanoscroller.js" />
+        <h:outputScript library="js" name="templateStyle.js" />
+        <h:outputScript library="js" name="templateStyle.js" />
+
+        <title>iHisMan</title>
+    </h:head>
+    <h:body class="landing-body">
+        <div class="landing-wrapper">
+            <div id="header">
+                <div>
+                    <p:graphicImage library="images" name="landing/sapphire.png"/>
+                    <a id="landing-menu-button" href="#">
+                        <div class="landing-menu-button-icon"></div>
+                    </a>
+
+                    <ul id="landing-menu">
+                        <li>
+                            <a href="#home">Home</a>
+                        </li>
+                        <li>
+                            <a href="#features">Features</a>
+                        </li>
+                        <li>
+                            <a href="#stats">Stats</a>
+                        </li>
+                        <li>
+                            <a href="#pricing">Pricing</a>
+                        </li>
+                        <li>
+                            <a href="#multimedia">Multimedia</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <h:form id="introduction">
+                <div>
+                    <h1>
+                        ¡Bienvenidos! <br/>
+                        Únete a la familia.
+                    </h1>
+                    <p:link href="#{request.contextPath}/web/vistas/login.xhtml" >
+                        <p:button styleClass="pink-btn" value="¿QUÉ ESPERAS?" />
+                    </p:link>
+                </div>
+            </h:form>
+
+            <div id="features">
+                <div>
+                    <h1>Features</h1>
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-4 feature-box">
+                            <img
+                                id="j_idt13"
+                                src="../../resources/images/landing/asset-responsive.jpg"
+                                alt=""
+                                />
+                            <div>
+                                <p>CAPTION</p>
+                                <h3>RESPONSIVE LAYOUT</h3>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                                    do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="p-col-12 p-md-4 feature-box">
+                            <img
+                                id="j_idt15"
+                                src="../../resources/images/landing/asset-moderndesign.jpg"
+                                alt=""
+                                />
+                            <div>
+                                <p>CAPTION</p>
+                                <h3>MODERN DESIGN</h3>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                                    do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="p-col-12 p-md-4 feature-box">
+                            <img
+                                id="j_idt17"
+                                src="../../resources/images/landing/asset-cleancode.jpg"
+                                alt=""
+                                />
+                            <div>
+                                <p>CAPTION</p>
+                                <h3>WELL DOCUMENTED</h3>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                                    do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="stats">
+                <div>
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-4">
+                            <div class="stat-box component">
+                                <img
+                                    id="j_idt19"
+                                    src="../../resources/images/landing/icon-components.png"
+                                    alt=""
+                                    />
+                                <div
+                                    id="j_idt20"
+                                    class="ui-progressbar ui-widget ui-widget-content ui-corner-all ui-progressbar-determinate"
+                                    >
+                                    <div
+                                        class="ui-progressbar-value ui-widget-header ui-corner-all"
+                                        style="display:block;width:70%"
+                                        ></div>
+                                    <div class="ui-progressbar-label"></div>
+                                </div>
+                                <p><b>100+</b> UI Components</p>
+                            </div>
+                        </div>
+
+                        <div class="p-col-12 p-md-4">
+                            <div class="stat-box development">
+                                <img
+                                    id="j_idt22"
+                                    src="../../resources/images/landing/icon-development.png"
+                                    alt=""
+                                    />
+                                <div
+                                    id="j_idt23"
+                                    class="ui-progressbar ui-widget ui-widget-content ui-corner-all ui-progressbar-determinate"
+                                    >
+                                    <div
+                                        class="ui-progressbar-value ui-widget-header ui-corner-all"
+                                        style="display:block;width:90%"
+                                        ></div>
+                                    <div class="ui-progressbar-label"></div>
+                                </div>
+                                <p><b>425</b> Hours Of Development</p>
+                            </div>
+                        </div>
+
+                        <div class="p-col-12 p-md-4">
+                            <div class=" stat-box coffee">
+                                <img
+                                    id="j_idt25"
+                                    src="../../resources/images/landing/icon-coffee.png"
+                                    alt=""
+                                    />
+                                <div
+                                    id="j_idt26"
+                                    class="ui-progressbar ui-widget ui-widget-content ui-corner-all ui-progressbar-determinate"
+                                    >
+                                    <div
+                                        class="ui-progressbar-value ui-widget-header ui-corner-all"
+                                        style="display:block;width:30%"
+                                        ></div>
+                                    <div class="ui-progressbar-label"></div>
+                                </div>
+                                <p><b>78</b> Cups Of Coffee</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="pricing">
+                <div>
+                    <h1>Pricing</h1>
+                    <div class="p-grid">
+                        <div class="p-col-12 p-lg-6 p-xl-3">
+                            <div class="pricing-box">
+                                <div class="pricing-header">
+                                    <h3>Free</h3>
+                                    <p class="pricing-fee"><b>$0</b>/mo</p>
+                                </div>
+
+                                <div class="pricing-content">
+                                    <ul>
+                                        <li><i class="material-icons">check</i> Responsive</li>
+                                        <li><i class="material-icons">check</i> Push Messages</li>
+                                        <li>
+                                            <i class="material-icons" style="color: #e53935">close</i>
+                                            10 Support Tickets
+                                        </li>
+                                        <li>
+                                            <i class="material-icons" style="color: #e53935">close</i>
+                                            Free Shipping
+                                        </li>
+                                        <li>
+                                            <i class="material-icons" style="color: #e53935">close</i>
+                                            Unlimited Space
+                                        </li>
+                                    </ul>
+                                    <button
+                                        id="j_idt28"
+                                        name="j_idt28"
+                                        type="button"
+                                        class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"
+                                        onclick="window.open('\/sapphire\/dashboard.xhtml', '_self')"
+                                        >
+                                        <span class="ui-button-text ui-c">START TRIAL</span></button
+                                    ><script id="j_idt28_s" type="text/javascript">
+                                        $(function () {
+                                            PrimeFaces.cw("Button", "widget_j_idt28", {
+                                                id: "j_idt28"
+                                            });
+                                        });
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-col-12 p-lg-6 p-xl-3">
+                            <div class="pricing-box">
+                                <div class="pricing-header">
+                                    <h3>Basic</h3>
+                                    <p class="pricing-fee"><b>$29</b>/mo</p>
+                                </div>
+
+                                <div class="pricing-content">
+                                    <ul>
+                                        <li><i class="material-icons">check</i> Responsive</li>
+                                        <li><i class="material-icons">check</i> Push Messages</li>
+                                        <li>
+                                            <i class="material-icons">check</i> 10 Support Tickets
+                                        </li>
+                                        <li>
+                                            <i class="material-icons" style="color: #e53935">close</i>
+                                            Free Shipping
+                                        </li>
+                                        <li>
+                                            <i class="material-icons" style="color: #e53935">close</i>
+                                            Unlimited Space
+                                        </li>
+                                    </ul>
+                                    <button
+                                        id="j_idt30"
+                                        name="j_idt30"
+                                        type="button"
+                                        class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"
+                                        onclick="window.open('\/sapphire\/dashboard.xhtml', '_self')"
+                                        >
+                                        <span class="ui-button-text ui-c">START TRIAL</span></button
+                                    ><script id="j_idt30_s" type="text/javascript">
+                                        $(function () {
+                                            PrimeFaces.cw("Button", "widget_j_idt30", {
+                                                id: "j_idt30"
+                                            });
+                                        });
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-col-12 p-lg-6 p-xl-3">
+                            <div class="pricing-box">
+                                <div class="pricing-header">
+                                    <h3>Pro</h3>
+                                    <p class="pricing-fee"><b>$59</b>/mo</p>
+                                </div>
+
+                                <div class="pricing-content">
+                                    <ul>
+                                        <li><i class="material-icons">check</i> Responsive</li>
+                                        <li><i class="material-icons">check</i> Push Messages</li>
+                                        <li>
+                                            <i class="material-icons">check</i> 10 Support Tickets
+                                        </li>
+                                        <li><i class="material-icons">check</i> Free Shipping</li>
+                                        <li>
+                                            <i class="material-icons" style="color: #e53935">close</i>
+                                            Unlimited Space
+                                        </li>
+                                    </ul>
+                                    <button
+                                        id="j_idt32"
+                                        name="j_idt32"
+                                        type="button"
+                                        class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"
+                                        onclick="window.open('\/sapphire\/dashboard.xhtml', '_self')"
+                                        >
+                                        <span class="ui-button-text ui-c">START TRIAL</span></button
+                                    ><script id="j_idt32_s" type="text/javascript">
+                                        $(function () {
+                                            PrimeFaces.cw("Button", "widget_j_idt32", {
+                                                id: "j_idt32"
+                                            });
+                                        });
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-col-12 p-lg-6 p-xl-3">
+                            <div class="pricing-box">
+                                <div class="pricing-header">
+                                    <h3>Enterprise</h3>
+                                    <p class="pricing-fee"><b>$249</b>/mo</p>
+                                </div>
+
+                                <div class="pricing-content">
+                                    <ul>
+                                        <li><i class="material-icons">check</i> Responsive</li>
+                                        <li><i class="material-icons">check</i> Push Messages</li>
+                                        <li>
+                                            <i class="material-icons">check</i> 10 Support Tickets
+                                        </li>
+                                        <li><i class="material-icons">check</i> Free Shipping</li>
+                                        <li><i class="material-icons">check</i> Unlimited Space</li>
+                                    </ul>
+                                    <button
+                                        id="j_idt34"
+                                        name="j_idt34"
+                                        type="button"
+                                        class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"
+                                        onclick="window.open('\/sapphire\/dashboard.xhtml', '_self')"
+                                        >
+                                        <span class="ui-button-text ui-c">START TRIAL</span></button
+                                    ><script id="j_idt34_s" type="text/javascript">
+                                        $(function () {
+                                            PrimeFaces.cw("Button", "widget_j_idt34", {
+                                                id: "j_idt34"
+                                            });
+                                        });
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="multimedia">
+                <div>
+                    <h1>Multimedia</h1>
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-8 multimedia-content1">
+                            <img
+                                id="j_idt36"
+                                src="../../resources/images/landing/asset-multimedia-1.png"
+                                alt=""
+                                />
+                            <div>
+                                <h3>Design for retail</h3>
+                                <p>
+                                    Learn how Material can be used in retail products by diving
+                                    into the details of Shrine, a lifestyle and fashion app.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="p-col-12 p-md-4 multimedia-content2">
+                            <img
+                                id="j_idt38"
+                                src="../../resources/images/landing/asset-multimedia-2.png"
+                                alt=""
+                                />
+                            <div>
+                                <h3>Crafting communication</h3>
+                                <p>
+                                    Material can be used in communication and planning products.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="footer">
+                <div>
+                    <div class="p-grid">
+                        <div class="p-col-12 p-md-6">
+                            <img
+                                id="j_idt40"
+                                src="../../resources/images/landing/sapphire-footer.png"
+                                alt=""
+                                class="footer-logo"
+                                />
+                            <p>PrimeFaces Premium Templates</p>
+                        </div>
+
+                        <div class="p-col-12 p-md-6 footer-social">
+                            <a href="#"
+                               ><img
+                                    id="j_idt42"
+                                    src="../../resources/images/landing/icon-twitter.png"
+                                    alt=""
+                                    />
+                            </a>
+                            <a href="#"
+                               ><img
+                                    id="j_idt44"
+                                    src="../../resources/images/landing/icon-facebook.png"
+                                    alt=""
+                                    />
+                            </a>
+                            <a href="#"
+                               ><img
+                                    id="j_idt46"
+                                    src="../../resources/images/landing/icon-github.png"
+                                    alt=""
+                                    />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </h:body>
+
+    <!-- Mirrored from www.primefaces.org/sapphire/landing.xhtml by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 06 Nov 2019 03:57:12 GMT -->
+</html>

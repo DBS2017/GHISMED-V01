@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Mirrored from www.primefaces.org/poseidon/docs.xhtml by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 18 Oct 2019 11:05:16 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head id="j_idt2">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+            <meta name="apple-mobile-web-app-capable" content="yes" />
+            <meta name="theme-color" content="#2f8ee5" /><link type="text/css" rel="stylesheet" href="javax.faces.resource/theme.cssffb3.css?ln=primefaces-poseidon-blue" /><link type="text/css" rel="stylesheet" href="javax.faces.resource/fa/font-awesome.css68f8.css?ln=primefaces&amp;v=7.0" /><link type="text/css" rel="stylesheet" href="javax.faces.resource/components.css68f8.css?ln=primefaces&amp;v=7.0" /><script type="text/javascript" src="javax.faces.resource/jquery/jquery.js68f8.xhtml?ln=primefaces&amp;v=7.0"></script><script type="text/javascript" src="javax.faces.resource/core.js68f8.xhtml?ln=primefaces&amp;v=7.0"></script><script type="text/javascript" src="javax.faces.resource/components.js68f8.xhtml?ln=primefaces&amp;v=7.0"></script><script type="text/javascript" src="javax.faces.resource/jquery/jquery-plugins.js68f8.xhtml?ln=primefaces&amp;v=7.0"></script><link type="text/css" rel="stylesheet" href="javax.faces.resource/css/nanoscroller.css9faa.css?ln=poseidon-layout" /><link type="text/css" rel="stylesheet" href="javax.faces.resource/css/animate.css9faa.css?ln=poseidon-layout" /><link type="text/css" rel="stylesheet" href="javax.faces.resource/css/layout-blue.css9faa.css?ln=poseidon-layout" /><script type="text/javascript">if(window.PrimeFaces){PrimeFaces.settings.locale='en_US';}</script>
+        <title>Documentation</title><script type="text/javascript" src="javax.faces.resource/js/nanoscroller.js9faa.xhtml?ln=poseidon-layout"></script><script type="text/javascript" src="javax.faces.resource/js/layout.js9faa.xhtml?ln=poseidon-layout"></script><script type="text/javascript" src="javax.faces.resource/js/swipe.js9faa.xhtml?ln=poseidon-layout"></script>
+        <style type="text/css">
+            .docs h1 {
+                margin-top: 30px;
+            }
+            
+            .docs pre {
+                font-family: monospace;
+                background-color: #0C2238;
+                color: #dddddd;
+                padding: 1em;
+                font-size: 14px;
+                border-radius: 3px;
+                overflow: auto;
+            }
+            
+            .video-container {
+                position: relative;
+                width: 100%;
+                height: 0;
+                padding-bottom: 56.25%;
+            }
+            .video-container iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+        </style></head><body class="main-body">
+        
+        <div class="layout-wrapper menu-layout-static ">
+
+    <div class="topbar clearfix">
+        <div class="topbar-left">            
+            <div class="logo"></div>
+        </div>
+        
+        <div class="topbar-right">
+            <a id="menu-button" href="#">
+                <i class="fa fa-angle-left"></i>
+            </a>
+            
+            <a id="topbar-menu-button" href="#">
+                <i class="fa fa-bars"></i>
+            </a>
+            <ul class="topbar-items fadeInDown animated">
+                <li class="profile-item">
+                    <a href="#">                            
+                        <div class="profile-image"></div>
+                        <span class="topbar-item-name">Jane Williams</span>
+                    </a>
+                    
+                    <ul class="poseidon-menu animated">
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="fa fa-fw fa-user"></i>
+                                <span>Profile</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="fa fa-fw fa-user-secret"></i>
+                                <span>Privacy</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="fa fa-fw fa-cog"></i>
+                                <span>Settings</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="fa fa-fw fa-sign-out"></i>
+                                <span>Logout</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="topbar-icon fa fa-fw fa-cog"></i>
+                        <span class="topbar-item-name">Settings</span>
+                    </a>
+                    <ul class="poseidon-menu animated">
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="fa fa-fw fa-paint-brush"></i>
+                                <span>Change Theme</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="fa fa-fw fa-star-o"></i>
+                                <span>Favorites</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="fa fa-fw fa-lock"></i>
+                                <span>Lock Screen</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="fa fa-fw fa-picture-o"></i>
+                                <span>Wallpaper</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="topbar-icon material-icons animated swing fa fa-fw fa-envelope-o"></i>
+                        <span class="topbar-badge animated rubberBand">5</span>
+                        <span class="topbar-item-name">Messages</span>
+                    </a>
+                    <ul class="poseidon-menu animated">
+                        <li role="menuitem">
+                            <a href="#" class="topbar-message"><img id="j_idt14" src="javax.faces.resource/images/avatar1.png9faa.png?ln=poseidon-layout" alt="" width="35" />
+                                <span>Give me a call</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#" class="topbar-message"><img id="j_idt16" src="javax.faces.resource/images/avatar2.png9faa.png?ln=poseidon-layout" alt="" width="35" />
+                                <span>Sales reports attached</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#" class="topbar-message"><img id="j_idt18" src="javax.faces.resource/images/avatar3.png9faa.png?ln=poseidon-layout" alt="" width="35" />
+                                <span>About your invoice</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#" class="topbar-message"><img id="j_idt20" src="javax.faces.resource/images/avatar2.png9faa.png?ln=poseidon-layout" alt="" width="35" />
+                                <span>Meeting today at 10pm</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#" class="topbar-message"><img id="j_idt22" src="javax.faces.resource/images/avatar4.png9faa.png?ln=poseidon-layout" alt="" width="35" />
+                                <span>Out of office</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="topbar-icon material-icons fa fa-fw fa-bell-o"></i>
+                        <span class="topbar-badge animated rubberBand">4</span>
+                        <span class="topbar-item-name">Notifications</span>
+                    </a>
+                    <ul class="poseidon-menu animated">
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="fa fa-fw fa-tasks"></i>
+                                <span>Pending tasks</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="fa fa-fw fa-calendar-check-o"></i>
+                                <span>Meeting today at 3pm</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="fa fa-fw fa-download"></i>
+                                <span>Download documents</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="fa fa-fw fa-plane"></i>
+                                <span>Book flight</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+<form id="menuform" name="menuform" method="post" action="https://www.primefaces.org/poseidon/docs.xhtml" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="menuform" value="menuform" />
+ 
+        <div class="layout-menu-container">
+            <div class="nano">
+                <div class="nano-content menu-scroll-content">
+                    <div class="search-input">
+                        <input type="text" placeholder="Search" />
+                        <i class="fa fa-search"></i>
+                    </div><ul id="menuform:j_idt25" class="layout-menu clearfix"><li id="menuform:om_dashboard" role="menuitem"><a href="dashboard.html"><i class="fa fa-fw fa-home"></i><span>Dashboard</span></a></li><li id="menuform:om_themes" role="menuitem"><a href="#" class="ripplelink"><i class="fa fa-fw fa-paint-brush"></i><span>Themes</span><span class="ink animate"></span><i class="fa fa-fw fa-angle-down menuitem-toggle-icon"></i></a><ul role="menu"><li id="menuform:theme1" role="menuitem"><a style="color:#00acac" href="#" onclick="PrimeFaces.addSubmitParam('menuform',{'menuform:theme1':'menuform:theme1'}).submit('menuform');return false;"><i class="fa fa-fw fa-paint-brush"></i><span>Turquoise Theme</span></a></li><li id="menuform:theme2" role="menuitem"><a style="color:#2f8ee5" href="#" onclick="PrimeFaces.addSubmitParam('menuform',{'menuform:theme2':'menuform:theme2'}).submit('menuform');return false;"><i class="fa fa-fw fa-paint-brush"></i><span>Blue Theme</span></a></li><li id="menuform:theme3" role="menuitem"><a style="color:#6c76af" href="#" onclick="PrimeFaces.addSubmitParam('menuform',{'menuform:theme3':'menuform:theme3'}).submit('menuform');return false;"><i class="fa fa-fw fa-paint-brush"></i><span>Purple Theme</span></a></li><li id="menuform:theme4" role="menuitem"><a style="color:#efa64c" href="#" onclick="PrimeFaces.addSubmitParam('menuform',{'menuform:theme4':'menuform:theme4'}).submit('menuform');return false;"><i class="fa fa-fw fa-paint-brush"></i><span>Orange Theme</span></a></li><li id="menuform:theme5" role="menuitem"><a style="color:#f16383" href="#" onclick="PrimeFaces.addSubmitParam('menuform',{'menuform:theme5':'menuform:theme5'}).submit('menuform');return false;"><i class="fa fa-fw fa-paint-brush"></i><span>Pink Theme</span></a></li><li id="menuform:theme6" role="menuitem"><a style="color:#63c9f1" href="#" onclick="PrimeFaces.addSubmitParam('menuform',{'menuform:theme6':'menuform:theme6'}).submit('menuform');return false;"><i class="fa fa-fw fa-paint-brush"></i><span>Light Blue Theme</span></a></li><li id="menuform:theme7" role="menuitem"><a style="color:#57c279" href="#" onclick="PrimeFaces.addSubmitParam('menuform',{'menuform:theme7':'menuform:theme7'}).submit('menuform');return false;"><i class="fa fa-fw fa-paint-brush"></i><span>Green Theme</span></a></li><li id="menuform:theme8" role="menuitem"><a style="color:#7e57c2" href="#" onclick="PrimeFaces.addSubmitParam('menuform',{'menuform:theme8':'menuform:theme8'}).submit('menuform');return false;"><i class="fa fa-fw fa-paint-brush"></i><span>Deep Purple Theme</span></a></li></ul></li><li id="menuform:om_customization" role="menuitem"><a href="#" class="ripplelink"><i class="fa fa-fw fa-bars"></i><span>Menu Modes</span><span class="ink animate"></span><i class="fa fa-fw fa-angle-down menuitem-toggle-icon"></i><span class="menuitem-badge">8</span></a><ul role="menu"><li id="menuform:custom3" role="menuitem"><a href="#" onclick="PrimeFaces.addSubmitParam('menuform',{'menuform:custom3':'menuform:custom3'}).submit('menuform');return false;"><i class="fa fa-fw fa-bars"></i><span>Static Menu</span><span class="menuitem-badge">4</span></a></li><li id="menuform:custom4" role="menuitem"><a href="#" onclick="PrimeFaces.addSubmitParam('menuform',{'menuform:custom4':'menuform:custom4'}).submit('menuform');return false;"><i class="fa fa-fw fa-bars"></i><span>Overlay Menu</span></a></li><li id="menuform:custom5" role="menuitem"><a href="#" onclick="PrimeFaces.addSubmitParam('menuform',{'menuform:custom5':'menuform:custom5'}).submit('menuform');return false;"><i class="fa fa-fw fa-bars"></i><span>Horizontal Menu</span></a></li></ul></li><li id="menuform:om_orientation" role="menuitem"><a href="#" class="ripplelink"><i class="fa fa-fw fa-align-right"></i><span>Orientation</span><span class="ink animate"></span><i class="fa fa-fw fa-angle-down menuitem-toggle-icon"></i></a><ul role="menu"><li id="menuform:om_rtl" role="menuitem"><a href="#" onclick="PrimeFaces.addSubmitParam('menuform',{'menuform:om_rtl':'menuform:om_rtl'}).submit('menuform');return false;"><i class="fa fa-fw fa-align-right"></i><span>RTL</span></a></li><li id="menuform:om_ltr" role="menuitem"><a href="#" onclick="PrimeFaces.addSubmitParam('menuform',{'menuform:om_ltr':'menuform:om_ltr'}).submit('menuform');return false;"><i class="fa fa-fw fa-align-left"></i><span>LTR</span></a></li></ul></li><li id="menuform:om_components" role="menuitem"><a href="#" class="ripplelink"><i class="fa fa-fw fa-sitemap"></i><span>Components</span><span class="ink animate"></span><i class="fa fa-fw fa-angle-down menuitem-toggle-icon"></i></a><ul role="menu"><li id="menuform:om_sample" role="menuitem"><a href="sample.html"><i class="fa fa-fw fa-columns"></i><span>Sample Page</span></a></li><li id="menuform:om_forms" role="menuitem"><a href="forms.html"><i class="fa fa-fw fa-code"></i><span>Forms</span></a></li><li id="menuform:om_data" role="menuitem"><a href="data.html"><i class="fa fa-fw fa-table"></i><span>Data</span></a></li><li id="menuform:om_panels" role="menuitem"><a href="panel.html"><i class="fa fa-fw fa-list-alt"></i><span>Panels</span></a></li><li id="menuform:om_overlays" role="menuitem"><a href="overlay.html"><i class="fa fa-fw fa-square"></i><span>Overlays</span></a></li><li id="menuform:om_menus" role="menuitem"><a href="menu.html"><i class="fa fa-fw fa-minus-square-o"></i><span>Menus</span></a></li><li id="menuform:om_messages" role="menuitem"><a href="messages.html"><i class="fa fa-fw fa-circle-o-notch"></i><span>Messages</span></a></li><li id="menuform:om_charts" role="menuitem"><a href="charts.html"><i class="fa fa-fw fa-area-chart"></i><span>Charts</span></a></li><li id="menuform:om_file" role="menuitem"><a href="file.html"><i class="fa fa-fw fa-arrow-circle-o-up"></i><span>File</span></a></li><li id="menuform:om_misc" role="menuitem"><a href="misc.html"><i class="fa fa-fw fa-user-secret"></i><span>Misc</span></a></li></ul></li><li id="menuform:om_db_landing" role="menuitem"><a href="landing.html"><i class="fa fa-fw fa-certificate"></i><span>Landing</span></a></li><li id="menuform:om_default" role="menuitem"><a href="#" class="ripplelink"><i class="fa fa-fw fa-life-saver"></i><span>Template Pages</span><span class="ink animate"></span><i class="fa fa-fw fa-angle-down menuitem-toggle-icon"></i></a><ul role="menu"><li id="menuform:om_empty" role="menuitem"><a href="empty.html"><i class="fa fa-fw fa-square-o"></i><span>Empty Page</span></a></li><li id="menuform:om_login" role="menuitem"><a href="login.html"><i class="fa fa-fw fa-sign-in"></i><span>Login Page</span></a></li><li id="menuform:om_error" role="menuitem"><a href="error.html"><i class="fa fa-fw fa-exclamation-circle"></i><span>Error Page</span></a></li><li id="menuform:om_404" role="menuitem"><a href="404.html"><i class="fa fa-fw fa-times"></i><span>404 Page</span></a></li><li id="menuform:om_access" role="menuitem"><a href="access.html"><i class="fa fa-fw fa-exclamation-triangle"></i><span>Access Denied Page</span></a></li></ul></li><li id="menuform:om_hierarchy" role="menuitem"><a href="#" class="ripplelink"><i class="fa fa-fw fa-gg"></i><span>Menu Hierarchy</span><span class="ink animate"></span><i class="fa fa-fw fa-angle-down menuitem-toggle-icon"></i></a><ul role="menu"><li id="menuform:om_sm1" role="menuitem"><a href="#" class="ripplelink"><i class="fa fa-fw fa-sign-in"></i><span>Submenu 1</span><span class="ink animate"></span><i class="fa fa-fw fa-angle-down menuitem-toggle-icon"></i></a><ul role="menu"><li id="menuform:om_sm11" role="menuitem"><a href="#" class="ripplelink"><i class="fa fa-fw fa-sign-in"></i><span>Submenu 1.1</span><span class="ink animate"></span><i class="fa fa-fw fa-angle-down menuitem-toggle-icon"></i></a><ul role="menu"><li id="menuform:om_lnk111" role="menuitem"><a href="#"><i class="fa fa-fw fa-sign-in"></i><span>Link 1.1.1</span></a></li><li id="menuform:om_lnk112" role="menuitem"><a href="#"><i class="fa fa-fw fa-sign-in"></i><span>Link 1.1.2</span></a></li><li id="menuform:om_lnk113" role="menuitem"><a href="#"><i class="fa fa-fw fa-sign-in"></i><span>Link 1.1.3</span></a></li></ul></li><li id="menuform:om_sm12" role="menuitem"><a href="#" class="ripplelink"><i class="fa fa-fw fa-sign-in"></i><span>Submenu 1.2</span><span class="ink animate"></span><i class="fa fa-fw fa-angle-down menuitem-toggle-icon"></i></a><ul role="menu"><li id="menuform:om_lnk121" role="menuitem"><a href="#"><i class="fa fa-fw fa-sign-in"></i><span>Link 1.2.1</span></a></li></ul></li></ul></li><li id="menuform:om_sm2" role="menuitem"><a href="#" class="ripplelink"><i class="fa fa-fw fa-sign-in"></i><span>Submenu 2</span><span class="ink animate"></span><i class="fa fa-fw fa-angle-down menuitem-toggle-icon"></i></a><ul role="menu"><li id="menuform:om_sm21" role="menuitem"><a href="#" class="ripplelink"><i class="fa fa-fw fa-sign-in"></i><span>Submenu 2.1</span><span class="ink animate"></span><i class="fa fa-fw fa-angle-down menuitem-toggle-icon"></i></a><ul role="menu"><li id="menuform:om_lnk211" role="menuitem"><a href="#"><i class="fa fa-fw fa-sign-in"></i><span>Link 2.1.1</span></a></li><li id="menuform:om_lnk212" role="menuitem"><a href="#"><i class="fa fa-fw fa-sign-in"></i><span>Link 2.1.2</span></a></li></ul></li><li id="menuform:om_sm22" role="menuitem"><a href="#" class="ripplelink"><i class="fa fa-fw fa-sign-in"></i><span>Submenu 2.2</span><span class="ink animate"></span><i class="fa fa-fw fa-angle-down menuitem-toggle-icon"></i></a><ul role="menu"><li id="menuform:om_lnk221" role="menuitem"><a href="#"><i class="fa fa-fw fa-sign-in"></i><span>Link 2.2.1</span></a></li></ul></li></ul></li></ul></li><li id="menuform:om_doc" role="menuitem"><a href="docs.html"><i class="fa fa-fw fa-book"></i><span>Documentation</span></a></li></ul><script id="menuform:j_idt25_s" type="text/javascript">$(function(){PrimeFaces.cw("Poseidon","me",{id:"menuform:j_idt25"});});</script>
+                    
+                    <div class="layout-menu-footer">
+                        <span class="layout-menu-footer-title">Tasks Overview</span><div id="menuform:j_idt27" class="ui-progressbar ui-widget ui-widget-content ui-corner-all ui-progressbar-determinate"><div class="ui-progressbar-value ui-widget-header ui-corner-all" style="display:block;width:50%"></div><div class="ui-progressbar-label" style="display:block"></div></div>
+                        Today
+                        
+                        <div id="menuform:j_idt29" class="ui-progressbar ui-widget ui-widget-content ui-corner-all ui-progressbar-determinate"><div class="ui-progressbar-value ui-widget-header ui-corner-all" style="display:block;width:80%"></div><div class="ui-progressbar-label" style="display:block"></div></div>
+                        Overall
+                    </div>
+                    
+                </div>
+            </div>
+        </div><input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:0" value="-6122442618968164576:2317944667966179622" autocomplete="off" />
+</form>
+            
+            <div class="layout-main">
+                <div class="route-bar">
+                    <i class="fa fa-home"></i> <span>/ </span>Documentation
+    
+    <a id="right-sidebar-button-open" href="#">
+        <i class="fa fa-angle-left"></i>
+    </a>
+    
+    <div id="right-sidebar" class="right-sidebar">
+        <div class="nano">            
+            <div class="right-sidebar-header ui-widget-header">
+                <i class="fa fa-star"></i>
+                <span>Favorites</span>
+                <a id="right-sidebar-button-close" href="#">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+        
+            <div class="nano-content sidebar-scroll-content"><div id="j_idt34" class="ui-accordion ui-widget ui-helper-reset ui-hidden-container" role="tablist" data-widget="widget_j_idt34"><div class="ui-accordion-header ui-helper-reset ui-state-default ui-state-active ui-corner-top" role="tab" aria-expanded="true" aria-selected="true" tabindex="0"><span class="ui-icon ui-icon-triangle-1-s"></span>Contacts</div><div id="j_idt34:j_idt35" class="ui-accordion-content ui-helper-reset ui-widget-content" role="tabpanel" aria-hidden="false">
+                        <ul class="contact-list">
+                            <li>
+                                <a href="#"><img id="j_idt34:j_idt37" src="javax.faces.resource/images/avatar1.png9faa.png?ln=poseidon-layout" alt="" width="45" />
+                                    <span class="name">Joshua Williams</span>
+                                    <span class="email">joshua@pf-poseidon.com</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"><img id="j_idt34:j_idt39" src="javax.faces.resource/images/avatar2.png9faa.png?ln=poseidon-layout" alt="" width="45" />
+                                    <span class="name">Emily Clark</span>
+                                    <span class="email">emily@pf-poseidon.com</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"><img id="j_idt34:j_idt41" src="javax.faces.resource/images/avatar3.png9faa.png?ln=poseidon-layout" alt="" width="45" />
+                                    <span class="name">Susan Johnson</span>
+                                    <span class="email">susan@pf-poseidon.com</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"><img id="j_idt34:j_idt43" src="javax.faces.resource/images/avatar4.png9faa.png?ln=poseidon-layout" alt="" width="45" />
+                                    <span class="name">Kelly Stark</span>
+                                    <span class="email">kelly@pf-poseidon.com</span>
+                                </a>
+                            </li>
+                        </ul></div><div class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-all" role="tab" aria-expanded="false" aria-selected="false" tabindex="0"><span class="ui-icon ui-icon-triangle-1-e"></span>Notes</div><div id="j_idt34:j_idt45" class="ui-accordion-content ui-helper-reset ui-widget-content ui-helper-hidden" role="tabpanel" aria-hidden="true">
+                        <ul class="note-list">
+                            <li><div id="j_idt34:j_idt47" class="ui-selectbooleancheckbox ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input id="j_idt34:j_idt47_input" name="j_idt34:j_idt47_input" type="checkbox" autocomplete="off" aria-hidden="true" aria-checked="false" /></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"><span class="ui-chkbox-icon ui-icon ui-icon-blank ui-c"></span></div></div><script id="j_idt34:j_idt47_s" type="text/javascript">$(function(){PrimeFaces.cw("SelectBooleanCheckbox","widget_j_idt34_j_idt47",{id:"j_idt34:j_idt47"});});</script>
+                                <span class="task-name">Sales Reports</span>
+                                <i class="fa fa-briefcase"></i>
+                            </li>
+                            <li><div id="j_idt34:j_idt49" class="ui-selectbooleancheckbox ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input id="j_idt34:j_idt49_input" name="j_idt34:j_idt49_input" type="checkbox" autocomplete="off" aria-hidden="true" aria-checked="false" /></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"><span class="ui-chkbox-icon ui-icon ui-icon-blank ui-c"></span></div></div><script id="j_idt34:j_idt49_s" type="text/javascript">$(function(){PrimeFaces.cw("SelectBooleanCheckbox","widget_j_idt34_j_idt49",{id:"j_idt34:j_idt49"});});</script>
+                                <span class="task-name">Pay Invoices</span>
+                                <i class="fa fa-credit-card"></i>
+                            </li>
+                            <li><div id="j_idt34:j_idt51" class="ui-selectbooleancheckbox ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input id="j_idt34:j_idt51_input" name="j_idt34:j_idt51_input" type="checkbox" autocomplete="off" aria-hidden="true" aria-checked="false" /></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"><span class="ui-chkbox-icon ui-icon ui-icon-blank ui-c"></span></div></div><script id="j_idt34:j_idt51_s" type="text/javascript">$(function(){PrimeFaces.cw("SelectBooleanCheckbox","widget_j_idt34_j_idt51",{id:"j_idt34:j_idt51"});});</script>
+                                <span class="task-name">Dinner with Tony</span>
+                                <i class="fa fa-cutlery"></i>
+                            </li>
+                            <li><div id="j_idt34:j_idt53" class="ui-selectbooleancheckbox ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input id="j_idt34:j_idt53_input" name="j_idt34:j_idt53_input" type="checkbox" autocomplete="off" aria-hidden="true" aria-checked="false" /></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"><span class="ui-chkbox-icon ui-icon ui-icon-blank ui-c"></span></div></div><script id="j_idt34:j_idt53_s" type="text/javascript">$(function(){PrimeFaces.cw("SelectBooleanCheckbox","widget_j_idt34_j_idt53",{id:"j_idt34:j_idt53"});});</script>
+                                <span class="task-name">Client Meeting</span>
+                                <i class="fa fa-user"></i>
+                            </li>
+                            <li><div id="j_idt34:j_idt55" class="ui-selectbooleancheckbox ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input id="j_idt34:j_idt55_input" name="j_idt34:j_idt55_input" type="checkbox" autocomplete="off" aria-hidden="true" aria-checked="false" /></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"><span class="ui-chkbox-icon ui-icon ui-icon-blank ui-c"></span></div></div><script id="j_idt34:j_idt55_s" type="text/javascript">$(function(){PrimeFaces.cw("SelectBooleanCheckbox","widget_j_idt34_j_idt55",{id:"j_idt34:j_idt55"});});</script>
+                                <span class="task-name">New Theme</span>
+                                <i class="fa fa-paint-brush"></i>
+                            </li>
+                            <li><div id="j_idt34:j_idt57" class="ui-selectbooleancheckbox ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input id="j_idt34:j_idt57_input" name="j_idt34:j_idt57_input" type="checkbox" autocomplete="off" aria-hidden="true" aria-checked="false" /></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"><span class="ui-chkbox-icon ui-icon ui-icon-blank ui-c"></span></div></div><script id="j_idt34:j_idt57_s" type="text/javascript">$(function(){PrimeFaces.cw("SelectBooleanCheckbox","widget_j_idt34_j_idt57",{id:"j_idt34:j_idt57"});});</script>
+                                <span class="task-name">Flight Ticket</span>
+                                <i class="fa fa-fighter-jet"></i>
+                            </li>
+                        </ul></div><div class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-all" role="tab" aria-expanded="false" aria-selected="false" tabindex="0"><span class="ui-icon ui-icon-triangle-1-e"></span>Contact Form</div><div id="j_idt34:j_idt59" class="ui-accordion-content ui-helper-reset ui-widget-content ui-helper-hidden" role="tabpanel" aria-hidden="true">
+                        <div class="ui-g ui-fluid contact-form">
+                            <div class="ui-g-12"><input id="j_idt34:j_idt61" name="j_idt34:j_idt61" type="text" class="ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all" placeholder="Name" /><script id="j_idt34:j_idt61_s" type="text/javascript">$(function(){PrimeFaces.cw("InputText","widget_j_idt34_j_idt61",{id:"j_idt34:j_idt61",maxlength:-2147483648});});</script>
+                            </div>
+                            <div class="ui-g-12"><input id="j_idt34:j_idt63" name="j_idt34:j_idt63" type="text" class="ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all" placeholder="Message" /><script id="j_idt34:j_idt63_s" type="text/javascript">$(function(){PrimeFaces.cw("InputText","widget_j_idt34_j_idt63",{id:"j_idt34:j_idt63",maxlength:-2147483648});});</script>
+                            </div>
+                            <div class="ui-g-12"><button id="j_idt34:j_idt65" name="j_idt34:j_idt65" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left" type="button"><span class="ui-button-icon-left ui-icon ui-c fa fa-paper-plane-o"></span><span class="ui-button-text ui-c">Send</span></button><script id="j_idt34:j_idt65_s" type="text/javascript">$(function(){PrimeFaces.cw("CommandButton","widget_j_idt34_j_idt65",{id:"j_idt34:j_idt65"});});</script>
+                            </div>
+                        </div></div><input type="hidden" id="j_idt34_active" name="j_idt34_active" value="0" autocomplete="off" /></div><script id="j_idt34_s" type="text/javascript">$(function(){PrimeFaces.cw("AccordionPanel","widget_j_idt34",{id:"j_idt34",multiple:true});});</script>
+            </div>
+        </div>
+    </div>
+                </div>
+                <div class="layout-main-content">
+    
+        <div class="ui-g">
+            <div class="ui-g-12">
+                <div class="card docs">
+                    <h1>Getting Started</h1>
+                    <p>First of all, you'd need SASS to compile CSS, proceed to <a href="https://sass-lang.com/install">SASS Installation</a> before beginning if you do not have SASS available in your command line.</p>
+                    <p>Demo project has an integrated jetty plugin so running the sample is easy as building the css first followed by the mvn jetty:run command.</p>
+<pre>
+sass --update src/main/webapp/resources/ --sourcemap=none
+mvn jetty:run
+</pre> 
+                    <p>Navigate to http://localhost:8096/poseidon to view the demos which is exactly same as the live version.</p>                 
+                    
+                    <h1>Layout</h1>
+                    <p>Poseidon provides a main template.xhtml and additional <i>topbar</i>, <i>menu</i>, <i>right-sidebar</i> and <i>footer</i> fragments for the base layout. 
+                        These xhtml files must be placed under WEB-INF folder and client pages should reference the template.xhtml as their template. 
+                        Provided empty.xhtml is a sample content page using the main template.xhtml that defines "content" as the main ui:define placeholder. By default template defines 3 placeholders 
+                        (page title, view name in breadcrumb and actual content)to insert content and you can add more as per your requirements.</p>
+                        
+                    <p>Sample page below uses the main template from Poseidon.</p>
+<pre>
+&lt;ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml"&gt;
+                
+    &lt;ui:define name="title"&gt;Test Page&lt;/ui:define&gt;
+
+    &lt;ui:define name="viewname"&gt;Test&lt;/ui:define&gt;
+
+    &lt;ui:define name="content"&gt;
+        Content goes here
+    &lt;/ui:define&gt;
+&lt;/ui:composition&gt;
+</pre>
+                    
+                    <p>Other required resources are the css, js and images that are located inside resources/poseidon-layout folder, simply copy the poseidon-layout folder to your %WEB-APP-FOLDER%/resources folder 
+                        so that final path would be %WEB-APP-FOLDER%/resources/poseidon-layout/. Please refer to demo app or maven project of the demo app as the reference.</p>
+                    
+                    <h1>Theme</h1>    
+                    <p>Poseidon provides 8 PrimeFaces themes out of the box, setup of a theme simple as including the theme jar in your classpath and defining primefaces.THEME context parameter in web.xml such as "primefaces-poseidon-green". Full list of 
+                    available themes are;</p>
+                    
+                    <ul>
+                        <li>primefaces-poseidon-turquoise</li>
+                        <li>primefaces-poseidon-blue</li>
+                        <li>primefaces-poseidon-purple</li>
+                        <li>primefaces-poseidon-orange</li>
+                        <li>primefaces-poseidon-pink</li>
+                        <li>primefaces-poseidon-light-blue</li>
+                        <li>primefaces-poseidon-green</li>
+                        <li>primefaces-poseidon-deep-purple</li>
+                    </ul>
+                    
+                    <p>A custom theme can be developed by the following steps.</p>
+                    <ul>
+                        <li>Choose a custom theme name such as primefaces-poseidon-myown.</li>
+                        <li>Create a folder named primefaces-poseidon-myown and place an empty theme.scss inside</li>
+                        <li>Copy the sass folder from the distribution to your application.</li>
+                        <li>Define the variables listed below and import the <i>/sass/theme/_theme.scss</i> file.</li>
+                        <li>Build the scss to generate css</li>
+                        <li>Set primefaces.THEME context parameter as <i>poseidon-myown</i></li>
+                        <li>Either bundle the css in a jar file or serve from webapp/resources/primefaces-poseidon-myown folder</li>
+                    </ul>
+                    
+                    <p>Here are the variables required to create a theme, you may need to change the last line according to the 
+                        relative path of the sass folder in your application.</p>
+                        
+<pre>
+$primaryColor:#f16383;
+
+@import '../sass/theme/_theme';
+</pre> 
+                        
+                    <p> An example sass command to compile the css would be;</p>
+                        
+<pre>
+sass src/main/webapp/resources/primefaces-poseidon-myown/theme.scss src/main/webapp/resources/primefaces-poseidon-myown/theme.css  --sourcemap=none
+</pre> 
+
+                    <p>Watch mode is handy to avoid compiling everytime when a change is made, instead use the following command
+                    so that sass generates the file whenever you make a customization. This builds all css files whenever a change is made to any scss file.</p>
+<pre>
+sass -w src/main/webapp/resources/ --sourcemap=none
+</pre> 
+
+                    <p>Same can also be applied to layout itself;</p>
+                    <ul>
+                        <li>Choose a layout name such as layout-myown.</li>
+                        <li>Create an empty file named layout-myown.scss inside resources/poseidon-layout/css folder.</li>
+                        <li>Define the variables listed below and import the <i>/sass/layout/_layout.scss</i> file.</li>
+                        <li>Build the scss to generate css</li>
+                        <li>Serve the css by importing it using a link tag or h:outputStylesheet.</li>
+                    </ul>
+                    
+                    <p>Here are the variables required to create a layout, you may need to change the last line according to the 
+                        relative path of the sass folder in your application.</p>
+                    
+<pre>
+$primaryColor:#f16383;
+
+@import '/../sass/layout/_layout';
+</pre> 
+                    
+                    <p>For both cases, several .scss files such as _layout.scss, _theme.scss or _variables.scss has to be present relative to your scss files, these are available inside the sass folder in the distribution.</p>
+                    <p>In case you'd like to customize the structure not just the colors, the _variables.scss is where the structural variables (e.g. font size, paddings) for the layout are defined.</p>
+<pre>
+/* Common */
+$fontSize:14px;
+$textColor:#5f666c;
+$textSecondaryColor:lighten($textColor,10%);
+$borderRadius:2px;
+$dividerColor:#c9cdd2;
+$iconWidth:16px;
+$iconHeight:16px;
+
+/* Headers */
+$headerPadding:8px 14px;
+$headerBgColor:#2d353c;
+$headerTextColor:#ffffff;
+$headerHoverBgColor:#444d56;
+
+/* Contents */
+$contentPadding:8px 14px;
+$contentBorderColor:#c9cdd2;
+
+/* Forms */
+$inputPadding:5px;
+$inputBorderColor:#a8acb1;
+$inputHoverBorderColor:#5f666c;
+$inputInvalidBorderColor:#f06364;
+
+/* List Items */
+$listItemPadding:8px 14px;
+$listItemHoverBgColor:#f0f3f5;
+$listItemHoverTextColor:#5f666c;
+
+/* Messages */
+$infoMessageBgColor:#2f8ee5;
+$infoMessageTextColor:#ffffff;
+$warnMessageBgColor:#f1b263;
+$warnMessageTextColor:#ffffff;
+$errorMessageBgColor:#f06364;
+$errorMessageTextColor:#ffffff;
+$fatalMessageBgColor:#2d353c;
+$fatalMessageTextColor:#ffffff;
+
+/* Horizontal Menu */
+$hmenuBGColor: #f0f3f5;
+
+/* Predefined Colors */
+$green:#00acac;
+$blue:#2f8ee5;
+$orange:#efa64c;
+$purple:#6c76af;
+$pink:#f16383;
+$lightBlue:#63c9f1;
+$black:#2d353c;
+</pre>        
+
+                    <h1>Menu</h1>    
+                    <p>Menu is a regular JSF component that supports PrimeFaces MenuModel API allowing both declarative and programmatic approaches. 
+                    State is saved via a cookie and to remove it define a widgetVar to the menu and call PF('yourwidgetvar').clearMenuState(). To use the menu
+                    add the primefaces-poseidon-{version}.jar to your classpath and import the http://primefaces.org/poseidon namespace.</p>
+<pre>
+xmlns:pp="http://primefaces.org/poseidon"&gt;
+
+&lt;pp:menu&gt;
+&lt;/pp:menu&gt;
+</pre>  
+                    <p>Menu has 3 modes, static, overlay and horizontal. Layout wrapper element in template.xhtml is used to define which mode to use by adding specific classes. List
+                    below indicates the style classes for each mode.</p>
+                    <ul>
+                        <li>Static: "layout-wrapper menu-layout-static"</li>
+                        <li>Overlay: "layout-wrapper menu-layout-overlay"</li>
+                        <li>Horizontal: "layout-wrapper menu-layout-static menu-layout-horizontal"</li>
+                    </ul>
+                    
+                    <p>For example to create a horizontal menu, the div element should be in following form;</p>
+<pre>
+&lt;div class="layout-wrapper menu-layout-static menu-layout-horizontal"&gt;
+    &lt;ui:include src="./topbar.xhtml" /&gt;
+    &lt;ui:include src="./menu.xhtml" /&gt;
+    
+    &lt;div class="layout-main"&gt;
+        &lt;ui:insert name="content"/&gt;
+        
+        &lt;ui:include src="./footer.xhtml" /&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</pre>            
+                    
+                    <p>It is also possible to leave the choice to the user by keeping the preference at a bean and usign an EL expression to bind it so that user can switch between modes. Sample
+                    application has an example implementation of such use case.</p>          
+<pre>
+&lt;div class="layout-wrapper menu-layout-static"&gt;
+
+&lt;/div&gt;
+</pre>      
+
+                    <p>Sample bean below can be used to keep the layout configuration based on user preferences</p>
+<pre>
+package org.primefaces.poseidon.view;
+
+import javax.annotation.PostConstruct;
+import java.util.Map;
+import java.util.HashMap;
+import java.io.Serializable;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+
+@ManagedBean
+@SessionScoped
+public class GuestPreferences implements Serializable {
+    
+    //match address bar in mobile browser
+    private Map&lt;String,String&gt; themeColors;
+    
+    //theme name
+    private String theme = "green";
+    
+    //menu mode    
+    private String menuLayout = "static";
+        
+    @PostConstruct
+    public void init() {
+        themeColors = new HashMap&lt;String,String&gt;();
+        themeColors.put("green", "#00acac");
+        themeColors.put("blue", "#2f8ee5");
+        themeColors.put("orange", "#efa64c");
+        themeColors.put("purple", "#6c76af");
+        themeColors.put("pink", "#f16383");
+        themeColors.put("light-blue", "#63c9f1");
+    }
+        
+    public String getMenuLayout() {	
+        if(this.menuLayout.equals("static"))
+            return "menu-layout-static";
+        else if(this.menuLayout.equals("overlay"))
+            return "menu-layout-overlay";
+        else if(this.menuLayout.equals("horizontal"))
+            return "menu-layout-static menu-layout-horizontal";
+        else
+            return "menu-layout-static";
+    }
+    
+    public String getTheme() {		
+        return theme;
+    }
+
+    public void setTheme(String theme) {
+    	this.theme = theme;
+    }
+    
+    public void setMenuLayout(String menuLayout) {
+        this.menuLayout = menuLayout;
+    }
+    
+    public Map getThemeColors() {
+        return this.themeColors;
+    }
+}
+</pre>        
+                    <h1>RTL</h1>
+                    <p>Layout can be used in RTL orientation as well by adding "layout-rtl" to the "layout-wrapper" div in template.xhtml.</p>
+                    
+                    <h1>Icons</h1>
+                    <p>Poseidon Layout uses font awesome icons for layout so enable font awesome support in PrimeFaces by setting primefaces.FONT_AWESOME context parameter in web.xml as true. If your PrimeFaces version 
+                    does not have the font awesome integration, include the font-awesome manually in your application.</p>
+
+                    <h1>Card</h1>
+                    <p>Card is a section to group content and layout provides a built-in css for it. Apply .card style class to your container to use it. If the
+                    card has a title defined with h1 tag, add card-w-title to adjust paddings.</p>
+<pre>
+&lt;div class="card"&gt;
+    Content here
+&lt;/div&gt;
+
+&lt;div class="card card-w-title"&gt;
+    &lt;h1&gt;Card with Title&lt;h1&gt;
+    Content here
+&lt;/div&gt;
+</pre>  
+
+                    <h1>Grid CSS</h1>
+                    <p>Poseidon uses new PrimeFaces Grid CSS (ui-g-*) throughout the samples, we strongly suggest using Grid CSS as your layout framework as it is well tested and supported by PrimeFaces. Grid CSS 
+                    is automatically included on newer versions however if your PrimeFaces version is older than 5.3.14, add the provided grid.css file under /poseidon-layout/css/ folder to your template manually.</p> 
+                    
+                    <h1>Tips</h1>
+                    <ul>
+                        <li>Familiarity with <a href="http://sass-lang.com/">SASS</a> is required to make customizations to the layout and theme.</li>
+                        <li>Demo application war and the maven project tag are included in distribution however you don't necessarily need them to install Poseidon, the actual artifacts required are the layout zip file and the theme jar.</li>
+                        <li>Sample demo application war includes the JSF libraries so it is suggested to remove them from the war file when you deploy to an appserver.</li>
+                        <li>When running the maven project, you need to build the sass with (sass --update src/main/webapp/resources/ --sourcemap=none) command.</li>
+                    </ul> 
+                    
+                    <h1>Migration Guide</h1>
+                    <p>1.0.4 to 2.0.0</p>
+                    <ul>
+                        <li>Update PoseidonMenu*.java file</li>
+                        <li>Replace theme jar with new jar</li>
+                    </ul>
+                    <p>1.0.3 to 1.0.4</p>
+                    <ul>
+                        <li>Update layout.js, layout css and PoseidonMenu*.java files</li>
+                        <li>Replace theme jar with new jar</li>
+                    </ul>
+                    <p>1.0.2 to 1.0.3</p>
+                    <ul>
+                        <li>Update layout.js and layout css files</li>
+                        <li>Replace theme jar with new jar</li>
+                    </ul>
+                    <p>1.0 to 1.0.1</p>
+                    <ul>
+                        <li>Update layout.js and layout css files</li>
+                        <li>Replace theme jar with new jar</li>
+                        <li>Update *MenuRenderer.java and *Menu.java</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+                </div>
+    
+    <div class="footer">
+        <div class="card clearfix">
+            <span class="footer-text-left">PrimeFaces POSEIDON</span>
+            <span class="footer-text-right"><span class="ui-icon ui-icon-copyright"></span>  <span>All Rights Reserved</span></span>
+        </div>
+    </div>
+            </div>
+        </div><div id="j_idt73" style="width:32px;height:32px;position:fixed;right:7px;bottom:7px"><div id="j_idt73_start" style="display:none">
+               <i class="fa fa-circle-o-notch fa-spin ajax-loader" aria-hidden="true"></i></div><div id="j_idt73_complete" style="display:none"></div></div><script id="j_idt73_s" type="text/javascript">$(function(){PrimeFaces.cw("AjaxStatus","widget_j_idt73",{id:"j_idt73"});});</script></body>
+
+
+<!-- Mirrored from www.primefaces.org/poseidon/docs.xhtml by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 18 Oct 2019 11:05:16 GMT -->
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Registro de Asignacion de especialidad</title>
+        <h:outputScript library="js" name="script.js"/>
+    </h:head>
+    <h:body>    
+        <ui:composition>
+            <p:dialog id="dlg_ins_testablecimiento" widgetVar="dlg_ins_testablecimiento" dynamic="true"
+                      resizable="false" draggable="false" modal="true" closable="false" header="Registrar especialidad">
+                <h:form id="f_ins_testablecimiento">
+                    <p:panelGrid id="pg_testablecimiento" columns="2">
+                        <p:outputLabel value="Establecimiento:" for="establecimiento"/>
+                        <h:outputText id="establecimiento" value="#{loginC.sesion.IDEST}"/>
+                        <p:outputLabel value="Especialidad:" for="especialidad"/>
+                        <p:selectOneMenu id="especialidad" autoWidth="true" value="#{testablecimientoC.modelo.IDESP.IDESP}"
+                                         required="true">
+                            <f:selectItem itemLabel="Elija una opción" noSelectionOption="true"/>
+                            <f:selectItems value="#{testablecimientoC.especialidades}" var="especialidades"
+                                           itemValue="#{especialidades.IDESP}" itemLabel="#{especialidades.NOMESP}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:separator/>
+                    <h:panelGroup class="oaw-horizontal-between">
+                        <p:commandButton value="Registrar" actionListener="#{testablecimientoC.insertar()}" 
+                                         update=":f_testablecimiento especialidad"/>
+                        <p:commandButton value="Cerrar" immediate="true" onclick="PF('dlg_ins_testablecimiento').hide()"
+                                         update="pg_testablecimiento"/>
+                    </h:panelGroup>
+                </h:form>
+            </p:dialog>
+        </ui:composition>
+    </h:body>
+
+</html>

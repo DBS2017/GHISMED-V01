@@ -1,0 +1,41 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+    <p:dialog id="dlg_ins_consulta" widgetVar="dlg_ins_consulta" header="Registrar nueva Consulta"
+              resizable="false" draggable="false" modal="true" closable="false" >
+        <h:form id="f_ins_consulta">
+            <p:panelGrid columns="2" id="pg_consulta">
+                <p:outputLabel for="fecha" value="Fecha"/>
+                <h:outputText id="fecha" value="#{session.lastAccessedTime}">
+                    <f:convertDateTime pattern="dd/MM/yyyy" type="date" />
+                </h:outputText>
+
+                <p:outputLabel for="paciente" value="Paciente:"/>
+                <p:autoComplete id="paciente" value="#{consultaC.modelo.IDPAC.IDPER}" maxResults="10" 
+                                completeMethod="#{consultaC.autocompletePaciente}" dropdown="true" 
+                                queryDelay="#{validar.query_delay}" itemValue="#{paciente}" required="true"
+                                var="paciente" itemLabel="#{paciente.FULLNAME}" forceSelection="true">
+                    <f:converter converterId="c_persona"/>
+                </p:autoComplete>
+
+                <p:outputLabel for="especialidad" value="Especialidad:"/>
+                <p:selectOneMenu id="especialidad" value="#{consultaC.modelo.IDESPTRA.IDESTESP.IDESTESP}" required="true"
+                                 effect="fade" style="width:200px" filter="true" filterMatchMode="startsWith">
+                    <f:selectItem itemLabel="Seleccione la especialidad" itemValue="#{null}" noSelectionOption="true"/>
+                    <f:selectItems value="#{testablecimientoC.lista}" var="tespecialidades"
+                                   itemLabel="#{tespecialidades.IDESP.NOMESP} - #{tespecialidades.IDEST.NOMEST}"
+                                   itemValue="#{tespecialidades.IDESTESP}"/>
+                    <p:ajax event="change" update="especialista"/>
+                </p:selectOneMenu>
+                <p:outputLabel for="especialista" value="Especialista:"/>
+                <h:outputText id="especialista" value="#{consultaC.ESPECIALISTA.FULLNAME}"/>
+            </p:panelGrid>
+            <p:commandButton value="Prestar Historia" icon="ui-icon-check" update="f_ins_consulta :f_consulta" 
+                             actionListener="#{consultaC.insertar()}" 
+                             oncomplete="fn_validar_dialogo(args,'consulta')"  class="btn btn-secondary"/> 
+            <p:commandButton value="Cancelar" icon="ui-icon-close" immediate="true" onclick="PF('dlg_ins_consulta').hide();" />
+        </h:form>
+    </p:dialog>
+</ui:composition>

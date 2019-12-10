@@ -1,0 +1,1900 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <h:outputStylesheet name="theme.css"/>
+        <h:outputStylesheet name="components.css"/>
+        <h:outputStylesheet library="css" name="grid.css"/>
+        <h:outputStylesheet library="css" name="ripple.css"/>
+        <h:outputStylesheet library="fa" name="font-awesome.css"/>
+        <h:outputStylesheet library="css" name="layout-blue.css"/>
+        <h:outputStylesheet library="css" name="nanoscroller.css"/>
+        <h:outputScript name="core.js" />
+        <h:outputScript name="components.js" />
+        <h:outputScript library="js" name="ripple.js" />
+        <h:outputScript library="js" name="funcional.js" />
+        <h:outputScript library="js" name="layout.js" />
+        <h:outputScript library="js" name="nanoscroller.js" />
+        <h:outputScript library="js" name="templateStyle.js" />
+        <title>iHisMan</title>
+    </h:head>
+
+    <h:body>
+        <div class="layout-container layout-menu-light layout-topbar-blue layout-top-medium">
+            <div class="layout-top">
+
+                <div class="layout-topbar">
+                    <a id="layout-menubutton" href="#" class="layout-menubutton">
+                        <div class="layout-menubutton-icon"></div>
+                    </a>
+
+                    <div class="layout-topbar-grid">
+                        <!--LOGO-->
+                        <div class="layout-topbar-grid-column layout-topbar-grid-column-fixed">
+                            <p:link href="#{request.contextPath}/web/vistas/landing.xhtml">
+                                <p:graphicImage name="logo-white.svg"/>
+                            </p:link>
+                        </div>
+                        <div class="layout-topbar-grid-column">
+
+                            <div id="layout-menu-container" class="layout-menu-container">
+                                <div id="layout-nano" class="nano">
+                                    <div class="nano-content sidebar-scroll-content">
+                                        <div class="layout-menu-wrapper">
+                                            <form id="menuform" name="menuform" method="post"
+                                                  enctype="application/x-www-form-urlencoded">
+                                                <input type="hidden" name="menuform" value="menuform" />
+                                                <ul id="menuform:j_idt16" class="layout-menu">
+                                                    <li id="menuform:sr_dashboard" role="menuitem">
+                                                        <p:link class="ripplelink" href="#{request.contextPath}/web/vistas/Dashboard/Dashboard.xhtml">
+                                                            <i class="material-icons">trending_up</i>
+                                                            <span class="menuitem-text">Dashboard</span>
+                                                        </p:link>
+                                                    </li>
+                                                    <li id="menuform:sr_consulta" role="menuitem">
+                                                        <p:link class="ripplelink" href="#{request.contextPath}/web/vistas/Consulta/LstConsulta.xhtml">
+                                                            <i class="material-icons">event_note</i>
+                                                            <span class="menuitem-text">Consulta</span>
+                                                        </p:link>
+                                                    </li>
+                                                    <li id="menuform:sr_personas" role="menuitem">
+                                                        <a href="#" class="ripplelink">
+                                                            <i class="material-icons">people</i>
+                                                            <span class="menuitem-text">Personas</span>
+                                                            <i class="material-icons layout-submenu-toggler">keyboard_arrow_down</i>
+                                                        </a>
+                                                        <div class="layout-submenu-container">
+                                                            <ul role="menu" class="layout-submenu">
+                                                                <li id="menuform:sr_personas_trabajador" role="menuitem">
+                                                                    <p:link class="ripplelink" href="#{request.contextPath}/web/vistas/Trabajador/LstTrabajador.xhtml">
+                                                                        <i class="material-icons">school</i>
+                                                                        <span class="menuitem-text">Trabajador</span>
+                                                                    </p:link>
+                                                                </li>
+                                                                <li id="menuform:sr_personas_paciente" role="menuitem">
+                                                                    <p:link class="ripplelink" href="#{request.contextPath}/web/vistas/Paciente/LstPaciente.xhtml">
+                                                                        <i class="material-icons">accessible</i>
+                                                                        <span class="menuitem-text">Paciente</span>
+                                                                    </p:link>
+                                                                </li>
+                                                                <li id="menuform:sr_personas_parentesco" role="menuitem">
+                                                                    <p:link class="ripplelink" href="#{request.contextPath}/web/vistas/Persona/LstPersona.xhtml">
+                                                                        <i class="material-icons">supervisor_account</i>
+                                                                        <span class="menuitem-text">Responsable/Pariente</span>
+                                                                    </p:link>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                    <li id="menuform:sr_areas" role="menuitem">
+                                                        <a href="#" class="ripplelink">
+                                                            <i class="material-icons">home</i>
+                                                            <span class="menuitem-text">Áreas</span>
+                                                            <i class="material-icons layout-submenu-toggler">keyboard_arrow_down</i>
+                                                        </a>
+                                                        <div class="layout-submenu-container">
+                                                            <ul role="menu" class="layout-submenu">
+                                                                <li id="menuform:sr_areas_establecimiento" role="menuitem">
+                                                                    <p:link class="ripplelink" href="#{request.contextPath}/web/vistas/Establecimiento/LstEstablecimiento.xhtml">
+                                                                        <i class="material-icons">business</i>
+                                                                        <span class="menuitem-text">Establecimiento</span>
+                                                                    </p:link>
+                                                                </li>
+                                                                <li id="menuform:sr_areas_especialidad" role="menuitem">
+                                                                    <p:link class="ripplelink" href="#{request.contextPath}/web/vistas/Especialidad/LstEspecialidad.xhtml">
+                                                                        <i class="material-icons">local_hospital</i>
+                                                                        <span class="menuitem-text">Especialidad</span>
+                                                                    </p:link>
+                                                                </li>
+                                                                <li id="menuform:sr_areas_estabespec" role="menuitem">
+                                                                    <p:link class="ripplelink" href="#{request.contextPath}/web/vistas/testablecimiento/LstTEstablecimiento.xhtml">
+                                                                        <i class="material-icons">assignment_turned_in</i>
+                                                                        <span class="menuitem-text">Mis Establecimientos</span>
+                                                                    </p:link>
+                                                                </li>
+                                                                <li id="menuform:sr_areas_espectrab" role="menuitem">
+                                                                    <p:link class="ripplelink" href="#{request.contextPath}/web/vistas/TEspecialidad/LstTEspecialidad.xhtml">
+                                                                        <i class="material-icons">assignment_turned_in</i>
+                                                                        <span class="menuitem-text">A Especialidad</span>
+                                                                    </p:link>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                    <li id="menuform:sr_default" role="menuitem">
+                                                        <a href="#" class="ripplelink">
+                                                            <i class="material-icons">cloud_download</i>
+                                                            <span class="menuitem-text">Reportes</span>
+                                                            <i class="material-icons layout-submenu-toggler">keyboard_arrow_down</i>
+                                                        </a>
+                                                        <div class="layout-submenu-container">
+                                                            <ul role="menu" class="layout-submenu">
+                                                                <li id="menuform:sr_db_landing" role="menuitem">
+                                                                    <p:link class="ripplelink" href="#{request.contextPath}/web/vistas/Persona/LstPersona.xhtml">
+                                                                        <i class="material-icons">insert_drive_file</i>
+                                                                        <span class="menuitem-text">Landing</span>
+                                                                    </p:link>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                                <script id="menuform:j_idt16_s" type="text/javascript">
+                                                    $(function () {
+                                                        PrimeFaces.cw("Sapphire", "widget_menuform_j_idt16", {id: "menuform:j_idt16", closeDelay: 250});
+                                                    });
+                                                </script>
+                                                <input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:0" value="1027800245571205702:-4455179014194411126" autocomplete="off" />
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layout-topbar-grid-column layout-topbar-grid-column-fixed">
+                            <span class="layout-topbar-search">
+                                <form id="j_i   dt19" name="j_idt19" method="post"
+                                      action="https://www.primefaces.org/sapphire/empty.xhtml"
+                                      enctype="application/x-www-form-urlencoded">
+                                    <input type="hidden" name="j_idt19" value="j_idt19" />
+
+                                    <span class="md-inputfield">
+                                        <input id="j_idt19:j_idt21" name="j_idt19:j_idt21" type="text" class="ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all" />
+                                        <script id="j_idt19:j_idt21_s" type="text/javascript">
+                                            $(function () {
+                                                PrimeFaces.cw("InputText", "widget_j_idt19_j_idt21", {id: "j_idt19:j_idt21", maxlength: -2147483648});
+                                            });
+                                        </script>
+                                        <label>Search</label>
+                                        <i class="material-icons">search</i>
+                                    </span>
+                                    <input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:1" value="1027800245571205702:-4455179014194411126" autocomplete="off" />
+                                </form>
+                            </span>
+                        </div>
+
+                        <div class="layout-topbar-grid-column layout-topbar-grid-column-fixed">
+                            <a id="profile-menu-button" href="#" class="profile-menu-button">
+                                <img id="j_idt24" src="../../resources/avatar.png" alt="" />
+                            </a>
+                            <ul id="layout-profile-menu" class="layout-profile-menu">
+                                <li class="layout-profile-menu-search">
+                                    <form id="j_idt26" name="j_idt26" method="post"
+                                          action="https://www.primefaces.org/sapphire/empty.xhtml"
+                                          enctype="application/x-www-form-urlencoded">
+                                        <input type="hidden" name="j_idt26" value="j_idt26" />
+
+                                        <span class="md-inputfield">
+                                            <input id="j_idt26:j_idt28" name="j_idt26:j_idt28" type="text" class="ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all" />
+                                            <script id="j_idt26:j_idt28_s" type="text/javascript">
+                                                $(function () {
+                                                    PrimeFaces.cw("InputText", "widget_j_idt26_j_idt28", {id: "j_idt26:j_idt28", maxlength: -2147483648});
+                                                });
+                                            </script>
+                                            <label>Search</label>
+                                        </span><input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:3" value="1027800245571205702:-4455179014194411126" autocomplete="off" />
+                                    </form>
+                                </li>
+                                <li>
+                                    <a href="#" class="ripplelink">
+                                        <i class="material-icons">account_circle</i>
+                                        <span>Profile</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="seguridad/CambiarCuenta.xhtml" class="ripplelink">
+                                        <i class="material-icons">settings</i>
+                                        <span>Settings</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="ripplelink">
+                                        <i class="material-icons">cancel</i>
+                                        <span>Logout</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layout-topbar-separator"></div>
+
+                <div class="layout-breadcrumb">
+                    <ul>
+                        <li><a href="../Dashboard/Dashboard.xhtml" class="ui-link ui-widget">
+                                <i class="material-icons">home</i>
+                            </a>
+                        </li>
+                        <li>
+                            <i class="material-icons">chevron_right</i>
+                        </li>
+                        <li>
+                            <a href="#" class="ui-link ui-widget">
+                                <ui:insert name="title"/>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="layout-content">
+
+                <p:growl showDetail="true" life="5000" widgetVar="growl">
+                    <p:autoUpdate/>
+                </p:growl>
+                <ui:insert name="vista"/>
+                <h:form>
+                    <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                        <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                    </p:confirmDialog>
+                </h:form>
+                <p:dialog widgetVar="cuenta" header="Cambiar datos de la cuenta" id="cuenta"
+                          resizable="false" draggable="false" modal="true" closable="false" dynamic="true">
+                    <ui:include src="CambiarCuenta.xhtml"/>  
+                </p:dialog>
+            </div>
+
+            <a href="#" id="layout-config-button" class="layout-config-button">
+                <i class="material-icons">settings</i>
+            </a>
+
+            <div id="layout-config" class="layout-config">
+                <div class="layout-config-content">
+                    <a href="#" class="layout-config-close">
+                        <i class="material-icons">close</i>
+                    </a>
+                    <form id="config-form" name="config-form" method="post"
+                          action="https://www.primefaces.org/sapphire/empty.xhtml"
+                          enctype="application/x-www-form-urlencoded">
+                        <input type="hidden" name="config-form" value="config-form" />
+                        <div id="config-form:config-form-tabs"
+                             class="ui-tabs ui-widget ui-widget-content ui-corner-all ui-hidden-container ui-tabs-top"
+                             data-widget="widget_config_form_config_form_tabs">
+                            <ul class="ui-tabs-nav ui-helper-reset ui-widget-header ui-corner-all" role="tablist">
+                                <li class="ui-tabs-header ui-state-default ui-tabs-selected ui-state-active ui-corner-top"
+                                    role="tab" aria-expanded="true" aria-selected="true" data-index="0">
+                                    <a href="#config-form:config-form-tabs:j_idt45" tabindex="-1">TopBar</a>
+                                </li>
+                                <li class="ui-tabs-header ui-state-default ui-corner-top" role="tab" aria-expanded="false"
+                                    aria-selected="false" data-index="1">
+                                    <a href="#config-form:config-form-tabs:j_idt66" tabindex="-1">Menu</a>
+                                </li>
+                                <li class="ui-tabs-header ui-state-default ui-corner-top" role="tab" aria-expanded="false"
+                                    aria-selected="false" data-index="2">
+                                    <a href="#config-form:config-form-tabs:j_idt86" tabindex="-1">Components</a>
+                                </li>
+                                <li class="ui-tabs-header ui-state-default ui-corner-top" role="tab" aria-expanded="false"
+                                    aria-selected="false" data-index="3">
+                                    <a href="#config-form:config-form-tabs:j_idt96" tabindex="-1">Primary Color</a>
+                                </li>
+                            </ul>
+                            <div class="ui-tabs-panels">
+                                <div id="config-form:config-form-tabs:j_idt45"
+                                     class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel"
+                                     aria-hidden="false" data-index="0">
+                                    <div class="layout-config-subtitle">Size</div>
+                                    <div id="config-form:config-form-tabs:topbarsize-panel"
+                                         class="ui-outputpanel ui-widget">
+                                        <div class="p-grid">
+                                            <div class="p-col p-col-fixed">
+                                                <a href="#"
+                                                   class="ui-commandlink ui-widget layout-config-option layout-config-option-image layout-config-option-light ui-shadow-1">
+                                                    <img id="config-form:config-form-tabs:j_idt48:0:j_idt51"
+                                                         src="../../resources/images/configurator/topbar-large.png" alt=""
+                                                         title="large" style="width:100%" onclick="fn_sizeMenuV(this)"/>
+                                                    <i id="selectedSizeMenuV" class="material-icons">check</i>
+                                                </a>
+                                            </div>
+                                            <div class="p-col p-col-fixed">
+                                                <a href="#"
+                                                   class="ui-commandlink ui-widget layout-config-option layout-config-option-image layout-config-option-light ui-shadow-1">
+                                                    <img id="config-form:config-form-tabs:j_idt48:1:j_idt51"
+                                                         src="../../resources/images/configurator/topbar-medium.png" alt=""
+                                                         title="medium" style="width:100%" onclick="fn_sizeMenuV(this)"/>
+                                                </a>
+                                            </div>
+                                            <div class="p-col p-col-fixed">
+                                                <a href="#"
+                                                   class="ui-commandlink ui-widget layout-config-option layout-config-option-image layout-config-option-light ui-shadow-1">
+                                                    <img id="config-form:config-form-tabs:j_idt48:2:j_idt51"
+                                                         src="../../resources/images/configurator/topbar-small.png" alt="" 
+                                                         title="small" style="width:100%" onclick="fn_sizeMenuV(this)"/>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="layout-config-subtitle">Themes</div>
+                                    <div id="config-form:config-form-tabs:topbarthemes-panel"
+                                         class="ui-outputpanel ui-widget">
+                                        <div class="p-grid">
+                                            <div class="p-col">
+                                                <a id="config-form:config-form-tabs:j_idt58:0:j_idt60"
+                                                   href="#" class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1">
+                                                    <img id="config-form:config-form-tabs:j_idt58:0:j_idt61"
+                                                         src="../../resources/images/configurator/blue.svg" alt="" title="Blue" />
+                                                    <i class="material-icons">check</i>
+                                                </a>
+                                            </div>
+                                            <div class="p-col">
+                                                <a id="config-form:config-form-tabs:j_idt58:1:j_idt60"
+                                                   href="#" class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:1:j_idt61"
+                                                        src="../../resources/images/configurator/ash.svg" alt=""
+                                                        title="Ash" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:2:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:2:j_idt61"
+                                                        src="../../resources/images/configurator/kashmir.svg" alt=""
+                                                        title="Kashmir" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:3:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:3:j_idt61"
+                                                        src="../../resources/images/configurator/orange.svg" alt=""
+                                                        title="Orange" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:4:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:4:j_idt61"
+                                                        src="../../resources/images/configurator/midnight.svg" alt=""
+                                                        title="Midnight" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:5:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:5:j_idt61"
+                                                        src="../../resources/images/configurator/sunset.svg" alt=""
+                                                        title="Sunset" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:6:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:6:j_idt61"
+                                                        src="../../resources/images/configurator/marley.svg" alt=""
+                                                        title="Marley" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:7:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:7:j_idt61"
+                                                        src="../../resources/images/configurator/harvey.svg" alt=""
+                                                        title="Harvey" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:8:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:8:j_idt61"
+                                                        src="../../resources/images/configurator/vanusa.svg" alt=""
+                                                        title="Vanusa" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:9:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:9:j_idt61"
+                                                        src="../../resources/images/configurator/skyline.svg" alt=""
+                                                        title="Skyline" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:10:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:10:j_idt61"
+                                                        src="../../resources/images/configurator/royal.svg" alt=""
+                                                        title="Royal" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:11:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:11:j_idt61"
+                                                        src="../../resources/images/configurator/disco.svg" alt=""
+                                                        title="Disco" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:12:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:12:j_idt61"
+                                                        src="../../resources/images/configurator/sky.svg" alt=""
+                                                        title="Sky" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:13:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:13:j_idt61"
+                                                        src="../../resources/images/configurator/rose.svg" alt=""
+                                                        title="Rose" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:14:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:14:j_idt61"
+                                                        src="../../resources/images/configurator/revolt.svg" alt=""
+                                                        title="Revolt" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:15:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:15:j_idt61"
+                                                        src="../../resources/images/configurator/forest.svg" alt=""
+                                                        title="Forest" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:16:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:16:j_idt61"
+                                                        src="../../resources/images/configurator/night.svg" alt=""
+                                                        title="Night" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:17:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:17:j_idt61"
+                                                        src="../../resources/images/configurator/apricot.svg" alt=""
+                                                        title="Apricot" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:18:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:18:j_idt61"
+                                                        src="../../resources/images/configurator/faraway.svg" alt=""
+                                                        title="Faraway" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:19:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:19:j_idt61"
+                                                        src="../../resources/images/configurator/grape.svg" alt=""
+                                                        title="Grape" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:20:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:20:j_idt61"
+                                                        src="../../resources/images/configurator/river.svg" alt=""
+                                                        title="River" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:21:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:21:j_idt61"
+                                                        src="../../resources/images/configurator/dock.svg" alt=""
+                                                        title="Dock" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:22:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:22:j_idt61"
+                                                        src="../../resources/images/configurator/materialone.png" alt=""
+                                                        title="Material One" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:23:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:23:j_idt61"
+                                                        src="../../resources/images/configurator/materialtwo.png" alt=""
+                                                        title="Material Two" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:24:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:24:j_idt61"
+                                                        src="../../resources/images/configurator/polygons.png" alt=""
+                                                        title="Polygons" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:25:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:25:j_idt61"
+                                                        src="../../resources/images/configurator/connectionsone.png" alt=""
+                                                        title="Connections One" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:26:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:26:j_idt61"
+                                                        src="../../resources/images/configurator/connectionstwo.png" alt=""
+                                                        title="Connections Two" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:27:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:27:j_idt61"
+                                                        src="../../resources/images/configurator/road.png" alt=""
+                                                        title="Road" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:28:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:28:j_idt61"
+                                                        src="../../resources/images/configurator/reflection.png" alt=""
+                                                        title="Reflection" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:29:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:29:j_idt61"
+                                                        src="../../resources/images/configurator/waves.png" alt=""
+                                                        title="Waves" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:30:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:30:j_idt61"
+                                                        src="../../resources/images/configurator/sandiego.png" alt=""
+                                                        title="Sandiego" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:31:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:31:j_idt61"
+                                                        src="../../resources/images/configurator/architecture.png" alt=""
+                                                        title="Architecture" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:32:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:32:j_idt61"
+                                                        src="../../resources/images/configurator/snow.png" alt=""
+                                                        title="Snow" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:33:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:33:j_idt61"
+                                                        src="../../resources/images/configurator/palm.png" alt=""
+                                                        title="Palm" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:34:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:34:j_idt61"
+                                                        src="../../resources/images/configurator/fluid.png" alt=""
+                                                        title="Fluid" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:35:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:35:j_idt61"
+                                                        src="../../resources/images/configurator/balloon.png" alt=""
+                                                        title="Balloon" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:36:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:36:j_idt61"
+                                                        src="../../resources/images/configurator/downtown.png" alt=""
+                                                        title="Downtown" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:37:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:37:j_idt61"
+                                                        src="../../resources/images/configurator/perfection.png" alt=""
+                                                        title="Perfection" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:38:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:38:j_idt61"
+                                                        src="../../resources/images/configurator/northern.png" alt=""
+                                                        title="Northern" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:39:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:39:j_idt61"
+                                                        src="../../resources/images/configurator/highline.png" alt=""
+                                                        title="Highline" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:40:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:40:j_idt61"
+                                                        src="../../resources/images/configurator/mural.png" alt=""
+                                                        title="Mural" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:41:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:41:j_idt61"
+                                                        src="../../resources/images/configurator/aeriel.png" alt=""
+                                                        title="Aeriel" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:42:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:42:j_idt61"
+                                                        src="../../resources/images/configurator/wing.png" alt=""
+                                                        title="Wing" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:43:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:43:j_idt61"
+                                                        src="../../resources/images/configurator/skyscraper.png" alt=""
+                                                        title="Skyscraper" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:44:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:44:j_idt61"
+                                                        src="../../resources/images/configurator/wall.png" alt=""
+                                                        title="Wall" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:45:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:45:j_idt61"
+                                                        src="../../resources/images/configurator/dawn.png" alt=""
+                                                        title="Dawn" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:46:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:46:j_idt61"
+                                                        src="../../resources/images/configurator/lille.png" alt=""
+                                                        title="Lille" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:47:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:47:j_idt61"
+                                                        src="../../resources/images/configurator/condo.png" alt=""
+                                                        title="Condo" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:48:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:48:j_idt61"
+                                                        src="../../resources/images/configurator/waterfall.png" alt=""
+                                                        title="Waterfall" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:49:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:49:j_idt61"
+                                                        src="../../resources/images/configurator/coffee.png" alt=""
+                                                        title="Coffee" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:50:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:50:j_idt61"
+                                                        src="../../resources/images/configurator/mountain.png" alt=""
+                                                        title="Mountain" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:51:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:51:j_idt61"
+                                                        src="../../resources/images/configurator/lights.png" alt=""
+                                                        title="Lights" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:52:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:52:j_idt61"
+                                                        src="../../resources/images/configurator/desert.png" alt=""
+                                                        title="Desert" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:53:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:53:j_idt61"
+                                                        src="../../resources/images/configurator/beach.png" alt=""
+                                                        title="Beach" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:54:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:54:j_idt61"
+                                                        src="../../resources/images/configurator/classic.png" alt=""
+                                                        title="Classic" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:55:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:55:j_idt61"
+                                                        src="../../resources/images/configurator/hazy.png" alt=""
+                                                        title="Hazy" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:56:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:56:j_idt61"
+                                                        src="../../resources/images/configurator/exposure.png" alt=""
+                                                        title="Exposure" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:57:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:57:j_idt61"
+                                                        src="../../resources/images/configurator/norge.png" alt=""
+                                                        title="Norge" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:58:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:58:j_idt61"
+                                                        src="../../resources/images/configurator/island.png" alt=""
+                                                        title="Island" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:59:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:59:j_idt61"
+                                                        src="../../resources/images/configurator/station.png" alt=""
+                                                        title="Station" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:60:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:60:j_idt61"
+                                                        src="../../resources/images/configurator/fruity.png" alt=""
+                                                        title="Fruity" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:61:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:61:j_idt61"
+                                                        src="../../resources/images/configurator/tropical.png" alt=""
+                                                        title="Tropical" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:62:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:62:j_idt61"
+                                                        src="../../resources/images/configurator/beyoglu.png" alt=""
+                                                        title="Beyoglu" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:63:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:63:j_idt61"
+                                                        src="../../resources/images/configurator/timelapse.png" alt=""
+                                                        title="Timelapse" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:64:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:64:j_idt61"
+                                                        src="../../resources/images/configurator/crystal.png" alt=""
+                                                        title="Crystal" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:65:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:65:j_idt61"
+                                                        src="../../resources/images/configurator/aquarelle.png" alt=""
+                                                        title="Aquarelle" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:66:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:66:j_idt61"
+                                                        src="../../resources/images/configurator/canvas.png" alt=""
+                                                        title="Canvas" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:67:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:67:j_idt61"
+                                                        src="../../resources/images/configurator/olympic.png" alt=""
+                                                        title="Olympic" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:68:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:68:j_idt61"
+                                                        src="../../resources/images/configurator/circuit.png" alt=""
+                                                        title="Circuit" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:69:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:69:j_idt61"
+                                                        src="../../resources/images/configurator/flamingo.png" alt=""
+                                                        title="Flamingo" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:70:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:70:j_idt61"
+                                                        src="../../resources/images/configurator/flight.png" alt=""
+                                                        title="Flight" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:71:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:71:j_idt61"
+                                                        src="../../resources/images/configurator/tractor.png" alt=""
+                                                        title="Tractor" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:72:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:72:j_idt61"
+                                                        src="../../resources/images/configurator/volcano.png" alt=""
+                                                        title="Volcano" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:73:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:73:j_idt61"
+                                                        src="../../resources/images/configurator/pine.png" alt=""
+                                                        title="Pine" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:74:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:74:j_idt61"
+                                                        src="../../resources/images/configurator/emptiness.png" alt=""
+                                                        title="Emptiness" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:75:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:75:j_idt61"
+                                                        src="../../resources/images/configurator/splash.png" alt=""
+                                                        title="Splash" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:76:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:76:j_idt61"
+                                                        src="../../resources/images/configurator/urban.png" alt=""
+                                                        title="Urban" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:77:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:77:j_idt61"
+                                                        src="../../resources/images/configurator/bloom.png" alt=""
+                                                        title="Bloom" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:78:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:78:j_idt61"
+                                                        src="../../resources/images/configurator/tinfoil.png" alt=""
+                                                        title="Tinfoil" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:79:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:79:j_idt61"
+                                                        src="../../resources/images/configurator/hallway.png" alt=""
+                                                        title="Hallway" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:80:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:80:j_idt61"
+                                                        src="../../resources/images/configurator/seagull.png" alt=""
+                                                        title="Seagull" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:81:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:81:j_idt61"
+                                                        src="../../resources/images/configurator/city.png" alt=""
+                                                        title="City" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:82:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:82:j_idt61"
+                                                        src="../../resources/images/configurator/jet.png" alt=""
+                                                        title="Jet" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:83:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:83:j_idt61"
+                                                        src="../../resources/images/configurator/louisville.png" alt=""
+                                                        title="Louisville" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:84:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:84:j_idt61"
+                                                        src="../../resources/images/configurator/spray.png" alt=""
+                                                        title="Spray" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:85:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:85:j_idt61"
+                                                        src="../../resources/images/configurator/symmetry.png" alt=""
+                                                        title="Symmetry" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt58:86:j_idt60"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt58:86:j_idt61"
+                                                        src="../../resources/images/configurator/destination.png" alt=""
+                                                        title="Destination" /></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="config-form:config-form-tabs:j_idt66"
+                                     class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-helper-hidden"
+                                     role="tabpanel" aria-hidden="true" data-index="1">
+                                    <div id="config-form:config-form-tabs:menuthemes-panel"
+                                         class="ui-outputpanel ui-widget">
+                                        <div class="layout-config-subtitle">Orientation</div>
+                                        <div class="p-grid">
+                                            <div class="p-col p-col-fixed">
+                                                <a id="config-form:config-form-tabs:j_idt68" href="#"
+                                                   class="ui-commandlink ui-widget layout-config-option layout-config-option-image layout-config-option-light ui-shadow-1">
+                                                    <img id="config-form:config-form-tabs:j_idt69"
+                                                         src="../../resources/images/configurator/horizontal.png" alt=""
+                                                         title="Horizontal" style="width:100%" onclick="fn_changeMenuPosition()"/>
+                                                    <i id="selectedPositioMenu" class="material-icons">check</i>
+                                                </a>
+                                            </div>
+                                            <div class="p-col p-col-fixed">
+                                                <a id="config-form:config-form-tabs:j_idt73" href="#" class="ui-commandlink ui-widget layout-config-option layout-config-option-image layout-config-option-light ui-shadow-1">
+                                                    <img id="config-form:config-form-tabs:j_idt74"
+                                                         src="../../resources/images/configurator/vertical.png" alt=""
+                                                         title="Vertical" style="width:100%" onclick="fn_changeMenuPosition()" />
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="layout-config-subtitle">Theme</div>
+                                        <div class="p-grid">
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:0:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 layout-config-option-light"><img
+                                                        id="config-form:config-form-tabs:j_idt78:0:j_idt81"
+                                                        src="../../resources/images/configurator/light.svg" alt=""
+                                                        title="Light" />
+                                                    <i class="material-icons">check</i></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:1:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:1:j_idt81"
+                                                        src="../../resources/images/configurator/dark.svg" alt=""
+                                                        title="Dark" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:2:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:2:j_idt81"
+                                                        src="../../resources/images/configurator/blue.svg" alt=""
+                                                        title="Blue" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:3:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:3:j_idt81"
+                                                        src="../../resources/images/configurator/ash.svg" alt=""
+                                                        title="Ash" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:4:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:4:j_idt81"
+                                                        src="../../resources/images/configurator/kashmir.svg" alt=""
+                                                        title="Kashmir" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:5:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:5:j_idt81"
+                                                        src="../../resources/images/configurator/orange.svg" alt=""
+                                                        title="Orange" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:6:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:6:j_idt81"
+                                                        src="../../resources/images/configurator/midnight.svg" alt=""
+                                                        title="Midnight" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:7:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:7:j_idt81"
+                                                        src="../../resources/images/configurator/sunset.svg" alt=""
+                                                        title="Sunset" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:8:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:8:j_idt81"
+                                                        src="../../resources/images/configurator/marley.svg" alt=""
+                                                        title="Marley" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:9:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:9:j_idt81"
+                                                        src="../../resources/images/configurator/harvey.svg" alt=""
+                                                        title="Harvey" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:10:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:10:j_idt81"
+                                                        src="../../resources/images/configurator/vanusa.svg" alt=""
+                                                        title="Vanusa" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:11:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:11:j_idt81"
+                                                        src="../../resources/images/configurator/skyline.svg" alt=""
+                                                        title="Skyline" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:12:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:12:j_idt81"
+                                                        src="../../resources/images/configurator/royal.svg" alt=""
+                                                        title="Royal" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:13:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:13:j_idt81"
+                                                        src="../../resources/images/configurator/disco.svg" alt=""
+                                                        title="Disco" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:14:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:14:j_idt81"
+                                                        src="../../resources/images/configurator/sky.svg" alt=""
+                                                        title="Sky" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:15:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:15:j_idt81"
+                                                        src="../../resources/images/configurator/rose.svg" alt=""
+                                                        title="Rose" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:16:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:16:j_idt81"
+                                                        src="../../resources/images/configurator/revolt.svg" alt=""
+                                                        title="Revolt" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:17:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:17:j_idt81"
+                                                        src="../../resources/images/configurator/forest.svg" alt=""
+                                                        title="Forest" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:18:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:18:j_idt81"
+                                                        src="../../resources/images/configurator/night.svg" alt=""
+                                                        title="Night" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:19:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:19:j_idt81"
+                                                        src="../../resources/images/configurator/apricot.svg" alt=""
+                                                        title="Apricot" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:20:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:20:j_idt81"
+                                                        src="../../resources/images/configurator/faraway.svg" alt=""
+                                                        title="Faraway" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:21:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:21:j_idt81"
+                                                        src="../../resources/images/configurator/grape.svg" alt=""
+                                                        title="Grape" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:22:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:22:j_idt81"
+                                                        src="../../resources/images/configurator/river.svg" alt=""
+                                                        title="River" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:23:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:23:j_idt81"
+                                                        src="../../resources/images/configurator/dock.svg" alt=""
+                                                        title="Dock" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:24:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:24:j_idt81"
+                                                        src="../../resources/images/configurator/materialone.png" alt=""
+                                                        title="Material One" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:25:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:25:j_idt81"
+                                                        src="../../resources/images/configurator/materialtwo.png" alt=""
+                                                        title="Material Two" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:26:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:26:j_idt81"
+                                                        src="../../resources/images/configurator/polygons.png" alt=""
+                                                        title="Polygon" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:27:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:27:j_idt81"
+                                                        src="../../resources/images/configurator/connectionsone.png" alt=""
+                                                        title="Connection One" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:28:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:28:j_idt81"
+                                                        src="../../resources/images/configurator/connectionstwo.png" alt=""
+                                                        title="Connection Two" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:29:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:29:j_idt81"
+                                                        src="../../resources/images/configurator/road.png" alt=""
+                                                        title="Road" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:30:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:30:j_idt81"
+                                                        src="../../resources/images/configurator/reflection.png" alt=""
+                                                        title="Reflection" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:31:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:31:j_idt81"
+                                                        src="../../resources/images/configurator/waves.png" alt=""
+                                                        title="Waves" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:32:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:32:j_idt81"
+                                                        src="../../resources/images/configurator/sandiego.png" alt=""
+                                                        title="Sandiego" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:33:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:33:j_idt81"
+                                                        src="../../resources/images/configurator/architecture.png" alt=""
+                                                        title="Architecture" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:34:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:34:j_idt81"
+                                                        src="../../resources/images/configurator/snow.png" alt=""
+                                                        title="Snow" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:35:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:35:j_idt81"
+                                                        src="../../resources/images/configurator/palm.png" alt=""
+                                                        title="Palm" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:36:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:36:j_idt81"
+                                                        src="../../resources/images/configurator/fluid.png" alt=""
+                                                        title="Fluid" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:37:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:37:j_idt81"
+                                                        src="../../resources/images/configurator/balloon.png" alt=""
+                                                        title="Balloon" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:38:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:38:j_idt81"
+                                                        src="../../resources/images/configurator/downtown.png" alt=""
+                                                        title="Downtown" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:39:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:39:j_idt81"
+                                                        src="../../resources/images/configurator/perfection.png" alt=""
+                                                        title="Perfection" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:40:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:40:j_idt81"
+                                                        src="../../resources/images/configurator/northern.png" alt=""
+                                                        title="Northern" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:41:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:41:j_idt81"
+                                                        src="../../resources/images/configurator/highline.png" alt=""
+                                                        title="Highline" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:42:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:42:j_idt81"
+                                                        src="../../resources/images/configurator/mural.png" alt=""
+                                                        title="Mural" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:43:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:43:j_idt81"
+                                                        src="../../resources/images/configurator/aeriel.png" alt=""
+                                                        title="Aeriel" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:44:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:44:j_idt81"
+                                                        src="../../resources/images/configurator/wing.png" alt=""
+                                                        title="Wing" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:45:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:45:j_idt81"
+                                                        src="../../resources/images/configurator/skyscraper.png" alt=""
+                                                        title="Skyscraper" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:46:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:46:j_idt81"
+                                                        src="../../resources/images/configurator/wall.png" alt=""
+                                                        title="Wall" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:47:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:47:j_idt81"
+                                                        src="../../resources/images/configurator/dawn.png" alt=""
+                                                        title="Dawn" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:48:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:48:j_idt81"
+                                                        src="../../resources/images/configurator/lille.png" alt=""
+                                                        title="Lille" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:49:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:49:j_idt81"
+                                                        src="../../resources/images/configurator/condo.png" alt=""
+                                                        title="Condo" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:50:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:50:j_idt81"
+                                                        src="../../resources/images/configurator/waterfall.png" alt=""
+                                                        title="Waterfall" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:51:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:51:j_idt81"
+                                                        src="../../resources/images/configurator/coffee.png" alt=""
+                                                        title="Coffee" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:52:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:52:j_idt81"
+                                                        src="../../resources/images/configurator/mountain.png" alt=""
+                                                        title="Mountain" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:53:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:53:j_idt81"
+                                                        src="../../resources/images/configurator/lights.png" alt=""
+                                                        title="Lights" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:54:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:54:j_idt81"
+                                                        src="../../resources/images/configurator/desert.png" alt=""
+                                                        title="Desert" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:55:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:55:j_idt81"
+                                                        src="../../resources/images/configurator/beach.png" alt=""
+                                                        title="Beach" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:56:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:56:j_idt81"
+                                                        src="../../resources/images/configurator/classic.png" alt=""
+                                                        title="Classic" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:57:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:57:j_idt81"
+                                                        src="../../resources/images/configurator/hazy.png" alt=""
+                                                        title="Hazy" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:58:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:58:j_idt81"
+                                                        src="../../resources/images/configurator/exposure.png" alt=""
+                                                        title="Exposure" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:59:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:59:j_idt81"
+                                                        src="../../resources/images/configurator/norge.png" alt=""
+                                                        title="Norge" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:60:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:60:j_idt81"
+                                                        src="../../resources/images/configurator/island.png" alt=""
+                                                        title="Island" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:61:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:61:j_idt81"
+                                                        src="../../resources/images/configurator/station.png" alt=""
+                                                        title="Station" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:62:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:62:j_idt81"
+                                                        src="../../resources/images/configurator/fruity.png" alt=""
+                                                        title="Fruity" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:63:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:63:j_idt81"
+                                                        src="../../resources/images/configurator/tropical.png" alt=""
+                                                        title="Tropical" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:64:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:64:j_idt81"
+                                                        src="../../resources/images/configurator/beyoglu.png" alt=""
+                                                        title="Beyoglu" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:65:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:65:j_idt81"
+                                                        src="../../resources/images/configurator/timelapse.png" alt=""
+                                                        title="Timelapse" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:66:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:66:j_idt81"
+                                                        src="../../resources/images/configurator/crystal.png" alt=""
+                                                        title="Crystal" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:67:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:67:j_idt81"
+                                                        src="../../resources/images/configurator/aquarelle.png" alt=""
+                                                        title="Aquarelle" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:68:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:68:j_idt81"
+                                                        src="../../resources/images/configurator/canvas.png" alt=""
+                                                        title="Canvas" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:69:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:69:j_idt81"
+                                                        src="../../resources/images/configurator/olympic.png" alt=""
+                                                        title="Olympic" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:70:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:70:j_idt81"
+                                                        src="../../resources/images/configurator/circuit.png" alt=""
+                                                        title="Circuit" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:71:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:71:j_idt81"
+                                                        src="../../resources/images/configurator/flamingo.png" alt=""
+                                                        title="Flamingo" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:72:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:72:j_idt81"
+                                                        src="../../resources/images/configurator/flight.png" alt=""
+                                                        title="Flight" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:73:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:73:j_idt81"
+                                                        src="../../resources/images/configurator/tractor.png" alt=""
+                                                        title="Tractor" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:74:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:74:j_idt81"
+                                                        src="../../resources/images/configurator/volcano.png" alt=""
+                                                        title="Volcano" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:75:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:75:j_idt81"
+                                                        src="../../resources/images/configurator/pine.png" alt=""
+                                                        title="Pine" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:76:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:76:j_idt81"
+                                                        src="../../resources/images/configurator/emptiness.png" alt=""
+                                                        title="Emptiness" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:77:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:77:j_idt81"
+                                                        src="../../resources/images/configurator/splash.png" alt=""
+                                                        title="Splash" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:78:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:78:j_idt81"
+                                                        src="../../resources/images/configurator/urban.png" alt=""
+                                                        title="Urban" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:79:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:79:j_idt81"
+                                                        src="../../resources/images/configurator/bloom.png" alt=""
+                                                        title="Bloom" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:80:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:80:j_idt81"
+                                                        src="../../resources/images/configurator/tinfoil.png" alt=""
+                                                        title="Tinfoil" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:81:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:81:j_idt81"
+                                                        src="../../resources/images/configurator/hallway.png" alt=""
+                                                        title="Hallway" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:82:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:82:j_idt81"
+                                                        src="../../resources/images/configurator/seagull.png" alt=""
+                                                        title="Seagull" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:83:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:83:j_idt81"
+                                                        src="../../resources/images/configurator/city.png" alt=""
+                                                        title="City" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:84:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:84:j_idt81"
+                                                        src="../../resources/images/configurator/jet.png" alt=""
+                                                        title="Jet" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:85:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:85:j_idt81"
+                                                        src="../../resources/images/configurator/louisville.png" alt=""
+                                                        title="Louisville" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:86:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:86:j_idt81"
+                                                        src="../../resources/images/configurator/spray.png" alt=""
+                                                        title="Spray" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:87:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:87:j_idt81"
+                                                        src="../../resources/images/configurator/symmetry.png" alt=""
+                                                        title="Symmetry" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt78:88:j_idt80"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1 "><img
+                                                        id="config-form:config-form-tabs:j_idt78:88:j_idt81"
+                                                        src="../../resources/images/configurator/destination.png" alt=""
+                                                        title="Destination" /></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="config-form:config-form-tabs:j_idt86"
+                                     class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-helper-hidden"
+                                     role="tabpanel" aria-hidden="true" data-index="2">
+                                    <div id="config-form:config-form-tabs:componentthemes-panel"
+                                         class="ui-outputpanel ui-widget">
+                                        <div class="p-grid">
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt88:0:j_idt90"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt88:0:j_idt91"
+                                                        src="../../resources/images/configurator/theme/amber.svg" alt=""
+                                                        title="Amber" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt88:1:j_idt90"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt88:1:j_idt91"
+                                                        src="../../resources/images/configurator/theme/blue.svg" alt=""
+                                                        title="Blue" />
+                                                    <i class="material-icons">check</i></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt88:2:j_idt90"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt88:2:j_idt91"
+                                                        src="../../resources/images/configurator/theme/bluegray.svg" alt=""
+                                                        title="Bluegray" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt88:3:j_idt90"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt88:3:j_idt91"
+                                                        src="../../resources/images/configurator/theme/brown.svg" alt=""
+                                                        title="Brown" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt88:4:j_idt90"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt88:4:j_idt91"
+                                                        src="../../resources/images/configurator/theme/cyan.svg" alt=""
+                                                        title="Cyan" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt88:5:j_idt90"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt88:5:j_idt91"
+                                                        src="../../resources/images/configurator/theme/deeporange.svg" alt=""
+                                                        title="Deep Orange" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt88:6:j_idt90"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt88:6:j_idt91"
+                                                        src="../../resources/images/configurator/theme/deeppurple.svg" alt=""
+                                                        title="Deep Purple" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt88:7:j_idt90"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt88:7:j_idt91"
+                                                        src="../../resources/images/configurator/theme/gray.svg" alt=""
+                                                        title="Gray" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt88:8:j_idt90"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt88:8:j_idt91"
+                                                        src="../../resources/images/configurator/theme/green.svg" alt=""
+                                                        title="Green" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt88:9:j_idt90"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt88:9:j_idt91"
+                                                        src="../../resources/images/configurator/theme/indigo.svg" alt=""
+                                                        title="Indigo" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt88:10:j_idt90"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt88:10:j_idt91"
+                                                        src="../../resources/images/configurator/theme/lightblue.svg" alt=""
+                                                        title="Light Blue" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt88:11:j_idt90"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt88:11:j_idt91"
+                                                        src="../../resources/images/configurator/theme/lightgreen.svg" alt=""
+                                                        title="Light Green" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt88:12:j_idt90"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt88:12:j_idt91"
+                                                        src="../../resources/images/configurator/theme/lime.svg" alt=""
+                                                        title="Lime" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt88:13:j_idt90"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt88:13:j_idt91"
+                                                        src="../../resources/images/configurator/theme/orange.svg" alt=""
+                                                        title="Orange" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt88:14:j_idt90"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt88:14:j_idt91"
+                                                        src="../../resources/images/configurator/theme/pink.svg" alt=""
+                                                        title="Pink" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt88:15:j_idt90"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt88:15:j_idt91"
+                                                        src="../../resources/images/configurator/theme/purple.svg" alt=""
+                                                        title="Purple" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt88:16:j_idt90"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt88:16:j_idt91"
+                                                        src="../../resources/images/configurator/theme/teal.svg" alt=""
+                                                        title="Teal" /></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt88:17:j_idt90"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option layout-config-option-image ui-shadow-1"><img
+                                                        id="config-form:config-form-tabs:j_idt88:17:j_idt91"
+                                                        src="../../resources/images/configurator/theme/yellow.svg" alt=""
+                                                        title="Yellow" /></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="config-form:config-form-tabs:j_idt96"
+                                     class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-helper-hidden"
+                                     role="tabpanel" aria-hidden="true" data-index="3">
+                                    <div id="config-form:config-form-tabs:primarycolors-panel"
+                                         class="ui-outputpanel ui-widget">
+                                        <p>Primary Color defines the highlight color of active menus. Note that this setting
+                                            is only utilized in <b>light</b> and <b>light</b> menu modes as other menu
+                                            themes have their own color to highlight the active
+                                            menus.</p>
+                                        <div class="p-grid p-primary-colors-grid">
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt98:0:j_idt100"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option ui-shadow-1"
+                                                                  aria-label="Amber"
+                                                                  style="background-color: #FFC107" title="Amber"></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt98:1:j_idt100"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option ui-shadow-1"
+                                                                  aria-label="Blue"
+                                                                  style="background-color: #457fca" title="Blue">
+                                                    <i class="material-icons">check</i></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt98:2:j_idt100"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option ui-shadow-1"
+                                                                  aria-label="BlueGray"
+                                                                  style="background-color: #607D8B" title="BlueGray"></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt98:3:j_idt100"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option ui-shadow-1"
+                                                                  aria-label="Brown"
+                                                                  style="background-color: #795548" title="Brown"></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt98:4:j_idt100"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option ui-shadow-1"
+                                                                  aria-label="Cyan"
+                                                                  style="background-color: #00ACC1" title="Cyan"></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt98:5:j_idt100"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option ui-shadow-1"
+                                                                  aria-label="DeepOrange"
+                                                                  style="background-color: #FF5722" title="DeepOrange"></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt98:6:j_idt100"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option ui-shadow-1"
+                                                                  aria-label="DeepPurple"
+                                                                  style="background-color: #673AB7" title="DeepPurple"></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt98:7:j_idt100"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option ui-shadow-1"
+                                                                  aria-label="Gray"
+                                                                  style="background-color: #757575" title="Gray"></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt98:8:j_idt100"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option ui-shadow-1"
+                                                                  aria-label="Green"
+                                                                  style="background-color: #4CAF50" title="Green"></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt98:9:j_idt100"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option ui-shadow-1"
+                                                                  aria-label="Indigo"
+                                                                  style="background-color: #3F51B5" title="Indigo"></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt98:10:j_idt100"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option ui-shadow-1"
+                                                                  aria-label="LightBlue"
+                                                                  style="background-color: #03A9F4" title="LightBlue"></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt98:11:j_idt100"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option ui-shadow-1"
+                                                                  aria-label="LightGreen"
+                                                                  style="background-color: #8BC34A" title="LightGreen"></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt98:12:j_idt100"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option ui-shadow-1"
+                                                                  aria-label="Lime"
+                                                                  style="background-color: #C0CA33" title="Lime"></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt98:13:j_idt100"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option ui-shadow-1"
+                                                                  aria-label="Orange"
+                                                                  style="background-color: #FF9800" title="Orange"></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt98:14:j_idt100"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option ui-shadow-1"
+                                                                  aria-label="Pink"
+                                                                  style="background-color: #E91E63" title="Pink"></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt98:15:j_idt100"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option ui-shadow-1"
+                                                                  aria-label="Purple"
+                                                                  style="background-color: #9C27B0" title="Purple"></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt98:16:j_idt100"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option ui-shadow-1"
+                                                                  aria-label="Teal"
+                                                                  style="background-color: #009688" title="Teal"></a>
+                                            </div>
+                                            <div class="p-col"><a id="config-form:config-form-tabs:j_idt98:17:j_idt100"
+                                                                  href="#"
+                                                                  class="ui-commandlink ui-widget layout-config-option ui-shadow-1"
+                                                                  aria-label="Yellow"
+                                                                  style="background-color: #FDD835" title="Yellow"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><input type="hidden" id="config-form:config-form-tabs_activeIndex"
+                                         name="config-form:config-form-tabs_activeIndex" value="0" autocomplete="off" />
+                        </div>
+                        <script id="config-form:config-form-tabs_s"
+                                type="text/javascript">$(function () {
+                                        PrimeFaces.cw("TabView", "widget_config_form_config_form_tabs", {id: "config-form:config-form-tabs", effectDuration: "normal", scrollable: false});
+                                    });</script>
+                        <input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:165"
+                               value="1027800245571205702:-4455179014194411126" autocomplete="off" />
+                    </form>
+                </div>
+
+            </div>
+
+            <div class="layout-mask"></div>
+
+            <div class="layout-footer">
+                <div class="p-grid">
+                    <div class="p-col">
+                        <img id="j_idt108" src="../../resources/logo-white.svg" alt="" />
+                        <div class="layout-footer-appname">IESTP Valle Grande</div>
+                    </div>
+                    <div class="p-col p-col-align-center">
+                        <span class="ui-icon ui-icon-copyright"></span>
+                        <span>Todos los derechos reservados</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="j_idt111" style="width:32px;height:32px;position:fixed;right:7px;bottom:7px">
+            <div id="j_idt111_start" style="display:none">
+                <i class="fa fa-circle-o-notch fa-spin ajax-loader" aria-hidden="true"></i></div>
+            <div id="j_idt111_complete" style="display:none"></div>
+        </div>
+        <script id="j_idt111_s"
+                type="text/javascript">$(function () {
+                        PrimeFaces.cw("AjaxStatus", "widget_j_idt111", {id: "j_idt111"});
+                    });</script>
+    </h:body>
+</html>

@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Mirrored from www.primefaces.org/poseidon/charts.xhtml by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 18 Oct 2019 11:05:16 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head id="j_idt2">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+            <meta name="apple-mobile-web-app-capable" content="yes" />
+            <meta name="theme-color" content="#2f8ee5" /><link type="text/css" rel="stylesheet" href="javax.faces.resource/theme.cssffb3.css?ln=primefaces-poseidon-blue" /><link type="text/css" rel="stylesheet" href="javax.faces.resource/fa/font-awesome.css68f8.css?ln=primefaces&amp;v=7.0" /><link type="text/css" rel="stylesheet" href="javax.faces.resource/components.css68f8.css?ln=primefaces&amp;v=7.0" /><script type="text/javascript" src="javax.faces.resource/jquery/jquery.js68f8.xhtml?ln=primefaces&amp;v=7.0"></script><script type="text/javascript" src="javax.faces.resource/core.js68f8.xhtml?ln=primefaces&amp;v=7.0"></script><script type="text/javascript" src="javax.faces.resource/components.js68f8.xhtml?ln=primefaces&amp;v=7.0"></script><script type="text/javascript" src="javax.faces.resource/jquery/jquery-plugins.js68f8.xhtml?ln=primefaces&amp;v=7.0"></script><link type="text/css" rel="stylesheet" href="javax.faces.resource/charts/charts.css68f8.css?ln=primefaces&amp;v=7.0" /><script type="text/javascript" src="javax.faces.resource/charts/charts.js68f8.xhtml?ln=primefaces&amp;v=7.0"></script><link type="text/css" rel="stylesheet" href="javax.faces.resource/css/nanoscroller.css9faa.css?ln=poseidon-layout" /><link type="text/css" rel="stylesheet" href="javax.faces.resource/css/animate.css9faa.css?ln=poseidon-layout" /><link type="text/css" rel="stylesheet" href="javax.faces.resource/css/layout-blue.css9faa.css?ln=poseidon-layout" /><script type="text/javascript">if(window.PrimeFaces){PrimeFaces.settings.locale='en_US';}</script>
+        <title>Charts</title><script type="text/javascript" src="javax.faces.resource/js/nanoscroller.js9faa.xhtml?ln=poseidon-layout"></script><script type="text/javascript" src="javax.faces.resource/js/layout.js9faa.xhtml?ln=poseidon-layout"></script><script type="text/javascript" src="javax.faces.resource/js/swipe.js9faa.xhtml?ln=poseidon-layout"></script>
+        <script type="text/javascript">
+        function skinChart() {
+            this.cfg.shadow = false;
+            this.cfg.title = '';
+            this.cfg.seriesColors = ['#00acac', '#2f8ee5', '#efa64c', '#6c76af'];
+            this.cfg.grid = {
+                background: '#ffffff',
+                borderColor: '#ffffff',
+                gridLineColor: '#F5F5F5',
+                shadow: false
+            };
+            this.cfg.axesDefaults = {
+                borderWidth: 0.1,
+                borderColor: 'bdbdbd',
+                rendererOptions: {
+                    textColor: '#666F77'
+                }
+            };
+            this.cfg.seriesDefaults = {
+                shadow: false,
+                lineWidth: 1,
+                markerOptions: {
+                    shadow: false,
+                    size: 7,
+                    style: 'circle'
+                }
+            }
+        }
+
+        function skinBar() {
+            this.cfg.shadow = false;
+            this.cfg.title = '';
+            this.cfg.seriesColors = ['#00acac', '#2f8ee5'];
+            this.cfg.grid = {
+                background: '#ffffff',
+                borderColor: '#ffffff',
+                gridLineColor: '#F5F5F5',
+                shadow: false
+            };
+            this.cfg.axesDefaults = {
+                borderWidth: 0.1,
+                borderColor: 'bdbdbd',
+                rendererOptions: {
+                    textColor: '#666F77'
+                }
+            };
+            this.cfg.seriesDefaults = {
+                shadow: false,
+                lineWidth: 1,
+                renderer: $.jqplot.BarRenderer,
+                markerOptions: {
+                    shadow: false,
+                    size: 7,
+                    style: 'circle'
+                }
+            }
+        }
+
+        function skinArea() {
+            this.cfg.shadow = false;
+            this.cfg.title = '';
+            this.cfg.seriesColors = ['#00acac', '#2f8ee5'];
+            this.cfg.grid = {
+                background: '#ffffff',
+                borderColor: '#ffffff',
+                gridLineColor: '#F5F5F5',
+                shadow: false
+            };
+            this.cfg.axesDefaults = {
+                borderWidth: 0.1,
+                borderColor: 'bdbdbd',
+                rendererOptions: {
+                    textColor: '#666F77'
+                }
+            };
+            this.cfg.seriesDefaults = {
+                shadow: false,
+                lineWidth: 1,
+                markerOptions: {
+                    shadow: false,
+                    size: 7,
+                    style: 'circle'
+                }
+            }
+        }
+
+        function skinBubble() {
+            this.cfg.shadow = false;
+            this.cfg.title = '';
+            this.cfg.seriesColors = ['#00acac', '#2f8ee5'];
+            this.cfg.grid = {
+                background: '#ffffff',
+                borderColor: '#ffffff',
+                gridLineColor: '#F5F5F5',
+                shadow: false
+            };
+            this.cfg.axesDefaults = {
+                rendererOptions: {
+                    textColor: '#666F77'
+                }
+            };
+            this.cfg.seriesDefaults = {
+                shadow: false,
+                lineWidth: 1,
+                renderer: $.jqplot.BubbleRenderer,
+                markerOptions: {
+                    shadow: false,
+                    size: 7,
+                    style: 'circle'
+                }
+            }
+        }
+
+        function skinZoom() {
+            this.cfg.shadow = false;
+            this.cfg.title = '';
+            this.cfg.seriesColors = ['#00acac', '#2f8ee5'];
+            this.cfg.grid = {
+                background: '#ffffff',
+                borderColor: '#ffffff',
+                gridLineColor: '#F5F5F5',
+                shadow: false
+            };
+            this.cfg.axesDefaults = {
+                rendererOptions: {
+                    textColor: '#666F77'
+                }
+            };
+            this.cfg.seriesDefaults = {
+                shadow: false,
+                lineWidth: 1,
+                markerOptions: {
+                    shadow: false,
+                    size: 7,
+                    style: 'circle'
+                }
+            }
+        }
+
+        function skinPie() {
+            this.cfg.shadow = false;
+            this.cfg.title = '';
+            this.cfg.seriesColors = ['#00acac', '#2f8ee5', '#efa64c', '#6c76af'];
+            this.cfg.grid = {
+                background: '#ffffff',
+                borderColor: '#ffffff',
+                gridLineColor: '#F5F5F5',
+                shadow: false
+            };
+            this.cfg.axesDefaults = {
+                rendererOptions: {
+                    textColor: '#666F77',
+                }
+            };
+            this.cfg.seriesDefaults = {
+                renderer: $.jqplot.PieRenderer,
+                shadow: false,
+                lineWidth: 1,
+                markerOptions: {
+                    shadow: false,
+                    size: 7,
+                    style: 'circle'
+                }
+            }
+        }
+
+        function skinDonut() {
+            this.cfg.shadow = false;
+            this.cfg.title = '';
+            this.cfg.seriesColors = ['#00acac', '#2f8ee5', '#efa64c', '#6c76af'];
+            this.cfg.grid = {
+                background: '#ffffff',
+                borderColor: '#ffffff',
+                gridLineColor: '#F5F5F5',
+                shadow: false
+            };
+            this.cfg.axesDefaults = {
+                rendererOptions: {
+                    textColor: '#666F77',
+                }
+            };
+            this.cfg.seriesDefaults = {
+                renderer: $.jqplot.DonutRenderer,
+                shadow: false,
+                lineWidth: 1,
+                markerOptions: {
+                    shadow: false,
+                    size: 7,
+                    style: 'circle'
+                }
+            }
+        }
+
+        function skinBarAndLine() {
+            this.cfg.shadow = false;
+            this.cfg.title = '';
+            this.cfg.seriesColors = ['#00acac', '#2f8ee5'];
+            this.cfg.grid = {
+                background: '#ffffff',
+                borderColor: '#ffffff',
+                gridLineColor: '#F5F5F5',
+                shadow: false
+            };
+            this.cfg.axesDefaults = {
+                borderWidth: 0.1,
+                borderColor: 'bdbdbd',
+                rendererOptions: {
+                    textColor: '#666F77'
+                }
+            };
+            this.cfg.seriesDefaults = {
+                shadow: false,
+                lineWidth: 5,
+                renderer: $.jqplot.BarRenderer,
+                markerOptions: {
+                    shadow: false,
+                    size: 7,
+                    style: 'circle'
+                }
+            }
+        }
+
+        function skinMeterGauge() {
+            this.cfg.title = '';
+            this.cfg.seriesDefaults = {
+                shadow: false,
+                lineWidth: 5,
+                renderer: $.jqplot.MeterGaugeRenderer,
+                rendererOptions: {
+                    shadow: false,
+                    min: 100,
+                    max: 800,
+                    intervals: [200, 300, 400, 500, 600, 700, 800],
+                    intervalColors: ['#00acac', '#2f8ee5', '#efa64c', '#6c76af', '#f16383', '#63c9f1', '#2d353c']
+                }
+            }
+        }
+
+        function skinMultiAxis() {
+            this.cfg.shadow = false;
+            this.cfg.title = '';
+            this.cfg.seriesColors = ['#00acac', '#2f8ee5'];
+            this.cfg.grid = {
+                background: '#ffffff',
+                borderColor: '#ffffff',
+                gridLineColor: '#F5F5F5',
+                shadow: false
+            };
+            this.cfg.axesDefaults = {
+                borderWidth: 0.1,
+                borderColor: 'bdbdbd',
+                rendererOptions: {
+                    textColor: '#666F77'
+                }
+            };
+            this.cfg.seriesDefaults = {
+                shadow: false,
+                lineWidth:1,
+                renderer: $.jqplot.BarRenderer,
+                markerOptions: {
+                    shadow: false,
+                    size: 7,
+                    style: 'circle'
+                }
+            }
+        }
+        </script>
+        <style type="text/css">
+            .jqplot-xaxis-label, .jqplot-yaxis-label, .jqplot-y2axis-label, .jqplot-x2axis-label {
+                color: #757575; 
+            }
+            
+            table.jqplot-table-legend {
+                background-color: #ffffff;
+                color: #757575;
+                border-color: #bdbdbd;
+            }
+        </style></head><body class="main-body">
+        
+        <div class="layout-wrapper menu-layout-static ">
+
+    <div class="topbar clearfix">
+        <div class="topbar-left">            
+            <div class="logo"></div>
+        </div>
+        
+        <div class="topbar-right">
+            <a id="menu-button" href="#">
+                <i class="fa fa-angle-left"></i>
+            </a>
+            
+            <a id="topbar-menu-button" href="#">
+                <i class="fa fa-bars"></i>
+            </a>
+            <ul class="topbar-items fadeInDown animated">
+                <li class="profile-item">
+                    <a href="#">                            
+                        <div class="profile-image"></div>
+                        <span class="topbar-item-name">Jane Williams</span>
+                    </a>
+                    
+                    <ul class="poseidon-menu animated">
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="fa fa-fw fa-user"></i>
+                                <span>Profile</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="fa fa-fw fa-user-secret"></i>
+                                <span>Privacy</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="fa fa-fw fa-cog"></i>
+                                <span>Settings</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="fa fa-fw fa-sign-out"></i>
+                                <span>Logout</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="topbar-icon fa fa-fw fa-cog"></i>
+                        <span class="topbar-item-name">Settings</span>
+                    </a>
+                    <ul class="poseidon-menu animated">
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="fa fa-fw fa-paint-brush"></i>
+                                <span>Change Theme</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="fa fa-fw fa-star-o"></i>
+                                <span>Favorites</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="fa fa-fw fa-lock"></i>
+                                <span>Lock Screen</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="fa fa-fw fa-picture-o"></i>
+                                <span>Wallpaper</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="topbar-icon material-icons animated swing fa fa-fw fa-envelope-o"></i>
+                        <span class="topbar-badge animated rubberBand">5</span>
+                        <span class="topbar-item-name">Messages</span>
+                    </a>
+                    <ul class="poseidon-menu animated">
+                        <li role="menuitem">
+                            <a href="#" class="topbar-message"><img id="j_idt14" src="javax.faces.resource/images/avatar1.png9faa.png?ln=poseidon-layout" alt="" width="35" />
+                                <span>Give me a call</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#" class="topbar-message"><img id="j_idt16" src="javax.faces.resource/images/avatar2.png9faa.png?ln=poseidon-layout" alt="" width="35" />
+                                <span>Sales reports attached</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#" class="topbar-message"><img id="j_idt18" src="javax.faces.resource/images/avatar3.png9faa.png?ln=poseidon-layout" alt="" width="35" />
+                                <span>About your invoice</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#" class="topbar-message"><img id="j_idt20" src="javax.faces.resource/images/avatar2.png9faa.png?ln=poseidon-layout" alt="" width="35" />
+                                <span>Meeting today at 10pm</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#" class="topbar-message"><img id="j_idt22" src="javax.faces.resource/images/avatar4.png9faa.png?ln=poseidon-layout" alt="" width="35" />
+                                <span>Out of office</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="topbar-icon material-icons fa fa-fw fa-bell-o"></i>
+                        <span class="topbar-badge animated rubberBand">4</span>
+                        <span class="topbar-item-name">Notifications</span>
+                    </a>
+                    <ul class="poseidon-menu animated">
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="fa fa-fw fa-tasks"></i>
+                                <span>Pending tasks</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="fa fa-fw fa-calendar-check-o"></i>
+                                <span>Meeting today at 3pm</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="fa fa-fw fa-download"></i>
+                                <span>Download documents</span>
+                            </a>
+                        </li>
+                        <li role="menuitem">
+                            <a href="#">
+                                <i class="fa fa-fw fa-plane"></i>
+                                <span>Book flight</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+<form id="menuform" name="menuform" method="post" action="https://www.primefaces.org/poseidon/charts.xhtml" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="menuform" value="menuform" />
+ 
+        <div class="layout-menu-container">
+            <div class="nano">
+                <div class="nano-content menu-scroll-content">
+                    <div class="search-input">
+                        <input type="text" placeholder="Search" />
+                        <i class="fa fa-search"></i>
+                    </div><ul id="menuform:j_idt25" class="layout-menu clearfix"><li id="menuform:om_dashboard" role="menuitem"><a href="dashboard.html"><i class="fa fa-fw fa-home"></i><span>Dashboard</span></a></li><li id="menuform:om_themes" role="menuitem"><a href="#" class="ripplelink"><i class="fa fa-fw fa-paint-brush"></i><span>Themes</span><span class="ink animate"></span><i class="fa fa-fw fa-angle-down menuitem-toggle-icon"></i></a><ul role="menu"><li id="menuform:theme1" role="menuitem"><a style="color:#00acac" href="#" onclick="PrimeFaces.addSubmitParam('menuform',{'menuform:theme1':'menuform:theme1'}).submit('menuform');return false;"><i class="fa fa-fw fa-paint-brush"></i><span>Turquoise Theme</span></a></li><li id="menuform:theme2" role="menuitem"><a style="color:#2f8ee5" href="#" onclick="PrimeFaces.addSubmitParam('menuform',{'menuform:theme2':'menuform:theme2'}).submit('menuform');return false;"><i class="fa fa-fw fa-paint-brush"></i><span>Blue Theme</span></a></li><li id="menuform:theme3" role="menuitem"><a style="color:#6c76af" href="#" onclick="PrimeFaces.addSubmitParam('menuform',{'menuform:theme3':'menuform:theme3'}).submit('menuform');return false;"><i class="fa fa-fw fa-paint-brush"></i><span>Purple Theme</span></a></li><li id="menuform:theme4" role="menuitem"><a style="color:#efa64c" href="#" onclick="PrimeFaces.addSubmitParam('menuform',{'menuform:theme4':'menuform:theme4'}).submit('menuform');return false;"><i class="fa fa-fw fa-paint-brush"></i><span>Orange Theme</span></a></li><li id="menuform:theme5" role="menuitem"><a style="color:#f16383" href="#" onclick="PrimeFaces.addSubmitParam('menuform',{'menuform:theme5':'menuform:theme5'}).submit('menuform');return false;"><i class="fa fa-fw fa-paint-brush"></i><span>Pink Theme</span></a></li><li id="menuform:theme6" role="menuitem"><a style="color:#63c9f1" href="#" onclick="PrimeFaces.addSubmitParam('menuform',{'menuform:theme6':'menuform:theme6'}).submit('menuform');return false;"><i class="fa fa-fw fa-paint-brush"></i><span>Light Blue Theme</span></a></li><li id="menuform:theme7" role="menuitem"><a style="color:#57c279" href="#" onclick="PrimeFaces.addSubmitParam('menuform',{'menuform:theme7':'menuform:theme7'}).submit('menuform');return false;"><i class="fa fa-fw fa-paint-brush"></i><span>Green Theme</span></a></li><li id="menuform:theme8" role="menuitem"><a style="color:#7e57c2" href="#" onclick="PrimeFaces.addSubmitParam('menuform',{'menuform:theme8':'menuform:theme8'}).submit('menuform');return false;"><i class="fa fa-fw fa-paint-brush"></i><span>Deep Purple Theme</span></a></li></ul></li><li id="menuform:om_customization" role="menuitem"><a href="#" class="ripplelink"><i class="fa fa-fw fa-bars"></i><span>Menu Modes</span><span class="ink animate"></span><i class="fa fa-fw fa-angle-down menuitem-toggle-icon"></i><span class="menuitem-badge">8</span></a><ul role="menu"><li id="menuform:custom3" role="menuitem"><a href="#" onclick="PrimeFaces.addSubmitParam('menuform',{'menuform:custom3':'menuform:custom3'}).submit('menuform');return false;"><i class="fa fa-fw fa-bars"></i><span>Static Menu</span><span class="menuitem-badge">4</span></a></li><li id="menuform:custom4" role="menuitem"><a href="#" onclick="PrimeFaces.addSubmitParam('menuform',{'menuform:custom4':'menuform:custom4'}).submit('menuform');return false;"><i class="fa fa-fw fa-bars"></i><span>Overlay Menu</span></a></li><li id="menuform:custom5" role="menuitem"><a href="#" onclick="PrimeFaces.addSubmitParam('menuform',{'menuform:custom5':'menuform:custom5'}).submit('menuform');return false;"><i class="fa fa-fw fa-bars"></i><span>Horizontal Menu</span></a></li></ul></li><li id="menuform:om_orientation" role="menuitem"><a href="#" class="ripplelink"><i class="fa fa-fw fa-align-right"></i><span>Orientation</span><span class="ink animate"></span><i class="fa fa-fw fa-angle-down menuitem-toggle-icon"></i></a><ul role="menu"><li id="menuform:om_rtl" role="menuitem"><a href="#" onclick="PrimeFaces.addSubmitParam('menuform',{'menuform:om_rtl':'menuform:om_rtl'}).submit('menuform');return false;"><i class="fa fa-fw fa-align-right"></i><span>RTL</span></a></li><li id="menuform:om_ltr" role="menuitem"><a href="#" onclick="PrimeFaces.addSubmitParam('menuform',{'menuform:om_ltr':'menuform:om_ltr'}).submit('menuform');return false;"><i class="fa fa-fw fa-align-left"></i><span>LTR</span></a></li></ul></li><li id="menuform:om_components" role="menuitem"><a href="#" class="ripplelink"><i class="fa fa-fw fa-sitemap"></i><span>Components</span><span class="ink animate"></span><i class="fa fa-fw fa-angle-down menuitem-toggle-icon"></i></a><ul role="menu"><li id="menuform:om_sample" role="menuitem"><a href="sample.html"><i class="fa fa-fw fa-columns"></i><span>Sample Page</span></a></li><li id="menuform:om_forms" role="menuitem"><a href="forms.html"><i class="fa fa-fw fa-code"></i><span>Forms</span></a></li><li id="menuform:om_data" role="menuitem"><a href="data.html"><i class="fa fa-fw fa-table"></i><span>Data</span></a></li><li id="menuform:om_panels" role="menuitem"><a href="panel.html"><i class="fa fa-fw fa-list-alt"></i><span>Panels</span></a></li><li id="menuform:om_overlays" role="menuitem"><a href="overlay.html"><i class="fa fa-fw fa-square"></i><span>Overlays</span></a></li><li id="menuform:om_menus" role="menuitem"><a href="menu.html"><i class="fa fa-fw fa-minus-square-o"></i><span>Menus</span></a></li><li id="menuform:om_messages" role="menuitem"><a href="messages.html"><i class="fa fa-fw fa-circle-o-notch"></i><span>Messages</span></a></li><li id="menuform:om_charts" role="menuitem"><a href="charts.html"><i class="fa fa-fw fa-area-chart"></i><span>Charts</span></a></li><li id="menuform:om_file" role="menuitem"><a href="file.html"><i class="fa fa-fw fa-arrow-circle-o-up"></i><span>File</span></a></li><li id="menuform:om_misc" role="menuitem"><a href="misc.html"><i class="fa fa-fw fa-user-secret"></i><span>Misc</span></a></li></ul></li><li id="menuform:om_db_landing" role="menuitem"><a href="landing.html"><i class="fa fa-fw fa-certificate"></i><span>Landing</span></a></li><li id="menuform:om_default" role="menuitem"><a href="#" class="ripplelink"><i class="fa fa-fw fa-life-saver"></i><span>Template Pages</span><span class="ink animate"></span><i class="fa fa-fw fa-angle-down menuitem-toggle-icon"></i></a><ul role="menu"><li id="menuform:om_empty" role="menuitem"><a href="empty.html"><i class="fa fa-fw fa-square-o"></i><span>Empty Page</span></a></li><li id="menuform:om_login" role="menuitem"><a href="login.html"><i class="fa fa-fw fa-sign-in"></i><span>Login Page</span></a></li><li id="menuform:om_error" role="menuitem"><a href="error.html"><i class="fa fa-fw fa-exclamation-circle"></i><span>Error Page</span></a></li><li id="menuform:om_404" role="menuitem"><a href="404.html"><i class="fa fa-fw fa-times"></i><span>404 Page</span></a></li><li id="menuform:om_access" role="menuitem"><a href="access.html"><i class="fa fa-fw fa-exclamation-triangle"></i><span>Access Denied Page</span></a></li></ul></li><li id="menuform:om_hierarchy" role="menuitem"><a href="#" class="ripplelink"><i class="fa fa-fw fa-gg"></i><span>Menu Hierarchy</span><span class="ink animate"></span><i class="fa fa-fw fa-angle-down menuitem-toggle-icon"></i></a><ul role="menu"><li id="menuform:om_sm1" role="menuitem"><a href="#" class="ripplelink"><i class="fa fa-fw fa-sign-in"></i><span>Submenu 1</span><span class="ink animate"></span><i class="fa fa-fw fa-angle-down menuitem-toggle-icon"></i></a><ul role="menu"><li id="menuform:om_sm11" role="menuitem"><a href="#" class="ripplelink"><i class="fa fa-fw fa-sign-in"></i><span>Submenu 1.1</span><span class="ink animate"></span><i class="fa fa-fw fa-angle-down menuitem-toggle-icon"></i></a><ul role="menu"><li id="menuform:om_lnk111" role="menuitem"><a href="#"><i class="fa fa-fw fa-sign-in"></i><span>Link 1.1.1</span></a></li><li id="menuform:om_lnk112" role="menuitem"><a href="#"><i class="fa fa-fw fa-sign-in"></i><span>Link 1.1.2</span></a></li><li id="menuform:om_lnk113" role="menuitem"><a href="#"><i class="fa fa-fw fa-sign-in"></i><span>Link 1.1.3</span></a></li></ul></li><li id="menuform:om_sm12" role="menuitem"><a href="#" class="ripplelink"><i class="fa fa-fw fa-sign-in"></i><span>Submenu 1.2</span><span class="ink animate"></span><i class="fa fa-fw fa-angle-down menuitem-toggle-icon"></i></a><ul role="menu"><li id="menuform:om_lnk121" role="menuitem"><a href="#"><i class="fa fa-fw fa-sign-in"></i><span>Link 1.2.1</span></a></li></ul></li></ul></li><li id="menuform:om_sm2" role="menuitem"><a href="#" class="ripplelink"><i class="fa fa-fw fa-sign-in"></i><span>Submenu 2</span><span class="ink animate"></span><i class="fa fa-fw fa-angle-down menuitem-toggle-icon"></i></a><ul role="menu"><li id="menuform:om_sm21" role="menuitem"><a href="#" class="ripplelink"><i class="fa fa-fw fa-sign-in"></i><span>Submenu 2.1</span><span class="ink animate"></span><i class="fa fa-fw fa-angle-down menuitem-toggle-icon"></i></a><ul role="menu"><li id="menuform:om_lnk211" role="menuitem"><a href="#"><i class="fa fa-fw fa-sign-in"></i><span>Link 2.1.1</span></a></li><li id="menuform:om_lnk212" role="menuitem"><a href="#"><i class="fa fa-fw fa-sign-in"></i><span>Link 2.1.2</span></a></li></ul></li><li id="menuform:om_sm22" role="menuitem"><a href="#" class="ripplelink"><i class="fa fa-fw fa-sign-in"></i><span>Submenu 2.2</span><span class="ink animate"></span><i class="fa fa-fw fa-angle-down menuitem-toggle-icon"></i></a><ul role="menu"><li id="menuform:om_lnk221" role="menuitem"><a href="#"><i class="fa fa-fw fa-sign-in"></i><span>Link 2.2.1</span></a></li></ul></li></ul></li></ul></li><li id="menuform:om_doc" role="menuitem"><a href="docs.html"><i class="fa fa-fw fa-book"></i><span>Documentation</span></a></li></ul><script id="menuform:j_idt25_s" type="text/javascript">$(function(){PrimeFaces.cw("Poseidon","me",{id:"menuform:j_idt25"});});</script>
+                    
+                    <div class="layout-menu-footer">
+                        <span class="layout-menu-footer-title">Tasks Overview</span><div id="menuform:j_idt27" class="ui-progressbar ui-widget ui-widget-content ui-corner-all ui-progressbar-determinate"><div class="ui-progressbar-value ui-widget-header ui-corner-all" style="display:block;width:50%"></div><div class="ui-progressbar-label" style="display:block"></div></div>
+                        Today
+                        
+                        <div id="menuform:j_idt29" class="ui-progressbar ui-widget ui-widget-content ui-corner-all ui-progressbar-determinate"><div class="ui-progressbar-value ui-widget-header ui-corner-all" style="display:block;width:80%"></div><div class="ui-progressbar-label" style="display:block"></div></div>
+                        Overall
+                    </div>
+                    
+                </div>
+            </div>
+        </div><input type="hidden" name="javax.faces.ViewState" id="j_id1:javax.faces.ViewState:0" value="8789301788747989011:4227624078878153504" autocomplete="off" />
+</form>
+            
+            <div class="layout-main">
+                <div class="route-bar">
+                    <i class="fa fa-home"></i> <span>/ </span>Charts
+    
+    <a id="right-sidebar-button-open" href="#">
+        <i class="fa fa-angle-left"></i>
+    </a>
+    
+    <div id="right-sidebar" class="right-sidebar">
+        <div class="nano">            
+            <div class="right-sidebar-header ui-widget-header">
+                <i class="fa fa-star"></i>
+                <span>Favorites</span>
+                <a id="right-sidebar-button-close" href="#">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+        
+            <div class="nano-content sidebar-scroll-content"><div id="j_idt34" class="ui-accordion ui-widget ui-helper-reset ui-hidden-container" role="tablist" data-widget="widget_j_idt34"><div class="ui-accordion-header ui-helper-reset ui-state-default ui-state-active ui-corner-top" role="tab" aria-expanded="true" aria-selected="true" tabindex="0"><span class="ui-icon ui-icon-triangle-1-s"></span>Contacts</div><div id="j_idt34:j_idt35" class="ui-accordion-content ui-helper-reset ui-widget-content" role="tabpanel" aria-hidden="false">
+                        <ul class="contact-list">
+                            <li>
+                                <a href="#"><img id="j_idt34:j_idt37" src="javax.faces.resource/images/avatar1.png9faa.png?ln=poseidon-layout" alt="" width="45" />
+                                    <span class="name">Joshua Williams</span>
+                                    <span class="email">joshua@pf-poseidon.com</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"><img id="j_idt34:j_idt39" src="javax.faces.resource/images/avatar2.png9faa.png?ln=poseidon-layout" alt="" width="45" />
+                                    <span class="name">Emily Clark</span>
+                                    <span class="email">emily@pf-poseidon.com</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"><img id="j_idt34:j_idt41" src="javax.faces.resource/images/avatar3.png9faa.png?ln=poseidon-layout" alt="" width="45" />
+                                    <span class="name">Susan Johnson</span>
+                                    <span class="email">susan@pf-poseidon.com</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"><img id="j_idt34:j_idt43" src="javax.faces.resource/images/avatar4.png9faa.png?ln=poseidon-layout" alt="" width="45" />
+                                    <span class="name">Kelly Stark</span>
+                                    <span class="email">kelly@pf-poseidon.com</span>
+                                </a>
+                            </li>
+                        </ul></div><div class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-all" role="tab" aria-expanded="false" aria-selected="false" tabindex="0"><span class="ui-icon ui-icon-triangle-1-e"></span>Notes</div><div id="j_idt34:j_idt45" class="ui-accordion-content ui-helper-reset ui-widget-content ui-helper-hidden" role="tabpanel" aria-hidden="true">
+                        <ul class="note-list">
+                            <li><div id="j_idt34:j_idt47" class="ui-selectbooleancheckbox ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input id="j_idt34:j_idt47_input" name="j_idt34:j_idt47_input" type="checkbox" autocomplete="off" aria-hidden="true" aria-checked="false" /></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"><span class="ui-chkbox-icon ui-icon ui-icon-blank ui-c"></span></div></div><script id="j_idt34:j_idt47_s" type="text/javascript">$(function(){PrimeFaces.cw("SelectBooleanCheckbox","widget_j_idt34_j_idt47",{id:"j_idt34:j_idt47"});});</script>
+                                <span class="task-name">Sales Reports</span>
+                                <i class="fa fa-briefcase"></i>
+                            </li>
+                            <li><div id="j_idt34:j_idt49" class="ui-selectbooleancheckbox ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input id="j_idt34:j_idt49_input" name="j_idt34:j_idt49_input" type="checkbox" autocomplete="off" aria-hidden="true" aria-checked="false" /></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"><span class="ui-chkbox-icon ui-icon ui-icon-blank ui-c"></span></div></div><script id="j_idt34:j_idt49_s" type="text/javascript">$(function(){PrimeFaces.cw("SelectBooleanCheckbox","widget_j_idt34_j_idt49",{id:"j_idt34:j_idt49"});});</script>
+                                <span class="task-name">Pay Invoices</span>
+                                <i class="fa fa-credit-card"></i>
+                            </li>
+                            <li><div id="j_idt34:j_idt51" class="ui-selectbooleancheckbox ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input id="j_idt34:j_idt51_input" name="j_idt34:j_idt51_input" type="checkbox" autocomplete="off" aria-hidden="true" aria-checked="false" /></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"><span class="ui-chkbox-icon ui-icon ui-icon-blank ui-c"></span></div></div><script id="j_idt34:j_idt51_s" type="text/javascript">$(function(){PrimeFaces.cw("SelectBooleanCheckbox","widget_j_idt34_j_idt51",{id:"j_idt34:j_idt51"});});</script>
+                                <span class="task-name">Dinner with Tony</span>
+                                <i class="fa fa-cutlery"></i>
+                            </li>
+                            <li><div id="j_idt34:j_idt53" class="ui-selectbooleancheckbox ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input id="j_idt34:j_idt53_input" name="j_idt34:j_idt53_input" type="checkbox" autocomplete="off" aria-hidden="true" aria-checked="false" /></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"><span class="ui-chkbox-icon ui-icon ui-icon-blank ui-c"></span></div></div><script id="j_idt34:j_idt53_s" type="text/javascript">$(function(){PrimeFaces.cw("SelectBooleanCheckbox","widget_j_idt34_j_idt53",{id:"j_idt34:j_idt53"});});</script>
+                                <span class="task-name">Client Meeting</span>
+                                <i class="fa fa-user"></i>
+                            </li>
+                            <li><div id="j_idt34:j_idt55" class="ui-selectbooleancheckbox ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input id="j_idt34:j_idt55_input" name="j_idt34:j_idt55_input" type="checkbox" autocomplete="off" aria-hidden="true" aria-checked="false" /></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"><span class="ui-chkbox-icon ui-icon ui-icon-blank ui-c"></span></div></div><script id="j_idt34:j_idt55_s" type="text/javascript">$(function(){PrimeFaces.cw("SelectBooleanCheckbox","widget_j_idt34_j_idt55",{id:"j_idt34:j_idt55"});});</script>
+                                <span class="task-name">New Theme</span>
+                                <i class="fa fa-paint-brush"></i>
+                            </li>
+                            <li><div id="j_idt34:j_idt57" class="ui-selectbooleancheckbox ui-chkbox ui-widget"><div class="ui-helper-hidden-accessible"><input id="j_idt34:j_idt57_input" name="j_idt34:j_idt57_input" type="checkbox" autocomplete="off" aria-hidden="true" aria-checked="false" /></div><div class="ui-chkbox-box ui-widget ui-corner-all ui-state-default"><span class="ui-chkbox-icon ui-icon ui-icon-blank ui-c"></span></div></div><script id="j_idt34:j_idt57_s" type="text/javascript">$(function(){PrimeFaces.cw("SelectBooleanCheckbox","widget_j_idt34_j_idt57",{id:"j_idt34:j_idt57"});});</script>
+                                <span class="task-name">Flight Ticket</span>
+                                <i class="fa fa-fighter-jet"></i>
+                            </li>
+                        </ul></div><div class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-all" role="tab" aria-expanded="false" aria-selected="false" tabindex="0"><span class="ui-icon ui-icon-triangle-1-e"></span>Contact Form</div><div id="j_idt34:j_idt59" class="ui-accordion-content ui-helper-reset ui-widget-content ui-helper-hidden" role="tabpanel" aria-hidden="true">
+                        <div class="ui-g ui-fluid contact-form">
+                            <div class="ui-g-12"><input id="j_idt34:j_idt61" name="j_idt34:j_idt61" type="text" class="ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all" placeholder="Name" /><script id="j_idt34:j_idt61_s" type="text/javascript">$(function(){PrimeFaces.cw("InputText","widget_j_idt34_j_idt61",{id:"j_idt34:j_idt61",maxlength:-2147483648});});</script>
+                            </div>
+                            <div class="ui-g-12"><input id="j_idt34:j_idt63" name="j_idt34:j_idt63" type="text" class="ui-inputfield ui-inputtext ui-widget ui-state-default ui-corner-all" placeholder="Message" /><script id="j_idt34:j_idt63_s" type="text/javascript">$(function(){PrimeFaces.cw("InputText","widget_j_idt34_j_idt63",{id:"j_idt34:j_idt63",maxlength:-2147483648});});</script>
+                            </div>
+                            <div class="ui-g-12"><button id="j_idt34:j_idt65" name="j_idt34:j_idt65" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left" type="button"><span class="ui-button-icon-left ui-icon ui-c fa fa-paper-plane-o"></span><span class="ui-button-text ui-c">Send</span></button><script id="j_idt34:j_idt65_s" type="text/javascript">$(function(){PrimeFaces.cw("CommandButton","widget_j_idt34_j_idt65",{id:"j_idt34:j_idt65"});});</script>
+                            </div>
+                        </div></div><input type="hidden" id="j_idt34_active" name="j_idt34_active" value="0" autocomplete="off" /></div><script id="j_idt34_s" type="text/javascript">$(function(){PrimeFaces.cw("AccordionPanel","widget_j_idt34",{id:"j_idt34",multiple:true});});</script>
+            </div>
+        </div>
+    </div>
+                </div>
+                <div class="layout-main-content">
+    
+        <div class="ui-g ui-fluid">
+            <div class="ui-g-12 ui-lg-6">
+                <div class="card">
+                    <h1 class="centerText">Linear Chart</h1><div id="line"></div><script id="line_s" type="text/javascript">$(function(){PrimeFaces.cw("Chart","widget_line",{id:"line",type:"line",responsive:true,data:[[[1,2],[2,1],[3,3],[4,6],[5,8]],[[1,6],[2,3],[3,2],[4,7],[5,9]]],title:"Linear Chart",legendPosition:"e",extender:skinChart,dataRenderMode:"value",axes:{xaxis: {label:"",renderer:$.jqplot.LinearAxisRenderer,tickOptions:{angle:0}},yaxis: {label:"",min:0,max:10,renderer:$.jqplot.LinearAxisRenderer,tickOptions:{angle:0}}},datatip:true,series:[{label:"Series 1",renderer: $.jqplot.LineRenderer,showLine:true,markerOptions:{show:true, style:'filledCircle'}},{label:"Series 2",renderer: $.jqplot.LineRenderer,showLine:true,markerOptions:{show:true, style:'filledCircle'}}],datatip:true});});</script>
+                </div>
+                
+                <div class="card">
+                    <h1 class="centerText">Bar Chart</h1><div id="bar"></div><script id="bar_s" type="text/javascript">$(function(){PrimeFaces.cw("Chart","widget_bar",{id:"bar",type:"bar",responsive:true,data:[[120,100,44,150,25],[52,60,110,135,120]],title:"Bar Chart",legendPosition:"ne",extender:skinBar,dataRenderMode:"value",axes:{xaxis: {label:"Gender",renderer:$.jqplot.CategoryAxisRenderer,tickOptions:{angle:0}},yaxis: {label:"Births",min:0,max:200,renderer:$.jqplot.LinearAxisRenderer,tickOptions:{angle:0}}},datatip:true,series:[{label:"Boys"},{label:"Girls"}],ticks:["2004","2005","2006","2007","2008"],orientation:"vertical",datatip:true});});</script>
+                </div>
+                
+                <div class="card">
+                    <h1 class="centerText">Area Chart</h1><div id="area"></div><script id="area_s" type="text/javascript">$(function(){PrimeFaces.cw("Chart","widget_area",{id:"area",type:"line",responsive:true,data:[[["2004",120],["2005",100],["2006",44],["2007",150],["2008",25]],[["2004",52],["2005",60],["2006",110],["2007",90],["2008",120]]],title:"Area Chart",legendPosition:"ne",extender:skinArea,dataRenderMode:"value",axes:{xaxis: {label:"Years",renderer:$.jqplot.CategoryAxisRenderer,tickOptions:{angle:0}},yaxis: {label:"Fails",min:0,max:300,renderer:$.jqplot.LinearAxisRenderer,tickOptions:{angle:0}}},datatip:true,series:[{label:"Boys",renderer: $.jqplot.LineRenderer,fill:true,fillAlpha:1.0,showLine:true,markerOptions:{show:true, style:'filledCircle'}},{label:"Girls",renderer: $.jqplot.LineRenderer,fill:true,fillAlpha:1.0,showLine:true,markerOptions:{show:true, style:'filledCircle'}}],stackSeries:true,showPointLabels:true,datatip:true});});</script>
+                </div>
+                
+                <div class="card">
+                    <h1 class="centerText">Bubble Chart</h1><div id="bubble"></div><script id="bubble_s" type="text/javascript">$(function(){PrimeFaces.cw("Chart","widget_bubble",{id:"bubble",type:"bubble",responsive:true,data:[[[70.0,183.0,55.0,"Acura"],[45.0,92.0,36.0,"Alfa Romeo"],[24.0,104.0,40.0,"AM General"],[50.0,123.0,60.0,"Bugatti"],[15.0,89.0,25.0,"BMW"],[40.0,180.0,80.0,"Audi"],[70.0,70.0,48.0,"Aston Martin"]]],title:"Bubble Chart",extender:skinBubble,dataRenderMode:"value",axes:{xaxis: {label:"Price",renderer:$.jqplot.LinearAxisRenderer,tickOptions:{angle:0}},yaxis: {label:"Labels",min:0,max:250,renderer:$.jqplot.LinearAxisRenderer,tickOptions:{angle:0}}},datatip:true,showLabels:true,bubbleGradients:false,bubbleAlpha:1.0,datatip:true});});</script>
+                </div>
+                
+                <div class="card">
+                    <h1 class="centerText">Zoom Chart</h1><div id="date"></div><script id="date_s" type="text/javascript">$(function(){PrimeFaces.cw("Chart","widget_date",{id:"date",type:"line",responsive:true,data:[[["2014\-01\-01",51],["2014\-01\-06",22],["2014\-01\-12",65],["2014\-01\-18",74],["2014\-01\-24",24],["2014\-01\-30",51]],[["2014\-01\-01",32],["2014\-01\-06",73],["2014\-01\-12",24],["2014\-01\-18",12],["2014\-01\-24",74],["2014\-01\-30",62]]],title:"Zoom for Details",extender:skinZoom,dataRenderMode:"value",axes:{xaxis: {label:"Dates",max:"2014-02-01",renderer:$.jqplot.DateAxisRenderer,tickOptions:{angle:-50,formatString:"%b %#d, %y"}},yaxis: {label:"Values",renderer:$.jqplot.LinearAxisRenderer,tickOptions:{angle:0}}},datatip:true,series:[{label:"Series 1",renderer: $.jqplot.LineRenderer,showLine:true,markerOptions:{show:true, style:'filledCircle'}},{label:"Series 2",renderer: $.jqplot.LineRenderer,showLine:true,markerOptions:{show:true, style:'filledCircle'}}],zoom:true,datatip:true});});</script>
+                </div>
+            </div>
+            <div class="ui-g-12 ui-lg-6">
+                <div class="card">
+                    <h1 class="centerText">Pie Chart</h1><div id="pie"></div><script id="pie_s" type="text/javascript">$(function(){PrimeFaces.cw("Chart","widget_pie",{id:"pie",type:"pie",responsive:true,data:[[["Brand 1",540],["Brand 2",325],["Brand 3",702],["Brand 4",421]]],title:"Simple Pie",legendPosition:"w",extender:skinPie,dataRenderMode:"value",datatip:true,datatipFormat:"%s - %d"});});</script>
+                </div>
+                
+                <div class="card">
+                    <h1 class="centerText">Donut Chart</h1><div id="donut"></div><script id="donut_s" type="text/javascript">$(function(){PrimeFaces.cw("Chart","widget_donut",{id:"donut",type:"donut",responsive:true,data:[[["Brand 1",150],["Brand 2",400],["Brand 3",200],["Brand 4",10]],[["Brand 1",540],["Brand 2",125],["Brand 3",702],["Brand 4",421]],[["Brand 1",40],["Brand 2",325],["Brand 3",402],["Brand 4",421]]],title:"Donut Chart",legendPosition:"w",extender:skinDonut,dataRenderMode:"value",datatip:true,datatipFormat:"%s - %d"});});</script>
+                </div>
+                
+                <div class="card">
+                    <h1 class="centerText">Bar And Line Chart</h1><div id="combined"></div><script id="combined_s" type="text/javascript">$(function(){PrimeFaces.cw("Chart","widget_combined",{id:"combined",type:"bar",responsive:true,data:[[120,100,44,150,25],[52,60,110,135,120]],title:"Bar and Line",legendPosition:"ne",highlightMouseOver:false,extender:skinBarAndLine,dataRenderMode:"value",axes:{xaxis: {label:"",renderer:$.jqplot.CategoryAxisRenderer,tickOptions:{angle:0}},yaxis: {label:"",min:0,max:200,renderer:$.jqplot.LinearAxisRenderer,tickOptions:{angle:0}}},series:[{label:"Boys",renderer: $.jqplot.BarRenderer},{label:"Girls",renderer: $.jqplot.LineRenderer,showLine:true,markerOptions:{show:true, style:'filledCircle'}}],ticks:["2004","2005","2006","2007","2008"],orientation:"vertical",showPointLabels:true});});</script>
+                </div>
+                
+                <div class="card">
+                    <h1 class="centerText">Multi Axis Chart</h1><div id="multiAxis"></div><script id="multiAxis_s" type="text/javascript">$(function(){PrimeFaces.cw("Chart","widget_multiAxis",{id:"multiAxis",type:"line",responsive:true,data:[[["2004",120],["2005",100],["2006",44],["2007",150],["2008",25]],[["A",52],["B",60],["C",110],["D",135],["E",120]]],title:"Multi Axis Chart",highlightMouseOver:false,extender:skinMultiAxis,dataRenderMode:"value",axes:{xaxis: {label:"Years",renderer:$.jqplot.CategoryAxisRenderer,tickOptions:{angle:0}},yaxis: {label:"Birth",min:0,max:200,renderer:$.jqplot.LinearAxisRenderer,tickOptions:{angle:0}},y2axis: {label:"Number",min:0,max:200,renderer:$.jqplot.LinearAxisRenderer,tickOptions:{angle:0}},x2axis: {label:"Period",renderer:$.jqplot.CategoryAxisRenderer,tickOptions:{angle:0}}},datatip:true,series:[{label:"Boys",renderer: $.jqplot.BarRenderer},{label:"Girls",renderer: $.jqplot.LineRenderer,xaxis:"x2axis",yaxis:"y2axis",showLine:true,markerOptions:{show:true, style:'filledCircle'}}],datatip:true});});</script>
+                </div>
+            </div>
+        </div>
+                </div>
+    
+    <div class="footer">
+        <div class="card clearfix">
+            <span class="footer-text-left">PrimeFaces POSEIDON</span>
+            <span class="footer-text-right"><span class="ui-icon ui-icon-copyright"></span>  <span>All Rights Reserved</span></span>
+        </div>
+    </div>
+            </div>
+        </div><div id="j_idt82" style="width:32px;height:32px;position:fixed;right:7px;bottom:7px"><div id="j_idt82_start" style="display:none">
+               <i class="fa fa-circle-o-notch fa-spin ajax-loader" aria-hidden="true"></i></div><div id="j_idt82_complete" style="display:none"></div></div><script id="j_idt82_s" type="text/javascript">$(function(){PrimeFaces.cw("AjaxStatus","widget_j_idt82",{id:"j_idt82"});});</script></body>
+
+
+<!-- Mirrored from www.primefaces.org/poseidon/charts.xhtml by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 18 Oct 2019 11:05:16 GMT -->
+</html>

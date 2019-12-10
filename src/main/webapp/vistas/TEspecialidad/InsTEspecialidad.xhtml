@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Registro de Asignacion de especialidad</title>
+        <h:outputScript library="js" name="script.js"/>
+    </h:head>
+    <h:body>    
+        <ui:composition>
+            <p:dialog id="dlg_ins_tespecialidad" widgetVar="dlg_ins_tespecialidad" dynamic="true"
+                      resizable="false" draggable="false" modal="true" closable="false" header="Registrar especialidad">
+                <h:form id="f_ins_tespecialidad">
+                    <p:panelGrid id="pg_tespecialiadad" columns="2">
+                        <p:outputLabel value="Establecimiento:" for="establecimiento"/>
+                        <h:outputText id="establecimiento" value="#{loginC.sesion.IDTRA}"/>
+
+                        <p:outputLabel value="Especialidad:" for="especialidad"/>
+                        <p:selectOneMenu id="especialidad" autoWidth="true" value="#{tEspecialidadC.modelo.IDESTESP}"
+                                         required="true">
+                            <f:selectItem itemLabel="Elija una opción" noSelectionOption="true"/>
+                            <f:selectItems value="#{tEspecialidadC.especialidades}" var="especialidades"
+                                           itemValue="#{especialidades.IDESP}" itemLabel="#{especialidades.NOMESP}"/>
+                        </p:selectOneMenu>
+
+                        <p:outputLabel value="Trabajador:" for="trabajador"/>
+                        <p:autoComplete id="trabajador" value="#{tEspecialidadC.modelo.IDTRA.IDPER}" maxResults="10" 
+                                        completeMethod="#{tEspecialidadC.autocompleteTrabajador}" dropdown="true" 
+                                        queryDelay="#{validar.query_delay}" itemValue="#{trabajador}" required="true"
+                                        var="trabajador" itemLabel="#{trabajador.FULLNAME}" forceSelection="true">
+                            <f:converter converterId="c_persona"/>
+                        </p:autoComplete>
+                    </p:panelGrid>
+                    <h:panelGroup class="oaw-horizontal-between">
+                        <p:commandButton value="Registrar" icon="ui-icon-check" update="f_ins_tespecialidad #{idUpdate}" 
+                                         actionListener="#{tEspecialidadC.insertar()}" />
+                        <p:commandButton value="Cerrar" icon="ui-icon-close" immediate="true" onclick="PF('dlg_ins_tespecialidad').hide();" />
+                    </h:panelGroup>
+                </h:form>
+            </p:dialog>
+        </ui:composition>
+    </h:body>
+</html>

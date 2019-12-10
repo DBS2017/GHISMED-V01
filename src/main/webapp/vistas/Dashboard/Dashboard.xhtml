@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="../seguridad/empty.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <ui:define name="title-page">
+        Dashboard
+    </ui:define>
+    <ui:define name="head">
+        <f:event type="preRenderView" listener="#{loginC.validarSesion()}"/>
+    </ui:define>
+    <ui:define name="title">
+        Dashboard
+    </ui:define>
+    <ui:define name="vista">
+        <h:form class="p-grid dashboard ">
+            <div class="p-col-12 p-md-3 summary-box summary-box-checkins">
+                <div class="card">
+                    <div class="summary-box-title">Checkins</div>
+                    <p>532</p>
+                    <span class="summary-box-icon fa fa-address-book" />
+                    <p:graphicImage class="summary-box-graph" library="images" name="dashboard/bg_card_dashboard.svg"/>
+                </div>
+            </div>
+            <div class="p-col-12 p-md-3 summary-box summary-box-filessynced">
+                <div class="card">
+                    <div class="summary-box-title">Checkins</div>
+                    <p>532</p>
+                    <span class="summary-box-icon fa fa-address-book" />
+                    <p:graphicImage class="summary-box-graph" library="images" name="dashboard/bg_card_dashboard.svg"/>
+                </div>
+            </div>
+            <div class="p-col-12 p-md-3 summary-box summary-box-messages">
+                <div class="card">
+                    <div class="summary-box-title">Checkins</div>
+                    <p>532</p>
+                    <span class="summary-box-icon fa fa-address-book" />
+                    <p:graphicImage class="summary-box-graph" library="images" name="dashboard/bg_card_dashboard.svg"/>
+                </div>
+            </div>
+            <div class="p-col-12 p-md-3 summary-box summary-box-usersonline">
+                <div class="card">
+                    <div class="summary-box-title">Checkins</div>
+                    <p>532</p>
+                    <span class="summary-box-icon fa fa-address-book" />
+                    <p:graphicImage class="summary-box-graph" library="images" name="dashboard/bg_card_dashboard.svg"/>
+                </div>
+            </div>
+            
+        </h:form>
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui" xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Registro de pacientes</title>
+    </h:head>
+    <h:body>
+        <ui:composition>
+            <p:dialog id="dlg_mod_paciente" widgetVar="dlg_mod_paciente" header="Modificar paciente"
+                      resizable="false" draggable="false" modal="true" closable="true">
+                <h:form id="f_mod_paciente">
+                    <p:wizard nextLabel="Avanzar" backLabel="Regresar" step="persona" id="wz_mod_paciente" widgetVar="wz_mod_paciente">
+                        <p:tab id="persona">
+                            <p:panel>
+                                <p:panelGrid id="pg_persona" columns="4">
+                                    <p:outputLabel for="dni" value="DNI:"/>
+                                    <p:inputText id="dni" value="#{pacienteC.modelo.IDPER.DNIPER}" maxlength="8" required="true">
+                                        <p:keyFilter regEx="#{validar.dni_regex}"/>
+                                        <f:validateLength minimum="8" maximum="8"/>
+                                    </p:inputText>
+                                    <p:outputLabel for="nombres" value="Nombres:"/>
+                                    <p:inputText id="nombres" value="#{pacienteC.modelo.IDPER.NOMPER}">
+                                        <p:keyFilter regEx="#{validar.nombres_regex}"/>
+                                    </p:inputText>
+                                    <p:outputLabel for="apellido_pat" value="Apellido Paterno:"/>
+                                    <p:inputText id="apellido_pat" value="#{pacienteC.modelo.IDPER.APEPATPER}">
+                                        <p:keyFilter regEx="#{validar.apellidos_regex}"/>
+                                    </p:inputText>
+                                    <p:outputLabel for="apellido_mat" value="Apellido Materno:"/>
+                                    <p:inputText id="apellido_mat" value="#{pacienteC.modelo.IDPER.APEMATPER}">
+                                        <p:keyFilter regEx="#{validar.apellidos_regex}"/>
+                                    </p:inputText>
+
+                                    <p:outputLabel for="nacimiento" value="Fec. Nacimiento:"/>
+                                    <p:calendar id="nacimiento" value="#{pacienteC.modelo.IDPER.FECNACPER}" mask="true" pattern="dd/MM/yyyy" showOn="button">
+
+                                    </p:calendar>
+                                    <p:outputLabel for="sexo" value="Sexo:"/>
+                                    <p:selectOneRadio id="sexo" value="#{pacienteC.modelo.IDPER.SEXPER}" required="true">
+                                        <f:selectItem itemValue="M" itemLabel="Masculino"/>
+                                        <f:selectItem itemValue="F" itemLabel="Femenino"/>
+                                    </p:selectOneRadio>
+                                    <p:outputLabel for="distrito" value="Distrito Actual:"/>
+                                    <p:autoComplete id="distrito" value="#{pacienteC.modelo.IDPER.CODUBI}" maxResults="10" 
+                                                    completeMethod="#{establecimientoC.autocomUbigeo}" dropdown="true" 
+                                                    queryDelay="#{validar.query_delay}" itemValue="#{ubigeo}" required="true"
+                                                    var="ubigeo" itemLabel="#{ubigeo.VALOR}" forceSelection="true">
+                                        <f:converter converterId="C_Ubigeo"/>
+                                    </p:autoComplete>
+                                    <p:outputLabel for="direccion" value="Dirección Actual:"/>
+                                    <p:inputText id="direccion" value="#{pacienteC.modelo.IDPER.DIRPER}">
+                                        <p:keyFilter regEx="#{validar.direccion_regex}"/>
+                                    </p:inputText>
+                                    <p:outputLabel for="celular" value="Celular:"/>
+                                    <p:inputText id="celular" value="#{pacienteC.modelo.IDPER.NUMCELPER}" maxlength="9">
+                                        <p:keyFilter regEx="#{validar.celular_regex}"/>
+                                        <f:validateLength minimum="9" maximum="9"/>
+                                    </p:inputText>
+                                </p:panelGrid>
+                            </p:panel>
+                        </p:tab>
+                        <p:tab id="paciente">
+                            <p:panel>
+                                <p:panelGrid columns="4">
+                                    <p:outputLabel for="tipo_seguro" value="Tipo de seguro:"/>
+                                    <p:selectOneMenu id="tipo_seguro" value="#{pacienteC.modelo.TIPOSEGUPAC}" required="true">
+                                        <f:selectItem itemLabel="Sin Seguro" itemValue="NON"/>
+                                        <f:selectItem itemLabel="Seguro Integral de Salud" itemValue="SIS"/>
+                                        <f:selectItem itemLabel="Seguro Social del Perú - EsSalud" itemValue="SSN" />
+                                        <f:selectItem itemLabel="Empresas Prestadoras de Salud" itemValue="EPS" />
+                                        <f:selectItem itemLabel="Seguros de las Fuerzas Armadas" itemValue="SFA" />
+                                        <f:selectItem itemLabel="Seguro de Salud de la Policía" itemValue="SSP" />
+                                    </p:selectOneMenu>
+                                    <p:outputLabel for="numero_seguro" value="Número de seguro:"/>
+                                    <p:inputText id="numero_seguro" value="#{pacienteC.modelo.NUMSEGUPAC}" maxlength="5">
+                                        <p:keyFilter regEx="#{validar.numero_seguro_regex}"/>
+                                        <f:validateLength minimum="5" maximum="5"/>
+                                    </p:inputText>
+                                    <p:outputLabel for="estado_civil" value="Estado Civil:"/>
+                                    <p:selectOneMenu id="estado_civil" value="#{pacienteC.modelo.ESTCIVPAC}" required="true">
+                                        <f:selectItem itemLabel="Seleccione uno" noSelectionOption="true"/>
+                                        <f:selectItem itemValue="S" itemLabel="Soltero" />
+                                        <f:selectItem itemValue="C" itemLabel="Casado" />
+                                        <f:selectItem itemValue="V" itemLabel="Viudo" />
+                                        <f:selectItem itemValue="D" itemLabel="Divorciado" />
+                                    </p:selectOneMenu>
+                                    <p:outputLabel for="distrito_proc" value="Distrito Precedente:"/>
+                                    <p:autoComplete id="distrito_proc" value="#{pacienteC.modelo.CODUBI}" maxResults="10" 
+                                                    completeMethod="#{establecimientoC.autocomUbigeo}" dropdown="true" 
+                                                    queryDelay="#{validar.query_delay}" itemValue="#{ubigeo}" required="true"
+                                                    var="ubigeo" itemLabel="#{ubigeo.VALOR}" forceSelection="true">
+                                        <f:converter converterId="C_Ubigeo"/>
+                                    </p:autoComplete>
+                                    <p:outputLabel for="direccion_proc" value="Dirección Precedente:"/>
+                                    <p:inputText id="direccion_proc" value="#{pacienteC.modelo.DOMIPROCPAC}" required="true">
+                                        <p:keyFilter regEx="#{validar.direccion_regex}"/>
+                                    </p:inputText>
+                                    <p:outputLabel for="educacion" value="Grado de Instrucción:"/>
+                                    <p:selectOneMenu id="educacion" value="#{pacienteC.modelo.GRADINSTPAC}">
+                                        <f:selectItem itemLabel="Seleccione uno" noSelectionOption="true"/>
+                                        <f:selectItem itemValue="Primaria" itemLabel="Primaria" />
+                                        <f:selectItem itemValue="Secundaria" itemLabel="Secundaria" />
+                                        <f:selectItem itemValue="Superior" itemLabel="Superior" />
+                                    </p:selectOneMenu>
+                                    <p:outputLabel for="ocupacion_laboral" value="Ocupación Laboral:"/>
+                                    <p:inputText id="ocupacion_laboral" value="#{pacienteC.modelo.OCUPPAC}">
+                                        <p:keyFilter regEx="#{validar.ocupacion_laboral_regex}"/>
+                                    </p:inputText>
+                                    <p:outputLabel for="religion" value="Religión:"/>
+                                    <p:inputText id="religion" value="#{pacienteC.modelo.RELPAC}">
+                                        <p:keyFilter regEx="#{validar.religion_regex}"/>
+                                    </p:inputText>
+                                </p:panelGrid>
+                                <p:commandButton value="Modificar" update="@widgetVar(growl) :f_paciente:dt_paciente" 
+                                                 actionListener="#{pacienteC.modificar()}" 
+                                                 oncomplete="fn_validar_dialogo(args,'paciente');fn_reiniciarWZ('wz_mod_paciente');"/>
+                            </p:panel>
+                        </p:tab>
+                    </p:wizard>
+                </h:form>
+            </p:dialog>
+        </ui:composition>
+    </h:body>
+</html>

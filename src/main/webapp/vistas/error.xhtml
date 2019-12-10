@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <h:outputStylesheet name="theme.css"/>
+        <h:outputStylesheet name="components.css"/>
+        <h:outputStylesheet library="fa" name="font-awesome.css"/>
+        <h:outputStylesheet library="css" name="layout-blue.css"/>
+        <h:outputScript library="" name="core.js" />
+        <h:outputScript library="" name="components.js" />
+        <title>iHisMan - Error</title>
+    </h:head>
+    <h:body class="exception-body error">
+        <div class="exception-panel">
+            <div class="exception-image">
+                <h:graphicImage library="images" name="exception/icon-error.png"/>
+            </div>
+            <div class="exception-detail">
+                <h1>ERROR OCCURED</h1>
+                <p>Something went wrong.</p>
+                <h:form>
+                    <p:link href="#{request.contextPath}/web/vistas/Dashboard/Dashboar.xhtml">
+                        <p:commandButton value="Inicio"/>
+                    </p:link>
+                </h:form>
+            </div>
+        </div>
+    </h:body>
+</html>

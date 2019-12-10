@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <h:outputStylesheet name="theme.css"/>
+        <h:outputStylesheet name="components.css"/>
+        <h:outputStylesheet library="fa" name="font-awesome.css"/>
+        <h:outputStylesheet library="css" name="grid.css"/>
+        <h:outputStylesheet library="css" name="layout-blue.css"/>
+        <h:outputScript name="core.js" />
+        <h:outputScript name="components.js" />
+        <h:outputScript library="js" name="ripple.js" /> 
+        <h:outputScript library="js" name="layout.js" />
+        <h:outputScript library="js" name="templateStyle.js" />
+        <title>iHisMan</title>
+    </h:head>
+    <h:body class="login-body">
+        <h:form id="form_login">
+            <div class="login-panel ui-fluid">
+                <div class="login-panel-header">
+                    <p:graphicImage library="images" name="login/logo-sapphire-color.png" />
+                </div>
+                <div class="login-panel-content">
+                    <div class="ui-g">
+                        <div class="ui-g-12">
+                            <h1>iHisMan | GHISMED</h1>
+                            <h2>Welcome, please use the form to sign-in</h2>
+                        </div>
+                        <div class="ui-g-12">
+                            <span class="md-inputfield">
+                                <p:inputText value="#{loginC.user}" />
+                                <p:outputLabel value="Usuario:" />
+                            </span>
+                        </div>
+                        <div class="ui-g-12">
+                            <span class="md-inputfield">
+                                <p:password value="#{loginC.pwd}" />
+                                <p:outputLabel value="Contraseña:" />
+                            </span>
+                        </div>
+                        <div class="ui-g-12">
+                            <p:commandButton id="btn_login" class="btn" value="Iniciar Sesión" onstart="PF('blockLogin').show()"
+                                             icon="ui ui-icon-person" actionListener="#{loginC.iniciarSesion()}" update="@form"/>
+                            <p:separator/>
+                            <p:link value="¡Contactanos!" href="http://www.vallegrande.edu.pe"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+    </h:body>
+</html>

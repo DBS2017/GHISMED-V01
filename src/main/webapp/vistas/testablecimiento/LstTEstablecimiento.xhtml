@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="../seguridad/empty.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:define name="title-page">
+        Mi Establecimieto
+    </ui:define>
+    <ui:define name="head">
+        <f:event type="preRenderView" listener="#{loginC.validarSesion()}"/>
+    </ui:define>
+    <ui:define name="title">
+        Mi Establecimieto
+    </ui:define>
+    <ui:define name="vista">
+
+        <h:form>
+            <h:panelGroup class="oaw-horizontal-between">
+                <p:selectBooleanButton offLabel="Deshabilitados" onLabel="Habilitados" value="#{testablecimientoC.TIPO_LISTA}">
+                    <p:ajax event="change" update=":f_testablecimiento"/>
+                </p:selectBooleanButton>
+                <p:commandButton value="Registrar" oncomplete="PF('dlg_ins_testablecimiento').show()" 
+                                 actionListener="#{testablecimientoC.prepararModelo()}"/>
+            </h:panelGroup>
+        </h:form>
+        <p:separator/>
+        <h:form id="f_testablecimiento">
+            <p:dataTable id="dt_testablecimiento" widgetVar="dt_testablecimiento" value="#{testablecimientoC.lista}" rows="10"
+                         paginator="true" var="testablecimietos" rowKey="#{testablecimietos.IDESTESP}" expandableRowGroups="true"
+                         selectionMode="single" selection="#{testablecimientoC.modelo}" sortBy="#{testablecimietos.IDEST.NOMEST}"
+                         filteredValue="#{testablecimientoC.filtro}">
+                <p:headerRow>
+                    <p:column colspan="2">
+                        <h:outputText value="#{testablecimietos.IDEST.NOMEST}"/>
+                    </p:column>
+                </p:headerRow>
+
+                <p:column headerText="Área" filterBy="#{testablecimietos.IDESP.NOMESP}">
+                    <h:outputText value="#{testablecimietos.IDESP.NOMESP}"/>
+                </p:column>
+                <p:column headerText="Tipo de Área" filterBy="#{testablecimietos.IDESP.TIPOESP}" filterMatchMode="equals">
+                    <f:facet name="filter">
+                        <p:selectOneMenu onchange="PF('dt_testablecimiento').filter()" >
+                            <f:selectItem itemValue="" itemLabel="Todos" />
+                            <f:selectItem itemValue="A" itemLabel="Administrativo" />
+                            <f:selectItem itemValue="E" itemLabel="Servicio" />
+                        </p:selectOneMenu>
+                    </f:facet>
+                    <h:outputText value="#{testablecimietos.IDESP.TIPOESP}">
+                        <f:converter converterId="c_tipo"/>
+                    </h:outputText>
+                </p:column>
+            </p:dataTable>
+            <p:contextMenu for="dt_testablecimiento" id="context_menu">
+                <p:menuitem value="Habilitar" actionListener="#{testablecimientoC.habilitar()}" update="dt_testablecimiento" rendered="#{!testablecimientoC.TIPO_LISTA}"/>
+                <p:menuitem value="Deshabilitar" actionListener="#{testablecimientoC.deshabilitar()}" update="dt_testablecimiento" rendered="#{testablecimientoC.TIPO_LISTA}"/>
+            </p:contextMenu>
+        </h:form>
+        <ui:include src="InsTEstablecimiento.xhtml"/>
+        <ui:include src="ModTEstablecimiento.xhtml"/>
+    </ui:define>
+</ui:composition>

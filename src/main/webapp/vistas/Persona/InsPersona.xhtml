@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <ui:composition>
+        <h:head>
+            <title>Registro de Persona</title>
+        </h:head>
+        <h:body>
+            <p:dialog id="dlgRegPers" widgetVar="wdlgRegPers" class="os-dialog" header="Registrar Nueva Persona"
+                      resizable="false" draggable="false" modal="true" closable="false">
+                <h:form id="formInsPers" >
+                    <p:panelGrid columns="3" id="pgInsPers">
+                        <p:outputLabel  value="Nombres"/>
+                        <p:inputText id="nom" value="#{personaC.modelo.NOMPER}" maxlength="50" required="true" 
+                                     requiredMessage="Requiere Nombre" onkeyup="this.value = this.value.capitalize()">
+                            <p:keyFilter regEx="/[A-Za-z 0-9 \s Ñ ñ Á á É é Í í Ó ó Ú ú]/"/>
+                        </p:inputText>
+                        <p:message for="nom" />
+                        <p:outputLabel  value="Apellido Paterno"/>
+                        <p:inputText id="pat" value="#{personaC.modelo.APEPATPER}" maxlength="80" required="true" 
+                                     requiredMessage=" Requiere Apellido Paterno" onkeyup="this.value = this.value.capitalize()">
+                            <p:keyFilter regEx="/[A-Za-z \s Ñ ñ Á á É é Í í Ó ó Ú ú]/"/>
+                        </p:inputText>
+                        <p:message for="pat" />
+                        <p:outputLabel  value="Apellido Materno"/>
+                        <p:inputText id="mat" value="#{personaC.modelo.APEMATPER}"   required="true" 
+                                     requiredMessage="Requiere Apellido Materno" onkeyup="this.value = this.value.capitalize()">
+                            <p:keyFilter regEx="/[A-Za-z \s Ñ ñ Á á É é Í í Ó ó Ú ú]/"/>
+                        </p:inputText>
+                        <p:message for="mat" />
+                        <p:outputLabel   value="Fecha de Nacimiento" />
+                        <p:calendar id="calendar" value="#{personaC.modelo.FECNACPER}" mask="true" pattern="dd-MMM-yyyy"
+                                    required="true" requiredMessage="Requiere Fecha de Nacimiento" navigator="true" 
+                                    maxdate="2001-Dec-31" locale="es">
+                        </p:calendar>
+                        <p:message for="calendar" />
+                        <p:outputLabel value="DNI"/>
+                        <p:inputText id="dni" value="#{personaC.modelo.DNIPER}"  maxlength="8" required="true"  
+                                     requiredMessage=" Requiere DNI">
+                            <p:keyFilter regEx="/[0-9]/"/>
+                            <f:validateLength minimum="8"/>
+                        </p:inputText>
+                        <p:message for="dni" />
+                        <p:outputLabel value="Sexo"/>
+                        <p:selectOneRadio id="sexo" value="#{personaC.modelo.SEXPER}" rendered="true" 
+                                          requiredMessage="Requiere Sexo" required="true">
+                            <f:selectItem itemLabel="Masculino" itemValue="1" />
+                            <f:selectItem itemLabel="Femenino" itemValue="2" />
+                        </p:selectOneRadio>
+                        <p:message for="sexo" />
+                        <p:outputLabel  value="Dirección"/>
+                        <p:inputText id="dir" value="#{personaC.modelo.DIRPER}" maxlength="80" required="true" 
+                                     requiredMessage="Requiere Dirección" onkeyup="this.value = this.value.capitalize()">
+                            <p:keyFilter regEx="/[A-Za-z \s Ñ ñ Á á É é Í í Ó ó Ú ú]/"/>
+                        </p:inputText>
+                        <p:message for="dir" />
+                        <p:outputLabel  value="Ubigeo"/>
+
+                        <p:outputLabel  value="Número Celular"/>
+                        <p:inputText id="num" value="#{personaC.modelo.NUMCELPER}" maxlength="9" required="true" 
+                                     requiredMessage="Requiere # Celular">
+                            <p:keyFilter regEx="/[\d\-]/"/>
+                            <f:validateLength minimum="9"/>
+                        </p:inputText>
+                        <p:message for="num" />
+                    </p:panelGrid>  
+                    <p:commandButton value="Registrar" actionListener="#{personaC.registrar}" update="formInsPers :mnsj :formLstPers" 
+                                     oncomplete="if(args &amp;&amp; !args.validationFailed)PF('wdlgRegPers').hide();"/>
+                    <p:commandButton value="Cancelar" icon="ui-icon-close" immediate="true" oncomplete="PF('wdlgRegPers').hide();" 
+                                     update="pgInsPers" process="@this">
+                        <p:resetInput target="pgInsPers" />
+                    </p:commandButton>
+                </h:form>
+            </p:dialog>
+        </h:body>
+    </ui:composition>
+</html>

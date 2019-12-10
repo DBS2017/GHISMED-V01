@@ -1,0 +1,37 @@
+<ui:composition
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+    <script type="text/javascript">
+        function handleLoginRequest(xhr, status, args) {
+            if (args.validationFailed || !args.loggedIn) {
+                PF('cuenta').jq.effect("shake", {times: 5}, 100);
+            } else {
+                PF('cuenta').hide();
+                $('#loginLink').fadeOut();
+            }
+        }
+    </script>
+    <h:form id="f_change">
+        <p:panelGrid columns="2" id="pgEspec" layout="tabular">
+            <p:outputLabel value="Contraseña actual" />
+            <p:inputText type="password" value="#{loginC.pwd}" maxlength="80" required="true"
+                         requiredMessage="Requiere la contraseña actual">
+            </p:inputText>
+        </p:panelGrid>
+        <h:panelGrid columns="2" id="matchGrid" cellpadding="5">
+            <h:outputLabel for="pwd1" value="Nueva Contraseña: *" />
+            <p:password id="pwd1" value="#{loginC.newPwd}" match="pwd2" label="Nueva Contraseña 2" required="true" 
+                        validatorMessage="Las contraseñas no coinciden"/>
+
+            <h:outputLabel for="pwd2" value="Repetir Contraseña: *" />
+            <p:password id="pwd2" value="#{loginC.newPwd}" label="Nueva Contraseña 2" required="true"/>
+        </h:panelGrid>
+        <p:commandButton value="Modificar" icon="ui-icon-check" update="@form"
+                         oncomplete="handleLoginRequest(xhr, status, args)"
+                         actionListener="#{loginC.changePassword()}"/>
+        <p:commandButton value="Cancelar" icon="ui-icon-close" immediate="true" onclick="PF('cuenta').hide();"/>
+    </h:form>
+</ui:composition>
+

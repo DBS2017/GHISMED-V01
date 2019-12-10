@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="../seguridad/empty.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:define name="title-page">
+        Datos Generales
+    </ui:define>
+    <ui:define name="head">
+        <f:event type="preRenderView" listener="#{loginC.validarSesion()}"/>
+    </ui:define>
+    <ui:define name="title">
+        Datos Generales
+    </ui:define>
+    <ui:define name="vista">
+        <p:growl id="mnsj" severity="info, fatal" showSummary="true" showDetail="true"  />
+        <h:form id="formLstPers">
+            <p:dataTable value="#{personaC.listaPersona}" var="lista" id="dtPers" paginator="true" rows="10" style="margin-bottom:20px"
+                         rowKey="#{lista.IDPER}" selection="#{personaC.modelo}" selectionMode="single">
+                <f:facet name="header">
+                    <p:commandButton disabled="true" update="dlgRegPers" value="agregar" actionListener="#{personaC.limpiar()}"
+                                     oncomplete="PF('wdlgRegPers').show()"/>
+                </f:facet>
+
+                <p:column headerText="Apellidos y nombres" filterBy="#{lista.APEPATPER} #{lista.APEMATPER}, #{lista.NOMPER}" filterMatchMode="contains" width="290">
+                    <h:outputText value="#{lista.APEPATPER} #{lista.APEMATPER}, #{lista.NOMPER}" />
+                </p:column>
+
+                <p:column headerText="Fecha Nacimiento" width="100">
+                    <h:outputText value="#{lista.FECNACPER}">
+                        <f:convertDateTime pattern="dd/MMM/YYYY"/>
+                    </h:outputText>
+
+                </p:column>
+                <p:column headerText="DNI" width="75">
+                    <h:outputText value="#{lista.DNIPER}" >
+                        <p:keyFilter regEx="/[\d\-]/"/>
+                    </h:outputText>
+                </p:column>
+                <p:column headerText="Sexo" width="20" >
+                    <h:outputText value="#{lista.SEXPER}"> 
+                        <f:converter converterId="C_Sexo"/>
+                    </h:outputText>
+                </p:column>
+                <p:column headerText="Dirreción" width="180">
+                    <h:outputText value="#{lista.DIRACTPER}"/>
+                </p:column>
+                <p:column headerText="Distrito" width="170">
+                    <h:outputText id="dist" value="#{lista.UBIGEO.subSequence(0,lista.UBIGEO.indexOf(','))}" />
+                    <p:tooltip id="ttdist" for="dist" value="#{lista.UBIGEO}" position="right"/>
+                </p:column>
+                <p:column headerText="Número Celular" width="85">
+                    <h:outputText value="#{lista.NUMCELPER}" />
+                </p:column>
+            </p:dataTable>
+            <!--c-->
+            <p:contextMenu for="dtPers">
+                <p:menuitem value="Modificar" update="dlgEditPers formLstPers :mnsj" icon="ui-icon-pencil" 
+                            oncomplete="PF('wdlgEditPers').show()"/>
+                <p:menuitem value="Eliminar" update="dtPers formLstPers :mnsj" icon="ui-icon-circle-close" 
+                            actionListener="#{personaC.eliminar()}">
+                    <p:confirm header="Confirmación" message="¿Deseas Eliminar? " icon="ui-icon-alert" />
+                    <p:tooltip trackMouse="true"/>
+                </p:menuitem>
+            </p:contextMenu>
+            <!--fd-->
+        </h:form>
+        <p:dialog id="dlgEditPers" widgetVar="wdlgEditPers" modal="true">
+            <h:form id="formEditPers">
+                <p:panelGrid columns="2" id="pgEditPers">
+                    <p:outputLabel for="nom" value="Nombres"/>
+                    <p:inputText id="nom" value="#{personaC.modelo.NOMPER}" maxlength="50" required="true" requiredMessage="Requiere Nombre" onkeyup="this.value = this.value.capitalize()">
+                        <p:keyFilter regEx="/[A-Za-z 0-9 \s Ñ ñ Á á É é Í í Ó ó Ú ú]/"/>
+                    </p:inputText>
+                    <p:outputLabel for="pat" value="Apellido Paterno"/>
+                    <p:inputText id="pat" value="#{personaC.modelo.APEPATPER}" maxlength="80" required="true" requiredMessage=" Requiere Apellido Paterno" onkeyup="this.value = this.value.capitalize()">
+                        <p:keyFilter regEx="/[A-Za-z \s Ñ ñ Á á É é Í í Ó ó Ú ú]/"/>
+                    </p:inputText>
+                    <p:outputLabel for="mat" value="Apellido Materno"/>
+                    <p:inputText id="mat" value="#{personaC.modelo.APEMATPER}"   required="true" requiredMessage=" Requiere Apellido Materno" onkeyup="this.value = this.value.capitalize()">
+                        <p:keyFilter regEx="/[A-Za-z \s Ñ ñ Á á É é Í í Ó ó Ú ú]/"/>
+                    </p:inputText>
+                    <p:outputLabel  for="calendar"  value="Fecha de Nacimiento" />
+                    <p:calendar id="calendar" value="#{personaC.modelo.FECNACPER}" required="true" pattern="dd-MMM-yyyy"
+                                requiredMessage="Requiere Fecha de Nacimiento" navigator="true" maxdate="@now" locale="es"/>
+                    <p:outputLabel for="dni" value="DNI"/>
+                    <p:inputText id="dni" value="#{personaC.modelo.DNIPER}"  maxlength="8" required="true"  requiredMessage=" Requiere DNI">
+                        <p:keyFilter regEx="/[0-9]/"/>
+                        <f:validateLength minimum="8"/>
+                    </p:inputText>
+                    <p:outputLabel for="sexo" value="Sexo"/>
+                    <p:selectOneRadio id="sexo" value="#{personaC.modelo.SEXPER}" rendered="true" requiredMessage="Requiere Sexo">
+                        <f:selectItem itemLabel="Masculino" itemValue="M" />
+                        <f:selectItem itemLabel="Femenino" itemValue="F" />
+                    </p:selectOneRadio>
+                    <p:outputLabel for="dir" value="Dirección"/>
+                    <p:inputText id="dir" value="#{personaC.modelo.DIRACTPER}" maxlength="80" required="true" requiredMessage="Requiere Dirección" onkeyup="this.value = this.value.toUpperCase()">
+                        <p:keyFilter regEx="/[A-Za-z \s Ñ ñ Á á É é Í í Ó ó Ú ú]/"/>
+                    </p:inputText>
+                    <p:outputLabel value="Distrito"/>
+                    <p:autoComplete id="ubic" value="#{personaC.modelo.UBIGEO}" maxResults="10" dropdown="true" required="true"
+                                    completeMethod="#{personaC.autocomUbige}" emptyMessage="No existe" forceSelection="true">
+                        <p:ajax event="itemSelect" listener="#{personaC.refrescarUbigeo()}"/>
+                    </p:autoComplete>
+                    <p:outputLabel value="Número Celular"/>
+                    <p:inputText id="num" value="#{personaC.modelo.NUMCELPER}" maxlength="9" rendered="true" requiredMessage="Requiere # Celular">
+                        <p:keyFilter regEx="/[\d\-]/"/>
+                        <f:validateLength minimum="9"/>
+                    </p:inputText>
+                    <p:message for="num" />
+                </p:panelGrid>  
+                <p:commandButton value="Actualizar" actionListener="#{personaC.modificar()}"
+                                 update=":formLstPers :mnsj formEditPers" oncomplete="if(args &amp;&amp; !args.validationFailed)PF('wdlgEditPers').hide();">
+                    <p:confirm header="Confirmación" message="¿Deseas Modificar? " icon="ui-icon-alert" />
+                    <p:tooltip trackMouse="true"/>
+                </p:commandButton>
+                <p:commandButton value="Cancelar" icon="ui-icon-close" immediate="true" oncomplete="PF('wdlgEditPers').hide();" 
+                                 update="pgEditPers" process="@this">
+                    <p:resetInput target="pgEditPers" />
+                </p:commandButton>
+            </h:form>
+        </p:dialog>
+        <ui:include src="InsPersona.xhtml"/>
+    </ui:define>
+</ui:composition>

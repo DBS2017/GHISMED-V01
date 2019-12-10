@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:body>
+        <ui:composition>
+            <p:dialog id="dlg_mod_trabajador" widgetVar="dlg_mod_trabajador" header="Modificar trabajador"
+                      resizable="false" draggable="false" modal="true" closable="true">
+                <h:form id="form_mod_trabajador">
+                    <p:wizard nextLabel="Avanzar" backLabel="Regresar" >
+                         <p:tab id="persona">
+                            <p:panel>
+                                <p:panelGrid id="pg_persona" columns="4">
+                                    <p:outputLabel for="dni" value="DNI:"/>
+                                    <p:inputText id="dni" value="#{trabajadorC.modelo.IDPER.DNIPER}" maxlength="8" required="true">
+                                        <p:keyFilter regEx="#{validar.dni_regex}"/>
+                                        <f:validateLength minimum="8" maximum="8"/>
+                                    </p:inputText>
+                                    <p:outputLabel for="nombres" value="Nombres:"/>
+                                    <p:inputText id="nombres" value="#{trabajadorC.modelo.IDPER.NOMPER}">
+                                        <p:keyFilter regEx="#{validar.nombres_regex}"/>
+                                    </p:inputText>
+                                    <p:outputLabel for="apellido_pat" value="Apellido Paterno:"/>
+                                    <p:inputText id="apellido_pat" value="#{trabajadorC.modelo.IDPER.APEPATPER}">
+                                        <p:keyFilter regEx="#{validar.apellidos_regex}"/>
+                                    </p:inputText>
+                                    <p:outputLabel for="apellido_mat" value="Apellido Materno:"/>
+                                    <p:inputText id="apellido_mat" value="#{trabajadorC.modelo.IDPER.APEMATPER}">
+                                        <p:keyFilter regEx="#{validar.apellidos_regex}"/>
+                                    </p:inputText>
+
+                                    <p:outputLabel for="nacimiento" value="Fec. Nacimiento:"/>
+                                    <p:calendar id="nacimiento" value="#{trabajadorC.modelo.IDPER.FECNACPER}" mask="true" pattern="dd/MM/yyyy" showOn="button">
+
+                                    </p:calendar>
+                                    <p:outputLabel for="sexo" value="Sexo:"/>
+                                    <p:selectOneRadio id="sexo" value="#{trabajadorC.modelo.IDPER.SEXPER}" required="true">
+                                        <f:selectItem itemValue="M" itemLabel="Masculino"/>
+                                        <f:selectItem itemValue="F" itemLabel="Femenino"/>
+                                    </p:selectOneRadio>
+                                    <p:outputLabel for="distrito" value="Distrito Actual:"/>
+                                    <p:autoComplete id="distrito" value="#{trabajadorC.modelo.IDPER.CODUBI}" maxResults="10" 
+                                                    completeMethod="#{establecimientoC.autocomUbigeo}" dropdown="true" 
+                                                    queryDelay="#{validar.query_delay}" itemValue="#{ubigeo}" required="true"
+                                                    var="ubigeo" itemLabel="#{ubigeo.VALOR}" forceSelection="true">
+                                        <f:converter converterId="C_Ubigeo"/>
+                                    </p:autoComplete>
+                                    <p:outputLabel for="direccion" value="Dirección Actual:"/>
+                                    <p:inputText id="direccion" value="#{trabajadorC.modelo.IDPER.DIRPER}">
+                                        <p:keyFilter regEx="#{validar.direccion_regex}"/>
+                                    </p:inputText>
+                                    <p:outputLabel for="celular" value="Celular:"/>
+                                    <p:inputText id="celular" value="#{trabajadorC.modelo.IDPER.NUMCELPER}" maxlength="9">
+                                        <p:keyFilter regEx="#{validar.celular_regex}"/>
+                                        <f:validateLength minimum="9" maximum="9"/>
+                                    </p:inputText>
+                                </p:panelGrid>
+                            </p:panel>
+                        </p:tab>
+                        <p:tab id="trabajador">
+                            <p:panel>
+                                <p:panelGrid columns="4">
+                                    <p:outputLabel for="perfil" value="Perfil Profesional:"/>
+                                    <p:inputText id="perfil" value="#{trabajadorC.modelo.PERFPROFTRA}" maxlength="100">
+                                        <p:keyFilter regEx="#{validar.descripcion_regex}"/>
+                                    </p:inputText>
+
+                                    <p:outputLabel for="cargo" value="Cargo:"/>
+                                    <p:selectOneMenu id="cargo" value="#{trabajadorC.modelo.CARGTRA}">
+                                        <f:selectItem itemLabel="Director de la Sede" itemValue="SD"/> 
+                                        <f:selectItem itemLabel="Director del Establecimineto" itemValue="ED"/>
+                                        <f:selectItem itemLabel="Usuario de caja del establecimiento" itemValue="ED" />
+                                        <f:selectItem itemLabel="Usuario de admisión del Establecimiento" itemValue="EA" />
+                                        <f:selectItem itemLabel="Usuario de triaje del Establecimiento" itemValue="ET" />
+                                        <f:selectItem itemLabel="Usuario del laboratorio del Establecimiento" itemValue="EL" />   
+                                    </p:selectOneMenu>
+                                </p:panelGrid>
+                                <p:commandButton value="Actualizar" actionListener="#{trabajadorC.modificar()}"
+                                                 update="form_mod_trabajador :form_trabajador" oncomplete="fn_validar_dialogo(args,'trabajador')" >
+                                </p:commandButton>
+
+                            </p:panel>
+                        </p:tab>
+                    </p:wizard>
+                </h:form>
+            </p:dialog>
+        </ui:composition>
+    </h:body>
+</html>

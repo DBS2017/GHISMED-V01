@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="../seguridad/empty.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:define name="title-page">
+        Trabajadores
+    </ui:define>
+    <ui:define name="title">
+        Trabajadores
+    </ui:define>
+    <ui:define name="vista">
+        <h:form>
+            <h:panelGroup class="oaw-horizontal-between">
+                <p:selectBooleanButton offLabel="Deshabilitados" onLabel="Habilitados" value="#{trabajadorC.TIPO_LISTA}"> 
+                    <p:ajax event="change" update="form_trabajador" onstart="PF('dt_trabajador').clearFilters()"/>
+                </p:selectBooleanButton>
+                <p:commandButton update=":dlg_ins_trabajador" value="agregar" oncomplete="PF('dlg_ins_trabajador').show()" 
+                                 actionListener="#{trabajadorC.prepararModelo()}" class="green-btn"/>
+            </h:panelGroup>
+        </h:form>
+        <p:separator/>
+        <h:form id="form_trabajador">
+            <p:dataTable id="dt_trabajador" widgetVar="dt_trabajador" value="#{trabajadorC.lista}" var="trabajadores"
+                         paginator="true" rows="10" emptyMessage="No hay ningun Trabajador registrado" reflow="true"
+                         rowKey="#{trabajadores.IDTRA}" selection="#{trabajadorC.modelo}" selectionMode="single">
+                <p:column headerText="Apellidos y Nombres" width="300" filterBy="#{trabajadores.IDPER.APEPATPER} #{trabajadores.IDPER.APEMATPER}, #{pacientes.IDPER.NOMPER}" 
+                          filterMatchMode="contains">
+                    <h:outputText value="#{trabajadores.IDPER.APEPATPER} #{trabajadores.IDPER.APEMATPER}, #{trabajadores.IDPER.NOMPER}"/>
+                </p:column>
+                <p:column headerText="Cargo" width="75" >
+                    <h:outputText value="#{trabajadores.CARGTRA}" />
+                </p:column>
+                <p:column headerText="Perfil Profesional" width="75" >
+                    <h:outputText value="#{trabajadores.PERFPROFTRA}" />
+                </p:column>
+
+                <p:column headerText="Usuario" width="75" >
+                    <h:outputText value="#{trabajadores.USERTRA}" />
+                </p:column>
+                <p:column headerText="DNI" width="75" >
+                    <h:outputText value="#{trabajadores.IDPER.DNIPER}" />
+                </p:column>
+                <p:column headerText="Ubigeo" width="300" >
+                    <h:outputText value="#{trabajadores.IDPER.CODUBI.DEPAUBI} 
+                                  #{trabajadores.IDPER.CODUBI.PROVUBI}, #{trabajadores.IDPER.CODUBI.DISTUBI}"/>
+                </p:column>
+            </p:dataTable>
+            <p:contextMenu for="dt_trabajador">
+                <p:menuitem value="Modificar" update="dlg_mod_trabajador form_trabajador" icon="ui-icon-pencil" 
+                            oncomplete="PF('dlg_mod_trabajador').show()"/>
+                <p:menuitem value="Habilitar" actionListener="#{trabajadorC.habilitar()}"
+                            update="dt_trabajador" rendered="#{!trabajadorC.TIPO_LISTA}"/>  
+                <p:menuitem value="Deshabilitar" actionListener="#{trabajadorC.deshabilitar()}" 
+                            oncomplete="PF('dt_trabajador').clearFilters()"
+                            update="dt_trabajador" rendered="#{trabajadorC.TIPO_LISTA}"/>
+            </p:contextMenu>
+        </h:form>
+
+        <ui:include src="InsTrabajador.xhtml"/>
+        <ui:include src="ModTrabajador.xhtml"/>
+    </ui:define>
+</ui:composition>

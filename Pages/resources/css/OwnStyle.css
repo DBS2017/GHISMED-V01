@@ -1,0 +1,19 @@
+.titulo-titulo{
+    font-size: 1.2em;
+    position: fixed;
+    z-index: 101;
+    line-height: 14px;
+    top: 0;
+    left: 75px;
+    height: 60px;
+    color: #F0FAF8;
+    font-weight: bolder;
+}
+
+@media (max-width: 600px) {
+    .titulo-titulo{
+        left: 50px;
+        line-height: 27px;
+        font-size: 0.8em;
+    }
+}

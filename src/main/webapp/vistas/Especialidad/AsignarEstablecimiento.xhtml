@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition>
+
+        <p:dialog id="dlg_asignarEstablecimiento" widgetVar="dlg_asignarEstablecimiento" modal="true" closable="false" draggable="false"
+                  resizable="false" appendTo="@(body)" dynamic="true" responsive="true">
+            <h:form id="form_asignarEstablecimiento">
+                <p:panelGrid columns="1" layout="grid" id="pg_asignarEstablecimiento">
+                    <p:outputLabel value="Establecimiento" />
+                    <p:selectOneMenu value="#{especialidadC.ee.IDEST.IDEST}" >
+                        <f:selectItems value="#{establecimientoC.establecimientosA}" var="listaEstablecimiento" 
+                                       itemLabel="#{listaEstablecimiento.NOMEST}" itemValue="#{listaEstablecimiento.IDEST}"/>
+                        <p:ajax event="itemSelect" listener="#{especialidadC.refrescarEspecialidadesNA()}" update="som_listaEspecialidad"/>
+                    </p:selectOneMenu>
+                    <p:outputLabel value="Establecimiento" />
+                    <p:selectOneMenu value="#{especialidadC.ee.IDESP.IDESP}" id="som_listaEspecialidad" disabled="#{especialidadC.especialidadesNA.size() eq 0}">
+                        <f:selectItems value="#{especialidadC.especialidadesNA}" var="listaEspecialidad" 
+                                       itemLabel="#{listaEspecialidad.NOMESP}" itemValue="#{listaEspecialidad.IDESP}"/>
+                    </p:selectOneMenu>
+                    <h:panelGroup layout="block" class="oaw-horizontal-between">
+                        <p:commandButton value="Aceptar" icon="fa fa-check" class="primary-btn" update=":formLstEspe" 
+                                         oncomplete="if(args &amp;&amp; !args.validationFailed)PF('wdlgEditEspe').hide();" 
+                                         actionListener="#{especialidadC.asignarEstablecimiento()}" />
+                        <p:commandButton value="Cancelar" icon="fa fa-close" class="red-btn fat" update="pg_asignarEstablecimiento"
+                                         immediate="true" oncomplete="PF('dlg_asignarEstablecimiento').hide();" process="@this">
+                            <p:resetInput target="pg_asignarEstablecimiento" />
+                        </p:commandButton>
+                    </h:panelGroup>
+                </p:panelGrid>
+            </h:form>
+        </p:dialog>
+    </ui:composition>
+</html>
