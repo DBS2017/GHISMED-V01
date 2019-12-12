@@ -12,7 +12,7 @@ public class Conexion {
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             //cnx = DriverManager.getConnection("jdbc:oracle:thin:@35.184.25.222:1521:XE", "dbGHISMED", "GHISMED-2019");
-            cnx = DriverManager.getConnection("jdbc:oracle:thin:@40.78.124.229:1521:XE", "Team07", "Team07");
+            cnx = DriverManager.getConnection("jdbc:oracle:thin:@34.69.77.101:1521:XE", "db_IHISMAN", "db_IHISMAN-2019");
             System.out.println("Conectado");
         } catch (ClassNotFoundException e) {
             System.out.println("Error: " + e);
